@@ -1,0 +1,14 @@
+.header{
+    background-color: #fcfcfc;
+    box-shadow: 2px 2px 4px #d1cccc;
+
+    
+}
+.ctm-btn{
+    background-color:#f53b57;
+    color: white;
+    box-shadow: 2px 2px 4px #969393;
+    border-radius: 22px;
+    margin-right: 10px;
+    color:white
+}

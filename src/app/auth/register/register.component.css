@@ -1,0 +1,43 @@
+
+.form-register {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    padding: 40px;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    background-color: white;
+    box-shadow: 2px 2px 4px #9e9797;
+}
+  
+.ctm-btn{
+    background-color:#fc1a3c;
+    color: white;
+    box-shadow: 2px 2px 4px #969393;
+    border: none;
+    border-radius: 22px;
+    margin-right: 10px;
+    margin-top: 20px;
+    margin-left: 80px;
+    color:white;
+    width: 150px;
+    height: 35px;
+    font-size: 15px;
+}
+input[type="text"]{
+    width: 350px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+input[type="password"]{
+    width: 350px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+h2{
+    font-weight: bolder;
+    margin-left: 25px;
+}
