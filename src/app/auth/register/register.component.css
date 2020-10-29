@@ -1,9 +1,10 @@
 
 .form-register {
     position: absolute;
-    top: 50%;
+    top: 70%;
     left: 50%;
-    width: 400px;
+    margin-bottom: 10px;
+    width: 500px;
     padding: 40px;
     transform: translate(-50%, -50%);
     box-sizing: border-box;
@@ -19,25 +20,39 @@
     border-radius: 22px;
     margin-right: 10px;
     margin-top: 20px;
-    margin-left: 80px;
+    margin-left: 30%;
     color:white;
     width: 150px;
     height: 35px;
     font-size: 15px;
 }
-input[type="text"]{
+input {
     width: 350px;
     border-top: none;
     border-left: none;
     border-right: none;
 }
-input[type="password"]{
-    width: 350px;
-    border-top: none;
-    border-left: none;
-    border-right: none;
+
+input:focus{
+    width: 400px;
+    outline: none;
+    transition: width 0.2s;
+}
+input.ng-touched.ng-invalid{
+    border-bottom : solid 2px  #fc0a2f;
+    width: 400px;
+    outline: none;
+    transition: border-bottom 0.5s;
+    transition: width 0.2s;
 }
 h2{
     font-weight: bolder;
-    margin-left: 25px;
+    margin-left: 20%;
+}
+label{
+    font-weight: bold;
+}
+
+h6{
+    color: #fc0a2f;
 }
