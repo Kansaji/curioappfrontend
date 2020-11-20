@@ -1,0 +1,20 @@
+.banner-box{
+    font-weight: bolder;
+    margin-top: 100px;
+    width: 700px;
+    height: 250px;
+    border-radius: 5px;
+    color: white;
+    background: #17c0eb;
+
+}
+a{
+    background-color:none;
+    color: white;
+    padding: 10px;
+    border-radius: 22px;
+    text-decoration: none;
+    
+}
+
+

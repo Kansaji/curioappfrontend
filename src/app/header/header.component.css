@@ -5,10 +5,10 @@
     
 }
 .ctm-btn{
-    background-color:#f53b57;
+    background-color:#5dfa8c;
     color: white;
-    box-shadow: 2px 2px 4px #969393;
     border-radius: 22px;
     margin-right: 10px;
-    color:white
+    color:white;
+    border: none;
 }

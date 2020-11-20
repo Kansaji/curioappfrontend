@@ -1,1 +1,35 @@
-<p>login works!</p>
+<section class="container">
+    <div class=" banner-box " >
+        <h2>LOGIN </h2><br>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <div>
+            <label>Username</label> <br> 
+            <input type="text" name="" required="" [formControlName]="'username'" placeholder="Enter username here">
+            <span *ngIf="loginForm.controls.username.invalid && loginForm.controls.username.touched"><h6>!Please enter your username</h6></span>
+          </div>
+          <br>
+          <div>
+            <label>Password</label><br>
+            <input type="password" name="" required="" [formControlName]="'password'" placeholder="Enter password  here">
+            <span *ngIf="loginForm.controls.password.invalid && loginForm.controls.password.touched"><h6>!Please enter your password</h6></span>
+          </div>
+          <div>
+            <br>
+            <span *ngIf="invalidCredentials"><h6>!Invalid username or password</h6></span>
+          </div>
+          <div>
+              <button class="btn btn-lg btn-block ctm-btn" type="submit">LOGIN</button>
+          </div>
+        </form>  
+    </div>
+    <div class="info-box " >
+     
+            <h5>Do not have an account yet?</h5>
+            <br>
+            <button class="ctm-btn2"><a href="/register">CREATE  AN ACCOUNT</a></button>
+            
+   
+    </div>
+    
+</section>
+

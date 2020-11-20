@@ -1,7 +1,7 @@
 
 .form-register {
     position: absolute;
-    top: 70%;
+    top: 65%;
     left: 50%;
     margin-bottom: 10px;
     width: 500px;
@@ -13,19 +13,19 @@
 }
   
 .ctm-btn{
-    background-color:#fc1a3c;
+    background: #eb3b5a;
     color: white;
-    box-shadow: 2px 2px 4px #969393;
     border: none;
-    border-radius: 22px;
+    border-radius: 30px;
     margin-right: 10px;
     margin-top: 20px;
-    margin-left: 30%;
+    margin-left: 27%;
     color:white;
-    width: 150px;
-    height: 35px;
+    width: 200px;
+    height: 40px;
     font-size: 15px;
 }
+
 input {
     width: 350px;
     border-top: none;
