@@ -9,8 +9,10 @@ import { LoginComponent } from './auth/login/login.component';
 import { RegisterSuccessComponent } from './auth/register-success/register-success.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgxWebstorageModule } from 'ngx-webstorage';
+import { HomeComponent } from './home/home.component';
+import { HttpClientInterseptor } from './http-client-interceptor';
 
 
 @NgModule({
@@ -19,7 +21,8 @@ import { NgxWebstorageModule } from 'ngx-webstorage';
     HeaderComponent,
     RegisterComponent,
     LoginComponent,
-    RegisterSuccessComponent
+    RegisterSuccessComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -31,10 +34,11 @@ import { NgxWebstorageModule } from 'ngx-webstorage';
     RouterModule.forRoot([
       {path:'register',component: RegisterComponent},
       {path:'login',component: LoginComponent},
-      {path:'register-success',component: RegisterSuccessComponent}
+      {path:'register-success',component: RegisterSuccessComponent},
+      {path:'home',component: HomeComponent}
     ])
   ],
-  providers: [],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: HttpClientInterseptor, multi:true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

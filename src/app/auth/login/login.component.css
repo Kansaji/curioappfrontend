@@ -19,7 +19,7 @@
     border-radius: 5px;
     color: white;
     float: left;
-    background-image: linear-gradient(to right,#17c0eb 70%,#2cc4eb);
+    background-image: linear-gradient(to right,#17c0eb 30%,#17c0eb);
     padding: 40px;
     
 }
@@ -27,6 +27,7 @@ a{
     color: rgb(255, 255, 255);
     padding: 10px;
     text-decoration: none;
+    font-weight: bold;
 }
 
 .ctm-btn{
@@ -42,7 +43,7 @@ a{
     font-size: 15px;
 }
 .ctm-btn2{
-    background: none;
+    background: #17c0eb;
     color: white;
     border: 2px solid white;
     border-radius: 30px;
@@ -54,7 +55,15 @@ a{
     font-size: 15px;
     text-align: center;
 }
-
+.ctm-btn2:hover{
+    background: white;
+   
+    
+}
+a:hover{
+    color: #17c0eb ;
+    transition: 0.2s;
+}
 input {
     width: 350px;
     border-top: none;

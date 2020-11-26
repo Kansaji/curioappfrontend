@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators} from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { LoginPaylord } from '../login-paylord';
 
@@ -14,7 +15,7 @@ export class LoginComponent implements OnInit {
   loginPaylord:LoginPaylord;
   invalidCredentials:boolean;
 
-  constructor(private formBuilder: FormBuilder, private authService:AuthService) { 
+  constructor(private formBuilder: FormBuilder, private authService:AuthService, private router:Router) { 
 
     this.loginForm = this.formBuilder.group({
       username:['',Validators.required],
@@ -38,7 +39,7 @@ export class LoginComponent implements OnInit {
       this.loginPaylord.password=this.loginForm.get('password').value;
       this.authService.login(this.loginPaylord).subscribe(data=>{
       if(data){
-        console.log("login successful")
+        this.router.navigateByUrl("/home");
       }
     },error=>{
       this.invalidCredentials=true;

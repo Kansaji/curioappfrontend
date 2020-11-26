@@ -28,4 +28,8 @@ export class AuthService {
 
     }));
   }
+
+  isAuthenticated():Boolean{
+    return this.localStorageService.retrieve('username')!= null;
+  }
 }

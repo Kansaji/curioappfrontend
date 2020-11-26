@@ -1,0 +1,81 @@
+<!-- Button trigger modal -->
+<div class="container post-area">
+    <p class="post-item ">Have items to share?</p>
+    <button type="button" class=" post-item ctm-btn2" data-toggle="modal" data-target="#exampleModalCenter">
+        POST
+    </button>
+    
+</div>
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl"  role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title" id="exampleModalLongTitle">POST ITEM</h2>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <section class="container">
+                <div class=" banner-box " >
+
+                    <div *ngIf="isSuccess">
+                      <div class="alert" >
+                        <h5>{{addItemForm.get('itemName').value}}  is posted successfuly</h5><br>
+                        <div> 
+                          <a href="/home" class="ok-btn">OK</a>
+                        </div>         
+                      </div>
+                     
+                    </div>
+                   
+                     
+                 
+                  
+                    <form [formGroup]="addItemForm" (ngSubmit)="postItem()" *ngIf="!isSuccess">
+                      <div>
+                        <label>Item name</label> <br> 
+                        <input type="text" name="" required="" [formControlName]="'itemName'" placeholder="Enter item name here">
+                        <span *ngIf="addItemForm.controls.itemName.invalid && addItemForm.controls.itemName.touched"><h6>!Please enter the item name</h6></span>
+                      </div>
+                      <br>
+                      <div>
+                        <label>Type</label><br>
+                       <select id="type" name="" [formControlName]="'type'">
+                           <option value="toy">Toy</option>
+                           <option value="gear">Gear</option>
+
+                       </select>
+                       
+                        <span *ngIf="addItemForm.controls.type.invalid && addItemForm.controls.type.touched"><h6>!Please select a type</h6></span>
+                      </div>
+                      <br>
+                      <div>
+                        <label>Description</label> <br> 
+                        <input type="text" class="text-area" name="" required="" [formControlName]="'description'" placeholder="Enter a description of item here">
+                        <span *ngIf="addItemForm.controls.description.invalid && addItemForm.controls.description.touched"><h6>!Please enter an item description</h6></span>
+                      </div>
+                      <br>
+                    
+                      <button type="submit" class="btn btn-lg btn-block ctm-btn" >POST</button>
+                    </form>  
+                </div>
+                <div class="info-box " >
+                  <img src="assets\undraw_Moving_twwf.svg" alt="">              
+                </div>
+                
+            </section>
+            
+            
+
+        </div>
+        <div class="modal-footer">
+          
+         
+        </div>
+      </div>
+    </div>
+  </div>

@@ -11,4 +11,41 @@
     margin-right: 10px;
     color:white;
     border: none;
+    font-weight: bold;
+}
+
+.flinks{
+    color: #eb3b5a;
+    font-weight: bold;
+    border-radius: 20px;
+    margin: 5px;
+    width:100px;
+    text-align: center;
+    
+}
+
+.flinks:hover{
+    background-color: #eb3b5a;
+    color: white;
+    transition: 0.2s;
+}
+
+.signupbtn{
+    border: 2px solid #17c0eb;
+    border-radius: 20px;
+    width:100px;
+    text-align: center;
+    font-weight: bold;
+    margin: 5px;
+}
+.signupbtn:hover{
+    background-color: #17c0eb;
+    transition: 0.2s;
+    color: white;
+}
+.loginbtn{   
+    width:100px;
+    text-align: center;
+    font-weight: bold;
+    margin: 5px;
 }

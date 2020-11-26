@@ -1,0 +1,145 @@
+.banner-box{
+    font-weight: bolder;
+    margin-top: 50px;
+    width: 50%;
+    height: 400px;  
+    color: rgb(46, 48, 48);
+    float: left;
+    padding: 40px;
+    
+}
+.info-box{
+    
+    margin-top: 50px;
+    width: 50%;
+    height: 400px;
+    color: white;
+    float: left;
+    padding: 40px;
+    
+}
+img{
+    width: 100%;
+
+}
+a{ 
+    color: rgb(255, 255, 255);
+    padding: 10px;
+    text-decoration: none;
+    text-decoration: none;
+}
+
+.ctm-btn{
+    background: #eb3b5a;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    margin-right: 10px;
+    margin-top: 20px;
+    margin-left: 27%;
+    width: 200px;
+    height: 40px;
+    font-size: 15px;
+}
+.ctm-btn2{
+    background: none;
+    color: white;
+    border: 2px solid white;
+    border-radius: 30px;
+    margin-left: 50%;
+    width: 100px;
+    height: 40px;
+    font-size: 15px;
+    text-align: center;
+    outline: none;
+    float: right;
+
+}
+.ctm-btn2:hover,focus{
+    color:#17c0eb ;
+    background: white;
+    transition: 0.2s;
+    
+}
+
+input,select {
+    width: 350px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background: none;
+    overflow-wrap: break-word;
+    outline: none;
+}
+
+input:focus{
+    width: 350px;
+    outline: none;
+    transition: width 0.2s;
+    background: none;
+}
+select.ng-touched.ng-invalid,input.ng-touched.ng-invalid{
+    border-bottom : solid 2px  #fc0a2f;
+    width: 350px;
+    outline: none;
+    transition: border-bottom 0.5s;
+    transition: width 0.2s;
+}
+h2{
+    font-weight: bolder;
+}
+label{
+    font-weight: bold;
+}
+
+h6{
+    color: #fc0a2f;
+}
+
+.post-area{
+    font-weight: bolder;
+    margin-top: 30px;
+    width: 100%;
+    height: 90px;
+    border-radius: 5px;
+    color: white;
+    background: #17c0eb;
+    
+
+}
+.post-item{
+    display: inline-block;
+    margin-top: 20px;
+    background:#17c0eb ;
+   
+}
+.text-area{
+    width: 350px;
+    border: 2px solid rgb(102, 101, 101);
+    border-radius: 2px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    overflow-wrap: break-word;
+
+}
+.info-card{
+    background: #17c0eb;
+    color: white;
+}
+.ok-btn{
+    background: none;
+    color: rgb(102, 101, 101);
+    border: 2px solid #0be881;
+    border-radius: 30px;
+    margin-top: 20%;
+    width: 100px;
+    height: 40px;
+    font-size: 15px;
+    text-align: center;
+    outline: none;
+    float: right;
+}
+.ok-btn:hover{
+    background:#0be881 ;
+}
