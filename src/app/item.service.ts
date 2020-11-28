@@ -15,4 +15,8 @@ export class ItemService {
   addItem(itemPaylord:ItemPaylord):Observable<any>{
     return this.httpClient.post("http://localhost:8080/api/items/", itemPaylord);
   }
+
+  getMyItems():Observable<Array<ItemPaylord>>{
+    return this.httpClient.get<Array<ItemPaylord>>("http://localhost:8080/api/items/myitems");
+  }
 }

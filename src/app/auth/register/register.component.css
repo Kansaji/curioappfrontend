@@ -13,17 +13,19 @@
 }
   
 .ctm-btn{
-    background: #eb3b5a;
-    color: white;
+    background-image: linear-gradient(to right,#FC427B 30%, #FC427B);
+    color:white;
     border: none;
-    border-radius: 30px;
+    border-radius: 20px;
     margin-right: 10px;
     margin-top: 20px;
     margin-left: 27%;
-    color:white;
     width: 200px;
     height: 40px;
     font-size: 15px;
+    font-weight: bold;
+    
+    
 }
 
 input {

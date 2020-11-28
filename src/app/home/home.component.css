@@ -5,7 +5,7 @@
     height: 400px;  
     color: rgb(46, 48, 48);
     float: left;
-    padding: 40px;
+    padding: 10px;
     
 }
 .info-box{
@@ -30,7 +30,7 @@ a{
 }
 
 .ctm-btn{
-    background: #eb3b5a;
+    background-image: linear-gradient(to right,#B33771 30%, #B33771);
     color: white;
     border: none;
     border-radius: 30px;
@@ -40,27 +40,26 @@ a{
     width: 200px;
     height: 40px;
     font-size: 15px;
+    font-weight: bold;
 }
 .ctm-btn2{
-    background: none;
+    background: #b65280;
     color: white;
-    border: 2px solid white;
-    border-radius: 30px;
+    border: 2px solid #b65280;
+    border-radius: 10px;
     margin-left: 50%;
     width: 100px;
     height: 40px;
     font-size: 15px;
     text-align: center;
     outline: none;
-    float: right;
+    float: right; 
+    margin-top: 20px;
+    color: white;
+    font-weight: bold;
 
 }
-.ctm-btn2:hover,focus{
-    color:#17c0eb ;
-    background: white;
-    transition: 0.2s;
-    
-}
+
 
 input,select {
     width: 350px;
@@ -94,6 +93,7 @@ label{
 
 h6{
     color: #fc0a2f;
+    margin: -2px;
 }
 
 .post-area{
@@ -102,15 +102,16 @@ h6{
     width: 100%;
     height: 90px;
     border-radius: 5px;
-    color: white;
-    background: #17c0eb;
+    color: #2c2c2c;
+    background: none;
     
 
 }
 .post-item{
     display: inline-block;
     margin-top: 20px;
-    background:#17c0eb ;
+    background:none ;
+    color: #2c2c2c;
    
 }
 .text-area{
@@ -143,3 +144,29 @@ h6{
 .ok-btn:hover{
     background:#0be881 ;
 }
+
+.item-img{
+    width: 300px;
+    z-index: 1;
+    position: relative;
+}
+.item-img:active,.item-img:focus{
+    transform: scale(2);
+    transition: 0.2s;
+    position: relative;
+    margin-left: 25%;
+    outline: none;
+    z-index: 2;
+}
+.item-card{
+    box-shadow: 2px 2px 4px #838181;
+    margin-top: 10px;
+    border-radius: 2px;
+    background-color:white;
+    padding: 10px;
+}
+.info-card{
+    background-color:white;
+    color: black;
+}
+

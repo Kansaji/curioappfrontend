@@ -1,11 +1,33 @@
 <!-- Button trigger modal -->
 <div class="container post-area">
-    <p class="post-item ">Have items to share?</p>
-    <button type="button" class=" post-item ctm-btn2" data-toggle="modal" data-target="#exampleModalCenter">
-        POST
+    <p class="post-item ">Have items to share sell or donate?</p>
+    <button type="button" class="  ctm-btn2" data-toggle="modal" data-target="#exampleModalCenter">
+        Post
     </button>
     
 </div>
+ <br>
+ <hr>
+ <div class="container heading">
+    <p>Your Item</p>
+    
+ </div>
+ 
+<div class="container item-card  " *ngFor="let item of myItems | async">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-1"> <img src="{{'data:image/jpg;base64,'+ item.photo}}" class="item-img"  alt="" tabindex="0"></div>
+    <div class="col-md-2">
+      <h3>
+        {{item.itemName}}
+      </h3>
+      <p> {{item.type}}</p>
+      <p> {{item.description}}</p>
+    </div>
+    <div class="col-md-2">buttons</div>
+  </div>
+ 
+</div>
+
 
   
   <!-- Modal -->
@@ -30,11 +52,7 @@
                         </div>         
                       </div>
                      
-                    </div>
-                   
-                     
-                 
-                  
+                    </div>        
                     <form [formGroup]="addItemForm" (ngSubmit)="postItem()" *ngIf="!isSuccess">
                       <div>
                         <label>Item name</label> <br> 
@@ -52,14 +70,19 @@
                        
                         <span *ngIf="addItemForm.controls.type.invalid && addItemForm.controls.type.touched"><h6>!Please select a type</h6></span>
                       </div>
-                      <br>
+                     <br>
                       <div>
                         <label>Description</label> <br> 
                         <input type="text" class="text-area" name="" required="" [formControlName]="'description'" placeholder="Enter a description of item here">
                         <span *ngIf="addItemForm.controls.description.invalid && addItemForm.controls.description.touched"><h6>!Please enter an item description</h6></span>
                       </div>
                       <br>
-                    
+                      <div>
+                        <label>Photo</label> <br> 
+                        <input type="file" class="text-area" name="" required="" [formControlName]="'photo'" (change)="onFileChange($event)">
+                        <span *ngIf="addItemForm.controls.photo.invalid && addItemForm.controls.photo.touched"><h6>!Please select a photo</h6></span>
+                      </div>
+                   
                       <button type="submit" class="btn btn-lg btn-block ctm-btn" >POST</button>
                     </form>  
                 </div>

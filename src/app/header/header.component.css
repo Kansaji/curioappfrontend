@@ -1,21 +1,13 @@
 .header{
-    background-color: #fcfcfc;
-    box-shadow: 2px 2px 4px #d1cccc;
+    background-color: white;
+    
 
     
 }
-.ctm-btn{
-    background-color:#5dfa8c;
-    color: white;
-    border-radius: 22px;
-    margin-right: 10px;
-    color:white;
-    border: none;
-    font-weight: bold;
-}
+
 
 .flinks{
-    color: #eb3b5a;
+    color: #2c2c2c;
     font-weight: bold;
     border-radius: 20px;
     margin: 5px;
@@ -24,28 +16,32 @@
     
 }
 
-.flinks:hover{
-    background-color: #eb3b5a;
-    color: white;
-    transition: 0.2s;
+.flinks:hover,flinks:active{
+    color: #FC427B;
+    transition: 0.1s;
 }
 
 .signupbtn{
-    border: 2px solid #17c0eb;
+  
     border-radius: 20px;
     width:100px;
     text-align: center;
     font-weight: bold;
     margin: 5px;
+    color: #2c2c2c;
 }
-.signupbtn:hover{
-    background-color: #17c0eb;
-    transition: 0.2s;
-    color: white;
-}
+
 .loginbtn{   
     width:100px;
     text-align: center;
     font-weight: bold;
     margin: 5px;
+    color: #2c2c2c;
+}
+.loginbtn:hover{   
+    width:100px;
+    text-align: center;
+    font-weight: bold;
+    margin: 5px;
+    color: #FC427B;
 }
