@@ -1,18 +1,18 @@
-<nav class="navbar navbar-expand-lg header">
+<nav class="navbar navbar-default navbar-expand-lg header">
     <a class="navbar-brand" href="#">CURIO</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+      <span class="navbar-toggler-icon">...</span>
     </button>
     
     <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
       <div class="navbar-nav col-md-3" *ngIf="authService.isAuthenticated()">
-        <a class="nav-item nav-link flinks " href="/home">HOME</a>
-        <a class="nav-item nav-link flinks " href="/home">PRODUCTS</a>
+        <a class="nav-item nav-link flinks " href="/home">Home</a>
+        <a class="nav-item nav-link flinks " href="/items">Products</a>
       </div>
     
       <div class="navbar-nav col-md-3">
-        <a class="nav-item nav-link loginbtn" href="/login">LOGIN</a>
-        <a class="nav-item nav-link signupbtn" href="/register" >SIGN UP</a>
+        <a class="nav-item nav-link loginbtn" href="/login">Login</a>
+        <a class="nav-item nav-link signupbtn" href="/register" >Sign up</a>
       </div>
     </div>
   </nav>

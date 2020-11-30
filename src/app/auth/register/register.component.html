@@ -1,40 +1,56 @@
-<div class="form-register" >
-    <h2>CREATE  ACCOUNT </h2><br>
-    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-      <div>
-        <label>Username</label> <br> 
-        <input type="text" name="" required="" [formControlName]="'username'" placeholder="Enter username here"><br>
-        <span *ngIf="registerForm.controls.username.invalid && registerForm.controls.username.touched"><h6>!Username should have atleast 4 characters</h6></span>
-        <span *ngIf="(usernameTaken)"><h6>!{{username}} is already taken.Try a different username </h6></span>
-      </div>
-      <br>
-      <div>
-        <label>Email</label><br>
-        <input type="email" name="" required="" [formControlName]="'email'" placeholder="Enter email here"><br>
-        <span *ngIf="registerForm.controls.email.invalid && registerForm.controls.email.touched"><h6>!Provide a valid email address</h6></span>
-      </div>
-      <br>
-      <div>
-        <label>Telephone</label><br>
-        <input type="text" name="" required="" [formControlName]="'telephone'" placeholder="Enter telephone here"><br>
-        <span *ngIf="registerForm.controls.telephone.invalid && registerForm.controls.telephone.touched"><h6>!Provide a valid telephone</h6></span>
-      </div>
-      <br>
-      <div>
-        <label>Password</label><br>
-        <input type="password" name="" required="" [formControlName]="'password'" placeholder="Enter password  here"><br>
-        <span *ngIf="registerForm.controls.password.invalid && registerForm.controls.password.touched"><h6>!Password is required and sholud have atleast 8 characters</h6></span>
-      </div>
-      <br>
-      <div>
-        <label>Confirm Password</label><br>
-        <input type="password" name="" required="" [formControlName]="'confirmPassword'" placeholder="Re-enter password  here"><br>
-        <span *ngIf="registerForm.controls.confirmPassword.invalid && registerForm.controls.confirmPassword.touched"><h6>!Password and confirm Password should match</h6></span>
-      </div>
-      <div>
-          <button class="btn btn-lg btn-block ctm-btn" type="submit">CREATE ACCOUNT</button>
-      </div>
-    </form>
-
+<div class="container form-register ">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-1">
+      <div class="" >
+        <h2>CREATE  ACCOUNT </h2><br>
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+          <div>
+            <label>Username</label> <br> 
+            <input type="text" name="" required="" [formControlName]="'username'" placeholder="Enter username here"><br>
+            <span *ngIf="registerForm.controls.username.invalid && registerForm.controls.username.touched"><h6>!Username should have atleast 4 characters</h6></span>
+            <span *ngIf="(usernameTaken)"><h6>!{{username}} is already taken.Try a different username </h6></span>
+          </div>
+          <br>
+          <div>
+            <label>Email</label><br>
+            <input type="email" name="" required="" [formControlName]="'email'" placeholder="Enter email here"><br>
+            <span *ngIf="registerForm.controls.email.invalid && registerForm.controls.email.touched"><h6>!Provide a valid email address</h6></span>
+          </div>
+          <br>
+          <div>
+            <label>Telephone</label><br>
+            <input type="text" name="" required="" [formControlName]="'telephone'" placeholder="Enter telephone here"><br>
+            <span *ngIf="registerForm.controls.telephone.invalid && registerForm.controls.telephone.touched"><h6>!Provide a valid telephone</h6></span>
+          </div>
+          <br>
+          <div>
+            <label>Password</label><br>
+            <input type="password" name="" required="" [formControlName]="'password'" placeholder="Enter password  here"><br>
+            <span *ngIf="registerForm.controls.password.invalid && registerForm.controls.password.touched"><h6>!Password is required and sholud have atleast 8 characters</h6></span>
+          </div>
+          <br>
+          <div>
+            <label>Confirm Password</label><br>
+            <input type="password" name="" required="" [formControlName]="'confirmPassword'" placeholder="Re-enter password  here"><br>
+            <span *ngIf="registerForm.controls.confirmPassword.invalid && registerForm.controls.confirmPassword.touched"><h6>!Password and confirm Password should match</h6></span>
+          </div>
+          <div>
+              <button class="btn btn-lg btn-block ctm-btn" type="submit">CREATE ACCOUNT</button>
+          </div>
+        </form>
     
+        
+    </div>
+    
+
+    </div>
+    <div class="col-md-6 ">
+        <img src="assets\online_store_ (1).svg" alt="" class="img-bg">
+        
+        
+    </div>
+   
+  </div>
+ 
 </div>
+

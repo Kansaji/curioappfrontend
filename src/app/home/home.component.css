@@ -1,23 +1,11 @@
 .banner-box{
-    font-weight: bolder;
-    margin-top: 50px;
-    width: 50%;
-    height: 400px;  
+    font-weight: bolder; 
     color: rgb(46, 48, 48);
     float: left;
     padding: 10px;
     
 }
-.info-box{
-    
-    margin-top: 50px;
-    width: 50%;
-    height: 400px;
-    color: white;
-    float: left;
-    padding: 40px;
-    
-}
+
 img{
     width: 100%;
 
@@ -30,10 +18,10 @@ a{
 }
 
 .ctm-btn{
-    background-image: linear-gradient(to right,#B33771 30%, #B33771);
-    color: white;
+    background-image: linear-gradient(to right,#eb3b5a 30%, #ff7086);
+    color:white;
     border: none;
-    border-radius: 30px;
+    border-radius: 20px;
     margin-right: 10px;
     margin-top: 20px;
     margin-left: 27%;
@@ -41,14 +29,15 @@ a{
     height: 40px;
     font-size: 15px;
     font-weight: bold;
+    box-shadow: 5px 10px 15px #f1b4c0;
 }
 .ctm-btn2{
-    background: #b65280;
+    background-image: linear-gradient(to right,#26de81 30%, #26de81);
     color: white;
-    border: 2px solid #b65280;
-    border-radius: 10px;
+    border: none ;
+    border-radius: 20px;
     margin-left: 50%;
-    width: 100px;
+    width: 150px;
     height: 40px;
     font-size: 15px;
     text-align: center;
@@ -57,6 +46,9 @@ a{
     margin-top: 20px;
     color: white;
     font-weight: bold;
+    
+    
+    
 
 }
 
@@ -72,14 +64,14 @@ input,select {
 }
 
 input:focus{
-    width: 350px;
+    width: 400px;
     outline: none;
     transition: width 0.2s;
     background: none;
 }
 select.ng-touched.ng-invalid,input.ng-touched.ng-invalid{
     border-bottom : solid 2px  #fc0a2f;
-    width: 350px;
+    width: 400px;
     outline: none;
     transition: border-bottom 0.5s;
     transition: width 0.2s;
@@ -99,11 +91,12 @@ h6{
 .post-area{
     font-weight: bolder;
     margin-top: 30px;
-    width: 100%;
+    width: 350;
     height: 90px;
     border-radius: 5px;
     color: #2c2c2c;
     background: none;
+    
     
 
 }
@@ -146,7 +139,7 @@ h6{
 }
 
 .item-img{
-    width: 300px;
+    width: 200px;
     z-index: 1;
     position: relative;
 }
@@ -170,3 +163,7 @@ h6{
     color: black;
 }
 
+.item-bg{
+    opacity: 80%;
+    
+}

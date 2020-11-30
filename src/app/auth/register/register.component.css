@@ -1,19 +1,13 @@
 
-.form-register {
-    position: absolute;
-    top: 65%;
-    left: 50%;
-    margin-bottom: 10px;
-    width: 500px;
+.form-register { 
     padding: 40px;
-    transform: translate(-50%, -50%);
     box-sizing: border-box;
     background-color: white;
     box-shadow: 2px 2px 4px #9e9797;
 }
   
 .ctm-btn{
-    background-image: linear-gradient(to right,#FC427B 30%, #FC427B);
+    background-image: linear-gradient(to right,#eb3b5a 30%, #ff7086);
     color:white;
     border: none;
     border-radius: 20px;
@@ -24,19 +18,19 @@
     height: 40px;
     font-size: 15px;
     font-weight: bold;
-    
+    box-shadow: 5px 10px 15px #f1b4c0;
     
 }
 
 input {
-    width: 350px;
+    width: 400px;
     border-top: none;
     border-left: none;
     border-right: none;
 }
 
 input:focus{
-    width: 400px;
+    width: 450px;
     outline: none;
     transition: width 0.2s;
 }
@@ -57,4 +51,10 @@ label{
 
 h6{
     color: #fc0a2f;
+}
+img{
+    width: 100%;
+    margin-top: 10%;
+    position: absolute;
+    
 }

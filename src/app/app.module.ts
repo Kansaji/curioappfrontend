@@ -13,6 +13,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgxWebstorageModule } from 'ngx-webstorage';
 import { HomeComponent } from './home/home.component';
 import { HttpClientInterseptor } from './http-client-interceptor';
+import { ItemsComponent } from './items/items.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { HttpClientInterseptor } from './http-client-interceptor';
     RegisterComponent,
     LoginComponent,
     RegisterSuccessComponent,
-    HomeComponent
+    HomeComponent,
+    ItemsComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +37,8 @@ import { HttpClientInterseptor } from './http-client-interceptor';
       {path:'register',component: RegisterComponent},
       {path:'login',component: LoginComponent},
       {path:'register-success',component: RegisterSuccessComponent},
-      {path:'home',component: HomeComponent}
+      {path:'home',component: HomeComponent},
+      {path:'items',component: ItemsComponent}
     ])
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: HttpClientInterseptor, multi:true}],

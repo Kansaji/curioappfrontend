@@ -2,21 +2,21 @@
 <div class="container post-area">
     <p class="post-item ">Have items to share sell or donate?</p>
     <button type="button" class="  ctm-btn2" data-toggle="modal" data-target="#exampleModalCenter">
-        Post
+        Post Product
     </button>
     
 </div>
  <br>
  <hr>
  <div class="container heading">
-    <p>Your Item</p>
+    <p>Your Items</p>
     
  </div>
  
 <div class="container item-card  " *ngFor="let item of myItems | async">
   <div class="row">
     <div class="col-md-6 col-md-offset-1"> <img src="{{'data:image/jpg;base64,'+ item.photo}}" class="item-img"  alt="" tabindex="0"></div>
-    <div class="col-md-2">
+    <div class="col-md-4">
       <h3>
         {{item.itemName}}
       </h3>
@@ -27,6 +27,7 @@
   </div>
  
 </div>
+
 
 
   
@@ -42,8 +43,11 @@
         </div>
         <div class="modal-body">
             <section class="container">
-                <div class=" banner-box " >
-
+             
+              <div class="row">
+                <div class="col-md-6 col-md-offset-1"> 
+                  <div class=" banner-box " >
+              
                     <div *ngIf="isSuccess">
                       <div class="alert" >
                         <h5>{{addItemForm.get('itemName').value}}  is posted successfuly</h5><br>
@@ -65,7 +69,7 @@
                        <select id="type" name="" [formControlName]="'type'">
                            <option value="toy">Toy</option>
                            <option value="gear">Gear</option>
-
+              
                        </select>
                        
                         <span *ngIf="addItemForm.controls.type.invalid && addItemForm.controls.type.touched"><h6>!Please select a type</h6></span>
@@ -86,9 +90,15 @@
                       <button type="submit" class="btn btn-lg btn-block ctm-btn" >POST</button>
                     </form>  
                 </div>
-                <div class="info-box " >
-                  <img src="assets\undraw_Moving_twwf.svg" alt="">              
+              
                 </div>
+                <div class="col-md-6">
+                  <div class=" item-bg" >
+                    <img src="\assets\marketing (1).svg" alt="">  
+                  </div>
+                </div>
+                
+              </div>
                 
             </section>
             

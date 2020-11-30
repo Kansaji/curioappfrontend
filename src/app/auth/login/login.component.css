@@ -1,37 +1,39 @@
 .banner-box{
     font-weight: bolder;
     margin-top: 50px;
-    width: 50%;
     height: 400px;
-    box-shadow: 2px 2px 4px #cfc6c6;
-    border-radius: 5px;
+    box-shadow: 2px 2px 4px #aca1a1;
     color: rgb(46, 48, 48);
-    float: left;
-    padding: 40px;
+    padding: 10px;
     
 }
 .info-box{
-    
+    background: #eb4b7b;
     margin-top: 50px;
-    width: 50%;
     height: 400px;
-    box-shadow: 2px 2px 4px #cfc6c6;
-    border-radius: 5px;
+    box-shadow: 2px 2px 4px #aca1a1;
+    background-image: linear-gradient(to right,#eb4b7b 30%, #862d48);
     color: rgb(46, 48, 48);
-    float: left;
-    
-    padding: 40px;
+    padding: 10px;
+    color: white;
     
 }
 a{ 
-    color: #B33771;
+    color: white;
     padding: 10px;
     text-decoration: none;
     font-weight: bold;
+    
+   
+}
+a:hover{ 
+    color: #eb4b7b;
+    transition: 0.2s;
+   
 }
 
 .ctm-btn{
-    background-image: linear-gradient(to right,#FC427B 30%, #FC427B);
+    background-image: linear-gradient(to right,#eb3b5a 30%, #ff7086);
     color:white;
     border: none;
     border-radius: 20px;
@@ -42,20 +44,37 @@ a{
     height: 40px;
     font-size: 15px;
     font-weight: bold;
+    box-shadow: 5px 10px 15px #f1b4c0;
 }
 .ctm-btn2{
-    background:none;
-    color:#B33771;
-    border: 2px solid #B33771;
-    border-radius: 10px;
-    margin-right: 10px;
-    margin-top: 20px;
-    margin-left: 27%;
+    margin-top: 10%;
+  
+    background: none;
+    border: 1px solid white;
+    border-radius: 20px;
+  
+    margin-left: 55%;
     width: 200px;
     height: 40px;
     font-size: 15px;
-    text-align: center;
+    z-index: 1;
+    position: absolute;
+    
+    
+ 
 }
+.ctm-btn2:hover{
+    background: white;
+    
+ 
+}
+img{
+    z-index: 0;
+    width: 80%;
+    position: absolute;
+}
+
+
 
 
 input {
@@ -89,4 +108,9 @@ label{
 
 h6{
     color: #fc0a2f;
+}
+
+.padding-0{
+    padding-left: 0;
+    padding-right: 0;
 }
