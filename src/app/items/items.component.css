@@ -1,15 +1,18 @@
-.item-card{
-    box-shadow: 2px 2px 4px #838181;
-    margin-top: 10px;
-    border-radius: 2px;
-    background-color:white;
-    padding: 10px;
-}
+
 .item-img{
-    width: 200px;
+    max-width: 100%;
+    padding: 2px;
+    height: 200px;
     z-index: 1;
-    position: relative;
+  
 }
+ 
+ .box{
+     padding: 3px;
+     background-color: transparent;
+     border-radius: 10px;
+     box-shadow: 2px 2px 4px #838181;
+ }
 
 .wish-list-btn{
   

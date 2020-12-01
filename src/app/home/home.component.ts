@@ -20,7 +20,9 @@ export class HomeComponent implements OnInit {
   myItems: Observable<Array<ItemPaylord>>;
   myItemsArr:Array<ItemPaylord>
   imageSelected:boolean=false;
-  
+  myItemsSelected:boolean;
+  wishlistSelected:boolean;
+
   constructor(private formBuilder: FormBuilder, private itemService:ItemService , private router:Router, private _sanitizer: DomSanitizer) { 
 
     this.addItemForm = this.formBuilder.group({
@@ -31,6 +33,7 @@ export class HomeComponent implements OnInit {
     });
 
     this.itemPaylord={
+      itemId:0,
       itemName:'',
       type:'',
       description:'',
@@ -38,17 +41,20 @@ export class HomeComponent implements OnInit {
     };
     this.isSuccess=false;
     this.base64textString=null;
-    
+    this.myItemsSelected=true;
+    this.wishlistSelected=false;
   }
 
   ngOnInit(): void {
    this.myItems=this.itemService.getMyItems();
+   
     
   }
 
   postItem(){
     this.addItemForm.markAllAsTouched();
     if(this.addItemForm.valid){
+      this.itemPaylord.itemId=0;
       this.itemPaylord.itemName=this.addItemForm.get('itemName').value;
       this.itemPaylord.type=this.addItemForm.get('type').value;
       this.itemPaylord.description=this.addItemForm.get('description').value;
@@ -80,4 +86,13 @@ export class HomeComponent implements OnInit {
 
   }
 
+  showMyItems(){
+    this.myItemsSelected=true;
+    this.wishlistSelected=false;
+  }
+
+  showWishlist(){
+    this.wishlistSelected=true;
+    this.myItemsSelected=false;
+  }
 }

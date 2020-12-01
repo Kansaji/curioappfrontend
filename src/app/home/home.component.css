@@ -6,7 +6,7 @@
     
 }
 
-img{
+.item-bg{
     width: 100%;
 
 }
@@ -143,7 +143,7 @@ h6{
     z-index: 1;
     position: relative;
 }
-.item-img:active,.item-img:focus{
+.item-img2:active,.item-img2:focus{
     transform: scale(2);
     transition: 0.2s;
     position: relative;
@@ -157,6 +157,10 @@ h6{
     border-radius: 2px;
     background-color:white;
     padding: 10px;
+    width: 25%;
+    float: left;
+    height: 300px;
+    margin: 2px;
 }
 .info-card{
     background-color:white;
@@ -167,3 +171,33 @@ h6{
     opacity: 80%;
     
 }
+.home-link{
+    outline: none;
+    margin-right: 20px;
+    background: none;
+    font-size: large;
+    padding: 10px;
+    border-bottom: 2px solid #998c8e;
+    border: none;
+}
+
+.home-link:focus{
+   
+    border-bottom: 2px solid #eb3b5a;
+    transition: 0.5s;
+    color:#eb3b5a ;
+}
+.item-img2{
+    max-width: 100%;
+    padding: 2px;
+    height: 200px;
+    z-index: 1;
+  
+}
+ 
+ .box{
+     padding: 3px;
+     background-color: transparent;
+     border-radius: 10px;
+     box-shadow: 2px 2px 4px #838181;
+ }

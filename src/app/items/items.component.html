@@ -1,18 +1,29 @@
 <br>
 <br>
-<div class="container item-card  " *ngFor="let item of myItems | async">
+<div class="container" >
     <div class="row">
-      <div class="col-md-6 col-md-offset-1"> <img src="{{'data:image/jpg;base64,'+ item.photo}}" class="item-img"  alt="" tabindex="0"></div>
-      <div class="col-md-4">
-        <h3>
-          {{item.itemName}}
-        </h3>
-        <p> {{item.type}}</p>
-        <p> {{item.description}}</p>
-      </div>
-      <div class="col-md-2">
-          <button class="wish-list-btn">Add to Wishlist</button>
-      </div>
+      
+      <div class="col-md-3 " *ngFor="let item of myItems | async">
+        <div class="box">
+          <div class="">
+            <img src="{{'data:image/jpg;base64,'+ item.photo}}" class="item-img"  alt="" tabindex="0">
+          </div>
+          <div class="">
+            <h3>
+              {{item.itemName}}
+            
+            </h3>
+            <p> {{item.type}}</p>
+            <p> {{item.description}}</p>
+          </div>
+          <div class="">
+              <button class="wish-list-btn" (click)="addToinquiredItems($event.target,item.itemId)">Add to Wishlist</button>
+          </div>
+        </div>
+        <br>
+        </div> 
+     
+      
     </div>
    
   </div>

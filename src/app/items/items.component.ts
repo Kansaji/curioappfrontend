@@ -11,10 +11,26 @@ import { ItemPaylord } from '../home/item-paylord';
 export class ItemsComponent implements OnInit {
 
   myItems: Observable<Array<ItemPaylord>>;
+ 
   constructor(private itemService: ItemService) { }
 
   ngOnInit(): void {
     this.myItems=this.itemService.getAllItems();
+   
+  }
+
+  addToinquiredItems(element,itemId){
+    
+    this.itemService.addToInquiredItems(itemId).subscribe(data=>{
+      element.textContent="Added";
+      element.style.background='lightgreen';
+      console.log('success')
+    },error=>{
+      element.textContent="Added";
+      element.style.background='lightgreen';
+      console.log('failed');
+
+    });
   }
 
 }
