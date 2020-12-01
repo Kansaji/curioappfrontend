@@ -26,8 +26,8 @@ export class ItemsComponent implements OnInit {
       element.style.background='lightgreen';
       console.log('success')
     },error=>{
-      element.textContent="Added";
-      element.style.background='lightgreen';
+      element.textContent="error";
+      element.style.background='lightred';
       console.log('failed');
 
     });

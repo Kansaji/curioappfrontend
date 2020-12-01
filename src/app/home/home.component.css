@@ -8,8 +8,10 @@
 
 .item-bg{
     width: 100%;
+    opacity: 80%;
 
 }
+
 a{ 
     color: rgb(255, 255, 255);
     padding: 10px;
@@ -32,24 +34,20 @@ a{
     box-shadow: 5px 10px 15px #f1b4c0;
 }
 .ctm-btn2{
-    background-image: linear-gradient(to right,#26de81 30%, #26de81);
-    color: white;
-    border: none ;
+    background:#0be881;
+    border:none;
     border-radius: 20px;
-    margin-left: 50%;
-    width: 150px;
-    height: 40px;
-    font-size: 15px;
     text-align: center;
     outline: none;
-    float: right; 
-    margin-top: 20px;
-    color: white;
+    color: white ;
     font-weight: bold;
+   
+}
+.ctm-btn2:hover{
+    background:#11cc75;
+    color: white;
+    transition: 0.2s;
     
-    
-    
-
 }
 
 
@@ -88,24 +86,16 @@ h6{
     margin: -2px;
 }
 
-.post-area{
-    font-weight: bolder;
-    margin-top: 30px;
-    width: 350;
-    height: 90px;
-    border-radius: 5px;
-    color: #2c2c2c;
-    background: none;
-    
-    
 
-}
-.post-item{
-    display: inline-block;
-    margin-top: 20px;
-    background:none ;
-    color: #2c2c2c;
-   
+
+.postitem-area{
+    background-image: linear-gradient(to right white 30%, #862d48);
+    padding: 3%;
+    border-radius: 5px;
+    box-shadow: 2px 4px 10px #5a5959;
+    margin: none;
+    font-weight: bold;
+    color: black;
 }
 .text-area{
     width: 350px;
@@ -117,10 +107,7 @@ h6{
     overflow-wrap: break-word;
 
 }
-.info-card{
-    background: #17c0eb;
-    color: white;
-}
+
 .ok-btn{
     background: none;
     color: rgb(102, 101, 101);
@@ -138,12 +125,8 @@ h6{
     background:#0be881 ;
 }
 
-.item-img{
-    width: 200px;
-    z-index: 1;
-    position: relative;
-}
-.item-img2:active,.item-img2:focus{
+
+.item-img:active,.item-img:focus{
     transform: scale(2);
     transition: 0.2s;
     position: relative;
@@ -151,26 +134,9 @@ h6{
     outline: none;
     z-index: 2;
 }
-.item-card{
-    box-shadow: 2px 2px 4px #838181;
-    margin-top: 10px;
-    border-radius: 2px;
-    background-color:white;
-    padding: 10px;
-    width: 25%;
-    float: left;
-    height: 300px;
-    margin: 2px;
-}
-.info-card{
-    background-color:white;
-    color: black;
-}
 
-.item-bg{
-    opacity: 80%;
-    
-}
+
+
 .home-link{
     outline: none;
     margin-right: 20px;
@@ -184,10 +150,9 @@ h6{
 .home-link:focus{
    
     border-bottom: 2px solid #eb3b5a;
-    transition: 0.5s;
     color:#eb3b5a ;
 }
-.item-img2{
+.item-img{
     max-width: 100%;
     padding: 2px;
     height: 200px;

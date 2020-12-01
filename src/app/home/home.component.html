@@ -1,19 +1,23 @@
 <!-- Button trigger modal -->
-
-<div class="container post-area">
-    <p class="post-item ">Have items to share sell or donate?</p>
-    <button type="button" class="  ctm-btn2" data-toggle="modal" data-target="#exampleModalCenter">
+<br><br>
+<div class="container">
+  <div class="row  postitem-area">
+    <p class=" col-md-10">Have items to share sell or donate?</p>
+    <button type="button" class="  ctm-btn2 col-md-2" data-toggle="modal" data-target="#exampleModalCenter">
         Post Product
     </button>
+  </div>
+   
     
 </div>
+ 
  <br>
- <hr>
  <div class="container">
 
   <button (click)="showMyItems()" class="home-link"> My items</button>
   <button (click)="showWishlist()" class="home-link"> Wishlist</button>
  </div>
+ <hr>
   <br><br>
 
  <div *ngIf="myItemsSelected">
@@ -28,7 +32,7 @@
     <div class="col-md-3 " *ngFor="let item of myItems | async">
       <div class="box">
         <div class="">
-          <img src="{{'data:image/jpg;base64,'+ item.photo}}" class="item-img2"  alt="" tabindex="0">
+          <img src="{{'data:image/jpg;base64,'+ item.photo}}" class="item-img"  alt="" tabindex="0">
         </div>
         <div class="">
           <h3>
@@ -134,5 +138,36 @@
          
         </div>
       </div>
+    </div>
+  </div>
+
+  <div *ngIf="wishlistSelected">
+    
+    <div class="container" >
+      <div class="row">
+        
+        <div class="col-md-3 " *ngFor="let item of wishlist | async">
+          <div class="box">
+            <div class="">
+              <img src="{{'data:image/jpg;base64,'+ item.photo}}" class="item-img"  alt="" tabindex="0">
+            </div>
+            <div class="">
+              <h3>
+                {{item.itemName}}
+              
+              </h3>
+              <p> {{item.type}}</p>
+              <p> {{item.description}}</p>
+            </div>
+            <div class="">
+                <button>inquire button</button>
+            </div>
+          </div>
+          <br>
+          </div> 
+       
+        
+      </div>
+     
     </div>
   </div>

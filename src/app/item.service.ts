@@ -29,4 +29,10 @@ export class ItemService {
     return this.httpClient.post("http://localhost:8080/api/items/addtoinquireditems",body)
 
   }
+
+  getWishlist():Observable<Array<ItemPaylord>>{
+    console.log('called');
+    return this.httpClient.get<Array<ItemPaylord>>("http://localhost:8080/api/items/mywishlist");
+    
+  }
 }

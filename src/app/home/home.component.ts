@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
   isSuccess:boolean;
   base64textString:String;
   myItems: Observable<Array<ItemPaylord>>;
-  myItemsArr:Array<ItemPaylord>
+  wishlist:Observable<Array<ItemPaylord>>;
   imageSelected:boolean=false;
   myItemsSelected:boolean;
   wishlistSelected:boolean;
@@ -94,5 +94,7 @@ export class HomeComponent implements OnInit {
   showWishlist(){
     this.wishlistSelected=true;
     this.myItemsSelected=false;
+    this.wishlist=this.itemService.getWishlist();
+
   }
 }
