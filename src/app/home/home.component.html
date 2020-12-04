@@ -43,10 +43,102 @@
           
         </div>
         <div class="">
-            <button class="wish-list-btn">buttons</button>
+          <button type="button" class="send-inquiry-btn" data-toggle="modal" attr.data-target="#myitems{{item.itemId}}" (click)="getInquiries(item.itemId)">
+            Conversation
+          </button>
         </div>
       </div>
       <br>
+      <!--area of see conversations
+-->
+
+    <!-- Modal -->
+    <div class="modal " id="myitems{{item.itemId}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">{{item.itemName}}</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div *ngFor="let inquiry of inquiries | async">
+              <div class="row">
+                <div class="col-md-6 col-md-offset-1 ">
+                  <div class="receivermessage" *ngIf="inquiry.from!=user">
+                    
+                    <div class="from-to">
+                      <span>{{inquiry.from}} </span>
+                      <button class="mention-btn" (click)="setReplyUser(inquiry.from)">  Reply {{inquiry.from}}</button>
+                    </div>
+                    {{inquiry.message}}
+                    
+                    <button class="mention-btn" (click)="setReplyUserWithMention(inquiry.from,inquiry.message)">  Mention this massage </button>
+                    
+                  </div>
+                  
+                </div>
+                
+                <div class="col-md-6">
+                  <div class="mymessage container" *ngIf="inquiry.from==user">
+                  
+                    <div class="from-to">
+                      <span>You replied to {{inquiry.to}} </span>
+                    
+                    </div>
+                    
+                    
+                    {{inquiry.message}}
+                    
+                    <br>
+                    
+                   
+                    
+                  </div >
+                  
+                  <div *ngIf="inquiry.from==user"><span></span></div>
+                </div>
+                 
+                 
+                <br><br>
+              </div>
+                
+                
+                
+              
+            </div>
+          
+            <div class="mymessage container row col-md-6" [innerText]="successfullySentReply" *ngIf="successfullySentReply!=''"></div><br>
+          </div>
+          <div class="">
+            <div class="" *ngIf="sendTo!=''">  <p class="reply-area"> To: {{sendTo}}  {{replyMyitems}} </p> </div>
+            <form [formGroup]="sendReplyForm" (ngSubmit)="sendReply(item.itemId)">
+             
+              <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    
+                    <p></p>
+
+                    <textarea  id=""  class="messagebox" name="" required="" [formControlName]="'reply'" placeholder="Type message..."></textarea>
+                </div>
+                
+                <div class="col-md-2">
+                  <button type="submit" class="send-btn">send</button>
+                </div>
+              </div>
+             
+            </form>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+<!--area of see conversations
+-->
       </div> 
    
     
@@ -154,13 +246,95 @@
             <div class="">
               <h3>
                 {{item.itemName}}
+                {{item.itemId}}
               
               </h3>
               <p> {{item.type}}</p>
               <p> {{item.description}}</p>
             </div>
             <div class="">
-                <button>inquire button</button>
+                
+                <button type="button" class="send-inquiry-btn" data-toggle="modal" attr.data-target="#mymodal{{item.itemId}}" (click)="getInquiries(item.itemId)">
+                  Conversation
+                </button>
+                <!-- Modal -->
+                  <div class="modal " id="mymodal{{item.itemId}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">{{item.itemName}}</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <div *ngFor="let inquiry of inquiries | async">
+                            <div class="row">
+                              <div class="col-md-6 col-md-offset-1">
+                                <div class="receivermessage" *ngIf="inquiry.from!=user">
+                                  
+                    
+                                  <div class="from-to">
+                                    <span> </span>
+                                    {{inquiry.from}}
+                                  </div>
+                                  
+                                  {{inquiry.message}}
+                                  <button class="mention-btn" (click)="replyToThisMessage(inquiry.message)">Mention this message</button>
+                                </div>
+                                
+                              </div>
+                              <div class="col-md-6">
+                                <div class="mymessage container" *ngIf="inquiry.from==user">
+                                
+                                  <div class="from-to">
+                                    <span> </span>
+                                    {{inquiry.from}}
+                                  </div>
+                                  
+                                  {{inquiry.message}}
+                                  
+                                  
+                                </div >
+                                
+                                <div *ngIf="inquiry.from!=user"><span></span></div>
+                              </div>
+                               
+                               
+                              <br><br>
+                            </div>
+                              
+                              
+                              
+                            
+                          </div>
+                          <div class="mymessage container row col-md-6" [innerText]="successfullySentMsg" *ngIf="successfullySentMsg!=''"></div><br>
+                        </div>
+                        <div class="">
+                         
+                          <form [formGroup]="sendInquiryForm" (ngSubmit)="sendInquiry(item.itemId)">
+                           
+                            <div class="row">
+                              <div class="col-md-10 col-md-offset-1">
+                                <p class="reply-area" *ngIf="replyInWishlist!=''">Rrepling To... {{replyInWishlist}}</p>
+                                  <textarea  id=""  class="messagebox" name="" required="" [formControlName]="'message'" placeholder="Type message..."></textarea>
+                              </div>
+                              
+                              <div class="col-md-2">
+                                <button type="submit" class="send-btn">send</button>
+                              </div>
+                            </div>
+                           
+                          </form>
+
+                          
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+
             </div>
           </div>
           <br>
@@ -171,3 +345,7 @@
      
     </div>
   </div>
+
+  <!-- Button trigger modal -->
+
+

@@ -24,8 +24,8 @@ export class ItemService {
     return this.httpClient.get<Array<ItemPaylord>>("http://localhost:8080/api/items/all");
   }
 
-  addToInquiredItems(id:number):Observable<any>{
-    var body={'itemId': id};
+  addToInquiredItems(itemId:number):Observable<any>{
+    var body={'itemId': itemId};
     return this.httpClient.post("http://localhost:8080/api/items/addtoinquireditems",body)
 
   }
@@ -34,5 +34,29 @@ export class ItemService {
     console.log('called');
     return this.httpClient.get<Array<ItemPaylord>>("http://localhost:8080/api/items/mywishlist");
     
+  }
+
+  sendInquiry(itemId:number,message:String):Observable<any>{
+    var body={
+      'from':'',
+      'to':'',
+      'itemId':itemId,
+      'message':message};
+    return this.httpClient.post("http://localhost:8080/api/items/makeinquiry",body);  
+  }
+
+  getInquiries(itemId:number):Observable<any>{
+    var body={'itemId': itemId};
+    return this.httpClient.get("http://localhost:8080/api/items/getinquiries/"+itemId);
+
+  }
+
+  sendReply(itemId:number,sendTo:String,reply:String){
+    var body={
+      'from':'',
+      'to':sendTo,
+      'itemId':itemId,
+      'message':reply};
+      return this.httpClient.post("http://localhost:8080/api/items/reply",body);
   }
 }

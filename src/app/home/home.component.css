@@ -89,10 +89,10 @@ h6{
 
 
 .postitem-area{
-    background-image: linear-gradient(to right white 30%, #862d48);
+    
     padding: 3%;
-    border-radius: 5px;
-    box-shadow: 2px 4px 10px #5a5959;
+    border-radius: 10px;
+    box-shadow: 2px 4px 10px #d4cece;
     margin: none;
     font-weight: bold;
     color: black;
@@ -166,3 +166,84 @@ h6{
      border-radius: 10px;
      box-shadow: 2px 2px 4px #838181;
  }
+
+ .send-inquiry-btn{
+    color: white;
+    background: #0be881;
+    border-radius: 10px;
+    text-align: center;
+    outline: none;
+    border: none;
+    padding: 5pt;
+ }
+
+ .mymessage{
+     background: lightblue;
+     float: right;
+     margin: 2px;
+     padding: 5px;
+     border-radius: 10px;
+     
+ }
+ .messagebox{
+     width: 90%;
+     margin: 1%;
+ }
+ .send-btn{
+    
+    margin-top: 5%;
+    margin-right: 5%;
+    height: 90%;
+    background-color: #0be881;
+    color: white;
+    border-radius: 10px;
+    
+    outline: none;
+    border: none;
+    padding: 3px;
+ }
+ .from-to{
+     background-color: white;
+     font-size: smaller;
+     border-radius: 10px;
+     margin: 3px;
+     padding: 3px;
+     font-weight: bold;
+ }
+ .receivermessage{
+     background: rgb(175, 255, 175);
+     margin-bottom: 10px;
+     padding: 5px;
+     border-radius: 10px;
+ }
+ 
+ .mention-btn{
+     outline: none;  
+     border-radius: 10px;
+     border: none;
+     padding: 5px;
+     font-weight: bold;
+     font-size: smaller;
+     background-color: rgb(64, 235, 101);
+ }
+ .mention-btn:hover{
+    background-color: rgb(72, 255, 112);
+
+    
+}
+.mention-btn:focus{
+    background-color: rgb(221, 255, 97);
+
+    
+}
+.reply-area{
+    outline: none;  
+    border-radius: 5px;
+    border: none;
+    padding: 5px;
+    background-color: lightblue;
+    padding: 3px;
+    margin: 10px;
+    font-size: smaller;
+    font-weight: bold;
+}
