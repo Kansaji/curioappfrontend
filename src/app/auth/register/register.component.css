@@ -1,13 +1,15 @@
 
 .form-register { 
-    padding: 40px;
+    padding: 50px;
     box-sizing: border-box;
     background-color: white;
     box-shadow: 2px 2px 4px #9e9797;
+    margin: 10px;
+    border-radius: 5px;
 }
   
 .ctm-btn{
-    background-image: linear-gradient(to right,#eb3b5a 30%, #ff7086);
+    background-image: linear-gradient(to right,#32ff7e 70%,#32ff7e );
     color:white;
     border: none;
     border-radius: 20px;
@@ -18,25 +20,25 @@
     height: 40px;
     font-size: 15px;
     font-weight: bold;
-    box-shadow: 5px 10px 15px #f1b4c0;
+    
     
 }
 
 input {
-    width: 400px;
+    width: 90%;
     border-top: none;
     border-left: none;
     border-right: none;
 }
 
 input:focus{
-    width: 450px;
+    width: 95%;
     outline: none;
     transition: width 0.2s;
 }
 input.ng-touched.ng-invalid{
     border-bottom : solid 2px  #fc0a2f;
-    width: 400px;
+    width: 95%;
     outline: none;
     transition: border-bottom 0.5s;
     transition: width 0.2s;
@@ -57,4 +59,7 @@ img{
     margin-top: 10%;
     position: absolute;
     
+}
+a{
+    font-weight: bold;
 }

@@ -7,9 +7,10 @@
 }
 
 .item-bg{
-    width: 100%;
-    opacity: 80%;
-
+    width: 70%;
+    margin: 10%;
+    filter: grayscale(100%);
+    opacity: 50%;
 }
 
 a{ 
@@ -20,7 +21,7 @@ a{
 }
 
 .ctm-btn{
-    background-image: linear-gradient(to right,#eb3b5a 30%, #ff7086);
+    background-image: linear-gradient(to right,#32ff7e 70%,#32ff7e);
     color:white;
     border: none;
     border-radius: 20px;
@@ -31,7 +32,7 @@ a{
     height: 40px;
     font-size: 15px;
     font-weight: bold;
-    box-shadow: 5px 10px 15px #f1b4c0;
+   
 }
 .ctm-btn2{
     background:#0be881;
@@ -61,7 +62,7 @@ input,select {
     outline: none;
 }
 
-input:focus{
+input:focus,select:focus{
     width: 400px;
     outline: none;
     transition: width 0.2s;
@@ -97,7 +98,7 @@ h6{
     font-weight: bold;
     color: black;
 }
-.text-area{
+.text-area,#type{
     width: 350px;
     border: 2px solid rgb(102, 101, 101);
     border-radius: 2px;
@@ -167,10 +168,10 @@ h6{
      box-shadow: 2px 2px 4px #838181;
  }
 
- .send-inquiry-btn{
+ .openconv-btn{
     color: white;
     background: #0be881;
-    border-radius: 10px;
+    border-radius: 20px;
     text-align: center;
     outline: none;
     border: none;
@@ -178,11 +179,12 @@ h6{
  }
 
  .mymessage{
-     background: lightblue;
+    background-color: rgb(133, 225, 255);
      float: right;
-     margin: 2px;
+     margin-bottom: 10px;
      padding: 5px;
      border-radius: 10px;
+     box-shadow: 2px 4px 10px #d4d1d1;
      
  }
  .messagebox{
@@ -197,7 +199,8 @@ h6{
     background-color: #0be881;
     color: white;
     border-radius: 10px;
-    
+    width: 50px;
+    height: 50px;
     outline: none;
     border: none;
     padding: 3px;
@@ -211,10 +214,11 @@ h6{
      font-weight: bold;
  }
  .receivermessage{
-     background: rgb(175, 255, 175);
+     background: rgb(129, 248, 129);
      margin-bottom: 10px;
      padding: 5px;
      border-radius: 10px;
+     box-shadow: 2px 4px 10px #d4d1d1;
  }
  
  .mention-btn{
@@ -224,26 +228,77 @@ h6{
      padding: 5px;
      font-weight: bold;
      font-size: smaller;
-     background-color: rgb(64, 235, 101);
+     background-color: rgb(221, 255, 97);
  }
- .mention-btn:hover{
-    background-color: rgb(72, 255, 112);
-
-    
-}
-.mention-btn:focus{
-    background-color: rgb(221, 255, 97);
-
-    
-}
+ 
 .reply-area{
     outline: none;  
     border-radius: 5px;
     border: none;
-    padding: 5px;
-    background-color: lightblue;
-    padding: 3px;
-    margin: 10px;
+    padding: 8px;
+    margin-left: 10px;
     font-size: smaller;
     font-weight: bold;
+    width: 30%;
+    box-shadow: 2px 4px 10px #817f7f;
+    
+}
+.reply-area-err{
+    outline: none;  
+    border-radius: 5px;
+    border: none;
+    padding: 8px;
+    margin-left: 10px;
+    font-size: smaller;
+    font-weight: bold;
+    width: 30%;
+    box-shadow: 2px 4px 10px #eea0a0;
+    background-color: rgb(248, 143, 164);
+    text-align: center;
+}
+textarea{
+    outline: none;  
+    border-radius: 15px;
+    border: 2px solid rgb(95, 92, 92);
+    padding: 5px;
+    margin-left: 10px;
+    font-size: smaller;
+    font-weight: bold;
+    width: 100%;
+}
+.mention-area{
+    outline: none;  
+    border-radius: 5px;
+    border: none;
+    padding: 8px;
+    margin-left: 10px;
+    font-size: smaller;
+    font-weight: bold;
+    width: 80%;
+    box-shadow: 2px 4px 10px #817f7f;
+  
+}
+
+.mention-close-btn{
+    outline: none;  
+    border-radius: 50%;
+    border: none;
+    font-weight: bold;
+    font-size: smaller;
+    background-color: rgb(253, 250, 250);
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    right: 20px;
+    box-shadow: 2px 4px 10px #817f7f;
+}
+.removefromwishlist-btn{
+    color: white;
+    background-image: linear-gradient(to right,#fed330 30%, #fed330);
+    border-radius: 20px;
+    text-align: center;
+    outline: none;
+    border: none;
+    padding: 5pt;
+    margin-left: 3px;
 }

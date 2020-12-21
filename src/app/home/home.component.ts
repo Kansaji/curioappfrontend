@@ -128,13 +128,14 @@ export class HomeComponent implements OnInit {
    var message=this.sendInquiryForm.get('message').value
    if(message!=""){
      if(this.replyInWishlist!=''){
-      message="[[[ "+ this.replyInWishlist+"    " +" ]]] "+message;
+      message="[ "+this.replyInWishlist+"]  "+message;
      }
      
     this.itemService.sendInquiry(itemId,message).subscribe(data=>{
       console.log('success'+itemId);
       this.successfullySentMsg="\n"+this.successfullySentMsg+"\n"+message;
       this.successfullySentMsg.replace("\n","<br>");
+      this.inquiries=this.itemService.getInquiries(itemId);
     },error=>{
       console.log('failed');
 
@@ -155,46 +156,36 @@ export class HomeComponent implements OnInit {
     
   }
 
-  replyToThisMessage(message){
-    if(this.replyInWishlist==''){
-      this.replyInWishlist=message;
-    }
-    else{
-      this.replyInWishlist='';
-    }
-      
+  mentionMessageInWishlist(user,message){
+      this.replyInWishlist=user+': '+message+' ';
+   
+  }
+  deletementionMessageInWishlist(){
+    this.replyInWishlist=''
   }
 
+  MentionMessageInMyItems(user,message){
+      this.replyMyitems=user+': '+message+' ';
+   
+  }
   
-
-  setReplyUserWithMention(user,message){
-    if(this.sendTo=='' || this.sendTo!=user){
-      this.sendTo=user;
-      this.replyMyitems=message;
-    }
-    else if (this.sendTo==user){
-      this.sendTo='';
-      this.replyMyitems='';
-    }
+  deleteMentionMessageInMyItems(){
+    this.replyMyitems='';
   }
 
   setReplyUser(user){
-    if(this.sendTo=='' || this.sendTo!=user){
       this.sendTo=user;
-      this.replyMyitems='';
-      
-    }
-    else if (this.sendTo==user){
-      this.sendTo='';
-      this.replyMyitems='';
-      
-    }
   }
+
+  deleteSetReplyUser(){
+    this.sendTo='';
+}
+
   sendReply(itemId){
     var reply=this.sendReplyForm.get('reply').value
     if(reply!=''&& this.sendTo!=''){
       if(this.replyMyitems!=''){
-      reply="[[[ "+this.replyMyitems+""+" ]]] " + reply;
+      reply="[ "+this.replyMyitems+"]  " + reply;
       }
       this.itemService.sendReply(itemId,this.sendTo,reply).subscribe(data=>{
         console.log('successfully replied');
@@ -202,9 +193,25 @@ export class HomeComponent implements OnInit {
         this.successfullySentReply.replace("\n","<br>");
         this.sendTo='';
         this.replyMyitems='';
+        this.inquiries=this.itemService.getInquiries(itemId);
+        alert('sending');
       },error=>{
         console.log('replying failed');
       });
     }
+  }
+
+  removeFromWishlist(itemId,element){
+    this.itemService.removeFromWishlist(itemId).subscribe(data=>{
+      element.textContent="Removed";
+      element.style.background='lightgreen';
+      console.log('success')
+    },error=>{
+      element.textContent="error";
+      element.style.background='lightred';
+      console.log('failed');
+
+    });
+
   }
 }

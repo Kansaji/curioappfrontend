@@ -1,7 +1,8 @@
 <div class="container   " >
   <div class="row">
-    <div class="col-md-6 col-md-offset-1 padding-0">
-        <div class=" banner-box " >
+    <div class="col-md-3 col-md-offset-1"></div>
+    <div class="col-md-6 banner-box">
+        <div class=" " >
           <h2>LOGIN </h2><br>
           <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
 
@@ -26,21 +27,15 @@
 
             <div>
                 <button class="btn btn-lg btn-block ctm-btn" type="submit">LOGIN</button>
+                <br>
+                <a href="/register">Create an account</a>
             </div>
             
           </form>  
       </div>
 
     </div>
-    <div class="col-md-6 padding-0">
-      <div class="info-box " >
-     
-        <p>Do not have an account yet? </p> 
-        <img src="\assets\idea_isometric.svg" alt="">
-        <button class="ctm-btn2"><a href="/register">CREATE  AN ACCOUNT</a></button>
-        
-
-      </div>
+    <div class="col-md-3 ">
     </div>
 
   </div>

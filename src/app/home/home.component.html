@@ -43,7 +43,7 @@
           
         </div>
         <div class="">
-          <button type="button" class="send-inquiry-btn" data-toggle="modal" attr.data-target="#myitems{{item.itemId}}" (click)="getInquiries(item.itemId)">
+          <button type="button" class="openconv-btn" data-toggle="modal" attr.data-target="#myitems{{item.itemId}}" (click)="getInquiries(item.itemId)">
             Conversation
           </button>
         </div>
@@ -54,7 +54,7 @@
 
     <!-- Modal -->
     <div class="modal " id="myitems{{item.itemId}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
+      <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">{{item.itemName}}</h5>
@@ -74,7 +74,7 @@
                     </div>
                     {{inquiry.message}}
                     
-                    <button class="mention-btn" (click)="setReplyUserWithMention(inquiry.from,inquiry.message)">  Mention this massage </button>
+                    <button class="mention-btn" (click)=" MentionMessageInMyItems(inquiry.from,inquiry.message)">@</button>
                     
                   </div>
                   
@@ -84,24 +84,22 @@
                   <div class="mymessage container" *ngIf="inquiry.from==user">
                   
                     <div class="from-to">
-                      <span>You replied to {{inquiry.to}} </span>
+                      <span>From you to {{inquiry.to}} </span>
                     
                     </div>
                     
                     
                     {{inquiry.message}}
-                    
+                    <button class="mention-btn" (click)=" MentionMessageInMyItems(inquiry.from,inquiry.message)">@</button>
                     <br>
                     
                    
                     
                   </div >
-                  
-                  <div *ngIf="inquiry.from==user"><span></span></div>
+                
                 </div>
                  
                  
-                <br><br>
               </div>
                 
                 
@@ -109,16 +107,23 @@
               
             </div>
           
-            <div class="mymessage container row col-md-6" [innerText]="successfullySentReply" *ngIf="successfullySentReply!=''"></div><br>
+            <!--<div class="mymessage container row col-md-6" [innerText]="successfullySentReply" *ngIf="successfullySentReply!=''"></div><br>-->
           </div>
           <div class="">
-            <div class="" *ngIf="sendTo!=''">  <p class="reply-area"> To: {{sendTo}}  {{replyMyitems}} </p> </div>
+       
+            <div class="" *ngIf="sendTo==''">  <p class="reply-area-err"> No recipient selected  </p> </div>
+            <div class="" *ngIf="sendTo!=''">  
+              <p class="reply-area"> To:  {{sendTo}} <button class="mention-close-btn" (click)=" deleteSetReplyUser()">X</button>  </p>
+  
+            </div>
+            <div *ngIf="replyMyitems!=''" class="mention-area">
+              {{replyMyitems}}
+              <button class="mention-close-btn" (click)=" deleteMentionMessageInMyItems()">X</button>
+            </div>
             <form [formGroup]="sendReplyForm" (ngSubmit)="sendReply(item.itemId)">
              
               <div class="row">
                 <div class="col-md-10 col-md-offset-1">
-                    
-                    <p></p>
 
                     <textarea  id=""  class="messagebox" name="" required="" [formControlName]="'reply'" placeholder="Type message..."></textarea>
                 </div>
@@ -206,7 +211,7 @@
                         <input type="file" class="text-area" name="" required="" [formControlName]="'photo'" (change)="onFileChange($event)">
                         <span *ngIf="addItemForm.controls.photo.invalid && addItemForm.controls.photo.touched"><h6>!Please select a photo</h6></span>
                       </div>
-                   
+                      <br>
                       <button type="submit" class="btn btn-lg btn-block ctm-btn" >POST</button>
                     </form>  
                 </div>
@@ -214,7 +219,7 @@
                 </div>
                 <div class="col-md-6">
                   <div class=" item-bg" >
-                    <img src="\assets\marketing (1).svg" alt="" class="item-bg">  
+                    <img src="\assets\tag.svg" alt="" class="item-bg">  
                   </div>
                 </div>
                 
@@ -246,7 +251,7 @@
             <div class="">
               <h3>
                 {{item.itemName}}
-                {{item.itemId}}
+        
               
               </h3>
               <p> {{item.type}}</p>
@@ -254,12 +259,15 @@
             </div>
             <div class="">
                 
-                <button type="button" class="send-inquiry-btn" data-toggle="modal" attr.data-target="#mymodal{{item.itemId}}" (click)="getInquiries(item.itemId)">
+                <button type="button" class="openconv-btn" data-toggle="modal" attr.data-target="#mymodal{{item.itemId}}" (click)="getInquiries(item.itemId)">
                   Conversation
+                </button>
+                <button type="button" class="removefromwishlist-btn" (click)="removeFromWishlist(item.itemId,$event.target)">
+                  Remove
                 </button>
                 <!-- Modal -->
                   <div class="modal " id="mymodal{{item.itemId}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
+                    <div class="modal-dialog modal-lg" role="document">
                       <div class="modal-content">
                         <div class="modal-header">
                           <h5 class="modal-title" id="exampleModalLabel">{{item.itemName}}</h5>
@@ -280,9 +288,9 @@
                                   </div>
                                   
                                   {{inquiry.message}}
-                                  <button class="mention-btn" (click)="replyToThisMessage(inquiry.message)">Mention this message</button>
+                                  <button class="mention-btn" (click)="mentionMessageInWishlist(inquiry.from,inquiry.message)">@</button>
                                 </div>
-                                
+                               
                               </div>
                               <div class="col-md-6">
                                 <div class="mymessage container" *ngIf="inquiry.from==user">
@@ -293,7 +301,7 @@
                                   </div>
                                   
                                   {{inquiry.message}}
-                                  
+                                  <button class="mention-btn" (click)="mentionMessageInWishlist(inquiry.from,inquiry.message)">@</button>
                                   
                                 </div >
                                 
@@ -308,15 +316,20 @@
                               
                             
                           </div>
-                          <div class="mymessage container row col-md-6" [innerText]="successfullySentMsg" *ngIf="successfullySentMsg!=''"></div><br>
+                          <!--<div class="mymessage container row col-md-6" [innerText]="successfullySentMsg" *ngIf="successfullySentMsg!=''"></div><br>-->
                         </div>
                         <div class="">
-                         
+                          
+                          <div *ngIf="replyInWishlist!=''" class="mention-area">
+                            {{replyInWishlist}}
+                            <button class="mention-close-btn" (click)="deletementionMessageInWishlist()">X</button>
+                          </div>
                           <form [formGroup]="sendInquiryForm" (ngSubmit)="sendInquiry(item.itemId)">
                            
                             <div class="row">
                               <div class="col-md-10 col-md-offset-1">
-                                <p class="reply-area" *ngIf="replyInWishlist!=''">Rrepling To... {{replyInWishlist}}</p>
+                        
+                               
                                   <textarea  id=""  class="messagebox" name="" required="" [formControlName]="'message'" placeholder="Type message..."></textarea>
                               </div>
                               

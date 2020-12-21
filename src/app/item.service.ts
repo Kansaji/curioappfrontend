@@ -59,4 +59,8 @@ export class ItemService {
       'message':reply};
       return this.httpClient.post("http://localhost:8080/api/items/reply",body);
   }
+
+  removeFromWishlist(itemId:number):Observable<any>{
+    return this.httpClient.post("http://localhost:8080/api/items/removefromwishlist/"+itemId,{});
+  }
 }

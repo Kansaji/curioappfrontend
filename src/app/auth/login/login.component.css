@@ -1,39 +1,18 @@
 .banner-box{
     font-weight: bolder;
     margin-top: 50px;
-    height: 400px;
+    height: 500px;
     box-shadow: 2px 2px 4px #aca1a1;
-    color: rgb(46, 48, 48);
-    padding: 10px;
-    
-}
-.info-box{
-    background: #eb4b7b;
-    margin-top: 50px;
-    height: 400px;
-    box-shadow: 2px 2px 4px #aca1a1;
-    background-image: linear-gradient(to right,#eb4b7b 30%, #862d48);
-    color: rgb(46, 48, 48);
-    padding: 10px;
-    color: white;
-    
-}
-a{ 
-    color: white;
-    padding: 10px;
-    text-decoration: none;
-    font-weight: bold;
-    
-   
-}
-a:hover{ 
-    color: #eb4b7b;
-    transition: 0.2s;
-   
+    color: rgb(46, 48, 48); 
+    padding: 50px; 
+    padding-left: 90px; 
+    border-radius: 10px;
 }
 
+
+
 .ctm-btn{
-    background-image: linear-gradient(to right,#eb3b5a 30%, #ff7086);
+    background-image: linear-gradient(to right,#32ff7e 70%,#32ff7e );
     color:white;
     border: none;
     border-radius: 20px;
@@ -44,30 +23,9 @@ a:hover{
     height: 40px;
     font-size: 15px;
     font-weight: bold;
-    box-shadow: 5px 10px 15px #f1b4c0;
-}
-.ctm-btn2{
-    margin-top: 10%;
-  
-    background: none;
-    border: 1px solid white;
-    border-radius: 20px;
-  
-    margin-left: 55%;
-    width: 200px;
-    height: 40px;
-    font-size: 15px;
-    z-index: 1;
-    position: absolute;
     
-    
- 
 }
-.ctm-btn2:hover{
-    background: white;
-    
- 
-}
+
 img{
     z-index: 0;
     width: 80%;
@@ -78,7 +36,7 @@ img{
 
 
 input {
-    width: 350px;
+    width: 90%;
     border-top: none;
     border-left: none;
     border-right: none;
@@ -86,14 +44,14 @@ input {
 }
 
 input:focus{
-    width: 400px;
+    width: 95%;
     outline: none;
     transition: width 0.2s;
     background: none;
 }
 input.ng-touched.ng-invalid{
     border-bottom : solid 2px  #fc0a2f;
-    width: 400px;
+    width: 95%;
     outline: none;
     transition: border-bottom 0.5s;
     transition: width 0.2s;

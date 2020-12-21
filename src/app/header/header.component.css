@@ -17,19 +17,20 @@
 }
 
 .flinks:hover{
-    color: #eb3b5a;
+    color: #00d2d3;
     transition: 0.1s;
 }
 
 .signupbtn{
-    
-    background: #eb3b5a;
     border-radius: 20px;
     width:100px;
     text-align: center;
     font-weight: bold;
     margin: 5px;
     color: #2c2c2c;
+}
+.signupbtn:hover{
+    color: #00d2d3;
 }
 
 .loginbtn{   
@@ -44,5 +45,5 @@
     text-align: center;
     font-weight: bold;
     margin: 5px;
-    color: #eb3b5a;
+    color: #00d2d3;
 }
