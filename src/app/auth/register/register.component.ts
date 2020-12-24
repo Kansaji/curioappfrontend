@@ -21,7 +21,7 @@ export class RegisterComponent implements OnInit {
     this.registerForm = this.formBuilder.group({
       username:['',[Validators.required, Validators.minLength(4)]],
       email:['',[Validators.required, this.emailValidator]],
-      telephone:['',[Validators.required, Validators.minLength(9)]],
+      city:['',[Validators.required, Validators.minLength(1)]],
       password:['',[Validators.required, Validators.minLength(8)]],
       confirmPassword:['',[Validators.required, this.passwordValidator]]
     });
@@ -35,7 +35,7 @@ export class RegisterComponent implements OnInit {
     this.registerPaylord={
       username:'',
       email:'',
-      telephone:'',
+      city:'',
       password:'',
     }
     this.usernameTaken=false;
@@ -51,7 +51,7 @@ export class RegisterComponent implements OnInit {
     if(this.registerForm.valid){
       this.registerPaylord.username = this.registerForm.get('username').value;
       this.registerPaylord.email = this.registerForm.get('email').value;
-      this.registerPaylord.telephone = this.registerForm.get('telephone').value;
+      this.registerPaylord.city = this.registerForm.get('city').value;
       this.registerPaylord.password = this.registerForm.get('password').value;
       this.username=this.registerForm.get('username').value;
      

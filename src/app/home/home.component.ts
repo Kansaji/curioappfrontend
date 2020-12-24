@@ -7,6 +7,7 @@ import { ItemPaylord } from './item-paylord';
 import {DomSanitizer} from '@angular/platform-browser'
 import { AuthService } from '../auth/auth.service';
 import { LocalStorageService } from 'ngx-webstorage';
+import { rejects } from 'assert';
 
 @Component({
   selector: 'app-home',
@@ -48,7 +49,8 @@ export class HomeComponent implements OnInit {
       itemName:'',
       type:'',
       description:'',
-      photo:''
+      photo:'',
+      postedUser:''
     };
 
     this.sendInquiryForm=this.formBuilder.group({
@@ -69,6 +71,19 @@ export class HomeComponent implements OnInit {
     this.sendTo='';
     this.replyMyitems='';
     this.successfullySentReply='';
+
+    this.itemService.GeolocationPosition().then(pos=>{
+      this.itemService.updateCurrentGeolocation(pos.longitude,pos.latitude).subscribe(res=>{
+        console.log('location successfully updated');
+      },error=>{
+        console.log('location update failed')
+      });
+    }).catch(
+      (err)=>{
+        console.log('Could not access location');
+       
+      }
+    );
   }
 
   ngOnInit(): void {
@@ -214,4 +229,5 @@ export class HomeComponent implements OnInit {
     });
 
   }
+ 
 }

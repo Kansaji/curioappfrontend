@@ -1,6 +1,6 @@
 export class RegisterPaylord{
     username:String;
     email:String;
-    telephone:String;
+    city:String;
     password:String;
 }

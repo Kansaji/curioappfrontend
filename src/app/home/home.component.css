@@ -91,12 +91,12 @@ h6{
 
 .postitem-area{
     
-    padding: 3%;
+    padding: 2%;
     border-radius: 10px;
-    box-shadow: 2px 4px 10px #d4cece;
+    box-shadow: 2px 2px 10px #d4cece;
     margin: none;
     font-weight: bold;
-    color: black;
+    color: rgb(102, 101, 101);
 }
 .text-area,#type{
     width: 350px;
@@ -122,10 +122,6 @@ h6{
     outline: none;
     float: right;
 }
-.ok-btn:hover{
-    background:#0be881 ;
-}
-
 
 .item-img:active,.item-img:focus{
     transform: scale(2);
@@ -140,19 +136,17 @@ h6{
 
 .home-link{
     outline: none;
-    margin-right: 20px;
-    background: none;
+    margin-right: 40px;
     font-size: large;
-    padding: 10px;
-    border-bottom: 2px solid #998c8e;
+    font-weight: bold;
+    padding: 5px;
     border: none;
+    border-radius: 5px;
+    color: rgb(102, 101, 101);
+    
+    
 }
 
-.home-link:focus{
-   
-    border-bottom: 2px solid #eb3b5a;
-    color:#eb3b5a ;
-}
 .item-img{
     max-width: 100%;
     padding: 2px;
@@ -302,3 +296,4 @@ textarea{
     padding: 5pt;
     margin-left: 3px;
 }
+

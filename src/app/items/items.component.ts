@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ItemService } from '../item.service';
 import { ItemPaylord } from '../home/item-paylord';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-items',
@@ -10,12 +11,33 @@ import { ItemPaylord } from '../home/item-paylord';
 })
 export class ItemsComponent implements OnInit {
 
-  myItems: Observable<Array<ItemPaylord>>;
- 
-  constructor(private itemService: ItemService) { }
+  allItems: Observable<Array<ItemPaylord>>;
+  distanceForm: FormGroup;
+  distance:String='All users';
+  goClicked:boolean=false;
+  
+  constructor(private itemService: ItemService, private formBuilder:FormBuilder) { 
+    this.distanceForm = this.formBuilder.group({
+      distance:['100'] 
+    });
+
+    this.distanceForm.controls.distance.valueChanges.subscribe(
+    
+      x => {
+        this.goClicked=false;
+        if (x<100){
+        this.distance="users with in "+ this.distanceForm.get('distance').value+" km distance from your location"
+      }else if(x>=100){
+        this.distance='All users'
+      }
+
+      }
+    )
+  }
 
   ngOnInit(): void {
-    this.myItems=this.itemService.getAllItems();
+    var distanceValue=this.distanceForm.get('distance').value;
+    this.allItems=this.itemService.getAllItems(distanceValue);
    
   }
 
@@ -33,4 +55,13 @@ export class ItemsComponent implements OnInit {
     });
   }
 
+  onSubmit(){
+    var distanceValue=this.distanceForm.get('distance').value
+    console.log(distanceValue);
+    this.allItems=this.itemService.getAllItems(distanceValue);
+    this.goClicked=true;
+    
+  }
+  
+ 
 }

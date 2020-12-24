@@ -13,20 +13,18 @@
  
  <br>
  <div class="container">
-
-  <button (click)="showMyItems()" class="home-link"> My items</button>
-  <button (click)="showWishlist()" class="home-link"> Wishlist</button>
+  
+  <button (click)="showMyItems()" class=" home-link btn  btn-lg active"> My items</button>
+  <button (click)="showWishlist()" class="home-link btn  btn-lg active"> Wishlist</button>
  </div>
  <hr>
-  <br><br>
+  
 
  <div *ngIf="myItemsSelected">
- <div class="container heading">
-   
-    
- </div>
+  
  
  <div class="container" >
+  <p>MyItems</p>
   <div class="row">
     
     <div class="col-md-3 " *ngFor="let item of myItems | async">
@@ -241,6 +239,7 @@
   <div *ngIf="wishlistSelected">
     
     <div class="container" >
+      <p>Wishlist</p>
       <div class="row">
         
         <div class="col-md-3 " *ngFor="let item of wishlist | async">

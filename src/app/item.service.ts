@@ -20,8 +20,8 @@ export class ItemService {
     return this.httpClient.get<Array<ItemPaylord>>("http://localhost:8080/api/items/myitems");
   }
 
-  getAllItems():Observable<Array<ItemPaylord>>{
-    return this.httpClient.get<Array<ItemPaylord>>("http://localhost:8080/api/items/all");
+  getAllItems(distanceValue:number):Observable<Array<ItemPaylord>>{
+    return this.httpClient.get<Array<ItemPaylord>>("http://localhost:8080/api/items/all/"+distanceValue);
   }
 
   addToInquiredItems(itemId:number):Observable<any>{
@@ -63,4 +63,27 @@ export class ItemService {
   removeFromWishlist(itemId:number):Observable<any>{
     return this.httpClient.post("http://localhost:8080/api/items/removefromwishlist/"+itemId,{});
   }
+
+  GeolocationPosition(): Promise<any>{
+    return new Promise((resolve,reject)=>{
+      navigator.geolocation.getCurrentPosition(resp=>{
+        resolve({longitude:resp.coords.longitude, latitude:resp.coords.latitude});
+      },err=>{
+        reject(err);
+      });
+    });
+  }
+
+  updateCurrentGeolocation(longitude:number, latitude:number):Observable<any>{
+    var body={
+      'longitude':longitude,
+      'latitude':latitude
+    }
+    console.log(longitude +","+latitude);
+    
+    console.log('api called');
+    
+    return this.httpClient.put("http://localhost:8080/api/items/updatecurrentgeolocation/",body);
+  }
 }
+

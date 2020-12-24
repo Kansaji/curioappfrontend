@@ -1,13 +1,13 @@
 .header{
-    background-color: white;
-    
+
+    box-shadow: 2px 2px 4px #b9b8b8;
 
     
 }
 
 
 .flinks{
-    color: #2c2c2c;
+    color: rgb(102, 101, 101);
     font-weight: bold;
     border-radius: 20px;
     margin: 5px;
@@ -27,7 +27,7 @@
     text-align: center;
     font-weight: bold;
     margin: 5px;
-    color: #2c2c2c;
+    color: rgb(102, 101, 101);
 }
 .signupbtn:hover{
     color: #00d2d3;
@@ -38,7 +38,7 @@
     text-align: center;
     font-weight: bold;
     margin: 5px;
-    color: #2c2c2c;
+    color: rgb(102, 101, 101);
 }
 .loginbtn:hover{   
     width:100px;

@@ -1,18 +1,49 @@
 <br>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-12">
+        <p>
+        <button type="button" id="findNearbyUsers-btn" data-toggle="collapse" data-target="#findNearbyUsers" aria-expanded="false" aria-controls="">
+          Find nearby users.
+       </button>
+        </p>
+        <div class="collapse" id="findNearbyUsers">
+          <div class="card card-body">
+            <form action="" [formGroup]="distanceForm" (ngSubmit)="onSubmit()">
+              <label for="">Select distance to see products from nearby users</label>
+              <br/>
+              <label for="">1 km</label>
+              <input type="range" name="distance" id="" max="100" min="1"  [formControlName]="'distance'">
+              <label for="">All</label>
+            
+              <label for="distance" class="distance-display">See items from {{distance}} ? </label>
+             
+              <button type="submit" class="go-btn"> Go </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    
+    <br>
+    
+  </div>
+</div>
+
 <br>
 <div class="container" >
     <div class="row">
       
-      <div class="col-md-3 " *ngFor="let item of myItems | async">
+      <div class="col-md-3 " *ngFor="let item of allItems | async">
         <div class="box">
           <div class="">
             <img src="{{'data:image/jpg;base64,'+ item.photo}}" class="item-img"  alt="" tabindex="0">
           </div>
           <div class="">
             <h3>
-              {{item.itemName}}
-            
+              {{item.itemName}} 
             </h3>
+            <span class="distance-msg" *ngIf="distance!='All users' && goClicked">{{item.postedUser}} {{item.away| number:'1.1-2'}} km away</span>
             <p> {{item.type}}</p>
             <p> {{item.description}}</p>
           </div>
