@@ -64,26 +64,12 @@ export class HomeComponent implements OnInit {
     this.base64textString=null;
     this.myItemsSelected=true;
     this.wishlistSelected=false;
-    this.successfullySentMsg;
     this.user=this.localStorageService.retrieve('username');
     this.sendInquiryForm.clearAsyncValidators();
     this.replyInWishlist='';
     this.sendTo='';
     this.replyMyitems='';
-    this.successfullySentReply='';
-
-    this.itemService.GeolocationPosition().then(pos=>{
-      this.itemService.updateCurrentGeolocation(pos.longitude,pos.latitude).subscribe(res=>{
-        console.log('location successfully updated');
-      },error=>{
-        console.log('location update failed')
-      });
-    }).catch(
-      (err)=>{
-        console.log('Could not access location');
-       
-      }
-    );
+    
   }
 
   ngOnInit(): void {
@@ -148,8 +134,6 @@ export class HomeComponent implements OnInit {
      
     this.itemService.sendInquiry(itemId,message).subscribe(data=>{
       console.log('success'+itemId);
-      this.successfullySentMsg="\n"+this.successfullySentMsg+"\n"+message;
-      this.successfullySentMsg.replace("\n","<br>");
       this.inquiries=this.itemService.getInquiries(itemId);
     },error=>{
       console.log('failed');
@@ -204,8 +188,6 @@ export class HomeComponent implements OnInit {
       }
       this.itemService.sendReply(itemId,this.sendTo,reply).subscribe(data=>{
         console.log('successfully replied');
-        this.successfullySentReply="\n"+this.successfullySentReply+"\n"+"Sent to "+this.sendTo+" :: "+reply;
-        this.successfullySentReply.replace("\n","<br>");
         this.sendTo='';
         this.replyMyitems='';
         this.inquiries=this.itemService.getInquiries(itemId);

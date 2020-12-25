@@ -1,4 +1,4 @@
-<!-- Button trigger modal -->
+<!-- post item button -->
 <br><br>
 <div class="container">
   <div class="row  postitem-area">
@@ -6,25 +6,23 @@
     <button type="button" class="  ctm-btn2 col-md-2" data-toggle="modal" data-target="#exampleModalCenter">
         Post Product
     </button>
-  </div>
-   
-    
+  </div>   
 </div>
  
  <br>
  <div class="container">
-  
+ <!-- show my items ahow wishlist buttons --> 
   <button (click)="showMyItems()" class=" home-link btn  btn-lg active"> My items</button>
   <button (click)="showWishlist()" class="home-link btn  btn-lg active"> Wishlist</button>
  </div>
  <hr>
   
-
+<!-- myitems -->
  <div *ngIf="myItemsSelected">
   
  
  <div class="container" >
-  <p>MyItems</p>
+  <p>MY ITEMS</p>
   <div class="row">
     
     <div class="col-md-3 " *ngFor="let item of myItems | async">
@@ -40,6 +38,7 @@
           <p> {{item.type}}</p>
           
         </div>
+         <!-- my items converstation button -->
         <div class="">
           <button type="button" class="openconv-btn" data-toggle="modal" attr.data-target="#myitems{{item.itemId}}" (click)="getInquiries(item.itemId)">
             Conversation
@@ -47,10 +46,7 @@
         </div>
       </div>
       <br>
-      <!--area of see conversations
--->
-
-    <!-- Modal -->
+  <!-- my items converstation modal -->
     <div class="modal " id="myitems{{item.itemId}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
@@ -90,23 +86,16 @@
                     {{inquiry.message}}
                     <button class="mention-btn" (click)=" MentionMessageInMyItems(inquiry.from,inquiry.message)">@</button>
                     <br>
-                    
-                   
-                    
                   </div >
-                
                 </div>
-                 
-                 
               </div>
-                
-                
-                
-              
+             
             </div>
           
             <!--<div class="mymessage container row col-md-6" [innerText]="successfullySentReply" *ngIf="successfullySentReply!=''"></div><br>-->
           </div>
+           <!-- my items converstation reply -->     
+
           <div class="">
        
             <div class="" *ngIf="sendTo==''">  <p class="reply-area-err"> No recipient selected  </p> </div>
@@ -138,15 +127,8 @@
         </div>
       </div>
     </div>
-
-
-<!--area of see conversations
--->
-      </div> 
-   
-    
-  </div>
- 
+      </div>    
+  </div> 
 </div>
  
 
@@ -154,7 +136,7 @@
 
 
   
-  <!-- Modal -->
+  <!-- post items form modal -->
   <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-xl"  role="document">
       <div class="modal-content">
@@ -236,10 +218,11 @@
     </div>
   </div>
 
+<!-- wishlist  -->
   <div *ngIf="wishlistSelected">
     
     <div class="container" >
-      <p>Wishlist</p>
+      <p>WISHLIST</p>
       <div class="row">
         
         <div class="col-md-3 " *ngFor="let item of wishlist | async">
@@ -257,14 +240,14 @@
               <p> {{item.description}}</p>
             </div>
             <div class="">
-                
+                <!-- wiahlist converation button -->
                 <button type="button" class="openconv-btn" data-toggle="modal" attr.data-target="#mymodal{{item.itemId}}" (click)="getInquiries(item.itemId)">
                   Conversation
                 </button>
                 <button type="button" class="removefromwishlist-btn" (click)="removeFromWishlist(item.itemId,$event.target)">
                   Remove
                 </button>
-                <!-- Modal -->
+                <!-- wishlist conversation modal -->
                   <div class="modal " id="mymodal{{item.itemId}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-lg" role="document">
                       <div class="modal-content">
@@ -317,6 +300,7 @@
                           </div>
                           <!--<div class="mymessage container row col-md-6" [innerText]="successfullySentMsg" *ngIf="successfullySentMsg!=''"></div><br>-->
                         </div>
+                        <!-- send inquiry in wishlist -->
                         <div class="">
                           
                           <div *ngIf="replyInWishlist!=''" class="mention-area">

@@ -15,11 +15,29 @@ export class ItemsComponent implements OnInit {
   distanceForm: FormGroup;
   distance:String='All users';
   goClicked:boolean=false;
-  
+  locationAllowed:boolean;
+  blockedInBrowser:boolean=false;
+
   constructor(private itemService: ItemService, private formBuilder:FormBuilder) { 
     this.distanceForm = this.formBuilder.group({
       distance:['100'] 
     });
+
+    this.itemService.GeolocationPosition().then(pos=>{
+      this.itemService.updateCurrentGeolocation(pos.longitude,pos.latitude).subscribe(res=>{
+        console.log('location successfully updated');
+        this.locationAllowed=true;
+      },error=>{
+        console.log('location update failed')
+      });
+    }).catch(
+      (err)=>{
+        console.log('Could not access location');
+        this.locationAllowed=false;
+
+      }
+    );
+  
 
     this.distanceForm.controls.distance.valueChanges.subscribe(
     
@@ -63,5 +81,18 @@ export class ItemsComponent implements OnInit {
     
   }
   
- 
+  allowLocation(){
+    navigator.geolocation.getCurrentPosition(resp=>{
+      this.itemService.updateCurrentGeolocation(resp.coords.longitude,resp.coords.latitude).subscribe(data=>{
+        this.locationAllowed=true;
+      },error=>{
+        console.log('could not call update geolocation api')
+      });
+      
+    },err=>{
+      (err);
+      console.log('unlock in browser');
+      this.blockedInBrowser=true;
+    });
+  }
 }

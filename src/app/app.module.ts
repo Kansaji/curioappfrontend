@@ -14,6 +14,7 @@ import { NgxWebstorageModule } from 'ngx-webstorage';
 import { HomeComponent } from './home/home.component';
 import { HttpClientInterseptor } from './http-client-interceptor';
 import { ItemsComponent } from './items/items.component';
+import { AuthGuard } from './auth.guard';
 
 
 @NgModule({
@@ -36,9 +37,9 @@ import { ItemsComponent } from './items/items.component';
     RouterModule.forRoot([
       {path:'register',component: RegisterComponent},
       {path:'login',component: LoginComponent},
-      {path:'register-success',component: RegisterSuccessComponent},
-      {path:'home',component: HomeComponent},
-      {path:'items',component: ItemsComponent}
+      {path:'register-success',component: RegisterSuccessComponent, canActivate:[AuthGuard]},
+      {path:'home',component: HomeComponent, canActivate:[AuthGuard]},
+      {path:'items',component: ItemsComponent, canActivate:[AuthGuard]}
     ])
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: HttpClientInterseptor, multi:true}],

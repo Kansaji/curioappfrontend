@@ -1,15 +1,18 @@
 
+
 .form-register { 
-    padding: 50px;
+    padding: 20px;
     box-sizing: border-box;
-    background-color: white;
-    box-shadow: 2px 2px 4px #9e9797;
-    margin: 10px;
-    border-radius: 5px;
+    margin-top: 10px;
+    background: none;
+    box-shadow: 2px 2px 4px #7c7777;
+    border-radius: 10px;
+    background-color: transparent;
+   
 }
   
 .ctm-btn{
-    background-image: linear-gradient(to right,#32ff7e 70%,#32ff7e );
+    background-image: linear-gradient(to right,#fe3760 70%,#fe3760);
     color:white;
     border: none;
     border-radius: 20px;
@@ -29,6 +32,7 @@ input {
     border-top: none;
     border-left: none;
     border-right: none;
+    background: none;
 }
 
 input:focus{
@@ -55,9 +59,11 @@ h6{
     color: #fc0a2f;
 }
 img{
-    width: 100%;
-    margin-top: 10%;
+   
+    width: 70%;
+    margin-top: 3%;
     position: absolute;
+    margin-left: 20%;
     
 }
 a{

@@ -83,7 +83,11 @@ export class ItemService {
     
     console.log('api called');
     
-    return this.httpClient.put("http://localhost:8080/api/items/updatecurrentgeolocation/",body);
+    return this.httpClient.put("http://localhost:8080/api/items/updatecurrentgeolocation",body);
+  }
+
+  getMyStats():Observable<any>{
+    return this.httpClient.get("http://localhost:8080/api/items/getmystats");
   }
 }
 

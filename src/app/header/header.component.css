@@ -1,13 +1,14 @@
 .header{
 
-    box-shadow: 2px 2px 4px #b9b8b8;
-
+    box-shadow: 2px 2px 4px #817f7f;
+    background: transparent;
+    z-index: 1;
     
 }
 
 
 .flinks{
-    color: rgb(102, 101, 101);
+    color: #00d2d3;
     font-weight: bold;
     border-radius: 20px;
     margin: 5px;
@@ -16,10 +17,6 @@
     
 }
 
-.flinks:hover{
-    color: #00d2d3;
-    transition: 0.1s;
-}
 
 .signupbtn{
     border-radius: 20px;
@@ -27,23 +24,40 @@
     text-align: center;
     font-weight: bold;
     margin: 5px;
-    color: rgb(102, 101, 101);
-}
-.signupbtn:hover{
-    color: #00d2d3;
+    background-color:#ec005b;
+    color: white;
+
 }
 
 .loginbtn{   
     width:100px;
     text-align: center;
     font-weight: bold;
-    margin: 5px;
-    color: rgb(102, 101, 101);
+    margin-right: 30px;
+    color: #00d2d3
 }
-.loginbtn:hover{   
+
+.user{
+    box-shadow: 2px 2px 4px #b9b8b8;
+    background-color: #f13a80;
+    border-radius: 10px;
+    padding: 5px;
+    width: 100px;
+    color:white;
+    outline: none;
+    border: none;
+}
+.logoutbtn{   
     width:100px;
     text-align: center;
     font-weight: bold;
     margin: 5px;
-    color: #00d2d3;
+    color: rgb(102, 101, 101);
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    padding :5px;
+}
+.mystats{
+    margin-left: 100px;
 }

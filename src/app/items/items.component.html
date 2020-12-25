@@ -11,7 +11,7 @@
         <div class="collapse" id="findNearbyUsers">
           <div class="card card-body">
             <form action="" [formGroup]="distanceForm" (ngSubmit)="onSubmit()">
-              <label for="">Select distance to see products from nearby users</label>
+              <label for="" class="select-distance-label">Select distance to see products from nearby users</label>
               <br/>
               <label for="">1 km</label>
               <input type="range" name="distance" id="" max="100" min="1"  [formControlName]="'distance'">
@@ -20,7 +20,17 @@
               <label for="distance" class="distance-display">See items from {{distance}} ? </label>
              
               <button type="submit" class="go-btn"> Go </button>
+              
+              
             </form>
+            <div class="location-err" *ngIf="!locationAllowed && !blockedInBrowser">
+              <p >Allow location for precise results</p>
+              <button class="allow-lct-btn" (click)="allowLocation()">Allow location</button>
+            </div>
+            <div class="location-err" *ngIf="!locationAllowed && blockedInBrowser">
+              <p >Location access is blocked in browser</p>
+              
+            </div>
           </div>
         </div>
       </div>

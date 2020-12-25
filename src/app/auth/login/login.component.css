@@ -2,17 +2,20 @@
     font-weight: bolder;
     margin-top: 50px;
     height: 500px;
-    box-shadow: 2px 2px 4px #aca1a1;
+    box-shadow: 2px 2px 4px #817f7f;
     color: rgb(46, 48, 48); 
     padding: 50px; 
     padding-left: 90px; 
     border-radius: 10px;
+    background: transparent;  
 }
 
-
+.bg{
+    background-color: #f8fbfc;
+}
 
 .ctm-btn{
-    background-image: linear-gradient(to right,#32ff7e 70%,#32ff7e );
+    background-image: linear-gradient(to right,#fe3760 70%,#fe3760);
     color:white;
     border: none;
     border-radius: 20px;
@@ -27,9 +30,12 @@
 }
 
 img{
+    max-width: 50%;
+  
+    margin-left: 43%;
+    margin-top: -62px;
     z-index: 0;
-    width: 80%;
-    position: absolute;
+    position: fixed;
 }
 
 
@@ -40,6 +46,7 @@ input {
     border-top: none;
     border-left: none;
     border-right: none;
+    background: none;
     background: none;
 }
 

@@ -1,7 +1,9 @@
-<div class="container  ">
+
+<div class="container ">
+  <img src="assets\19198005.jpg" alt="">
   <div class="row">
-    <div class="col-md-3 col-md-offset-1"></div>
-    <div class="col-md-6 ">
+    
+    <div class="col-md-6 col-md-offset-1">
       <div class="form-register" >
         <h2>CREATE  ACCOUNT </h2><br>
         <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
@@ -12,43 +14,45 @@
             <span *ngIf="(usernameTaken)"><h6>!{{username}} is already taken.Try a different username </h6></span>
           </div>
           <br>
+
           <div>
             <label>Email</label><br>
             <input type="email" name="" required="" [formControlName]="'email'" placeholder="Enter email here"><br>
             <span *ngIf="registerForm.controls.email.invalid && registerForm.controls.email.touched"><h6>!Provide a valid email address</h6></span>
           </div>
           <br>
+
           <div>
             <label>City</label><br>
             <input type="text" name="" required="" [formControlName]="'city'" placeholder="Enter city name here"><br>
             <span *ngIf="registerForm.controls.city.invalid && registerForm.controls.city.touched"><h6>!Provide a city name</h6></span>
           </div>
           <br>
+          
           <div>
             <label>Password</label><br>
             <input type="password" name="" required="" [formControlName]="'password'" placeholder="Enter password  here"><br>
             <span *ngIf="registerForm.controls.password.invalid && registerForm.controls.password.touched"><h6>!Password is required and sholud have atleast 8 characters</h6></span>
           </div>
           <br>
+
           <div>
             <label>Confirm Password</label><br>
             <input type="password" name="" required="" [formControlName]="'confirmPassword'" placeholder="Re-enter password  here"><br>
             <span *ngIf="registerForm.controls.confirmPassword.invalid && registerForm.controls.confirmPassword.touched"><h6>!Password and confirm Password should match</h6></span>
           </div>
+          
           <div>
               <button class="btn btn-lg btn-block ctm-btn" type="submit">CREATE ACCOUNT</button>
               <br>
               <a href="/login">Log in instead</a>
           </div>
-        </form>
-    
-        
+        </form>  
     </div>
-    
+    <div class="col-md-6 ">
+    </div>
 
-    </div>
-    <div class="col-md-3 ">   
-    </div>
+    
    
   </div>
  
