@@ -1,137 +1,142 @@
 <!-- post item button -->
 <br><br>
 <div class="container">
+
   <div class="row  postitem-area">
     <p class=" col-md-10">Have items to share sell or donate?</p>
     <button type="button" class="  ctm-btn2 col-md-2" data-toggle="modal" data-target="#exampleModalCenter">
-        Post Product
+      Post Product
     </button>
-  </div>   
+  </div>
+
 </div>
  
  <br>
+
  <div class="container">
  <!-- show my items ahow wishlist buttons --> 
   <button (click)="showMyItems()" class=" home-link btn  btn-lg active"> My items</button>
   <button (click)="showWishlist()" class="home-link btn  btn-lg active"> Wishlist</button>
  </div>
+
  <hr>
   
 <!-- myitems -->
  <div *ngIf="myItemsSelected">
   
- 
- <div class="container" >
-  <p>MY ITEMS</p>
-  <div class="row">
-    
-    <div class="col-md-3 " *ngFor="let item of myItems | async">
-      <div class="box">
-        <div class="">
-          <img src="{{'data:image/jpg;base64,'+ item.photo}}" class="item-img"  alt="" tabindex="0">
-        </div>
-        <div class="">
-          <h3>
-            {{item.itemName}}
-          
-          </h3>
-          <p> {{item.type}}</p>
-          
-        </div>
-         <!-- my items converstation button -->
-        <div class="">
-          <button type="button" class="openconv-btn" data-toggle="modal" attr.data-target="#myitems{{item.itemId}}" (click)="getInquiries(item.itemId)">
-            Conversation
-          </button>
-        </div>
-      </div>
-      <br>
-  <!-- my items converstation modal -->
-    <div class="modal " id="myitems{{item.itemId}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">{{item.itemName}}</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <div *ngFor="let inquiry of inquiries | async">
-              <div class="row">
-                <div class="col-md-6 col-md-offset-1 ">
-                  <div class="receivermessage" *ngIf="inquiry.from!=user">
-                    
-                    <div class="from-to">
-                      <span>{{inquiry.from}} </span>
-                      <button class="mention-btn" (click)="setReplyUser(inquiry.from)">  Reply {{inquiry.from}}</button>
-                    </div>
-                    {{inquiry.message}}
-                    
-                    <button class="mention-btn" (click)=" MentionMessageInMyItems(inquiry.from,inquiry.message)">@</button>
-                    
-                  </div>
-                  
-                </div>
-                
-                <div class="col-md-6">
-                  <div class="mymessage container" *ngIf="inquiry.from==user">
-                  
-                    <div class="from-to">
-                      <span>From you to {{inquiry.to}} </span>
-                    
-                    </div>
-                    
-                    
-                    {{inquiry.message}}
-                    <button class="mention-btn" (click)=" MentionMessageInMyItems(inquiry.from,inquiry.message)">@</button>
-                    <br>
-                  </div >
-                </div>
-              </div>
-             
-            </div>
-          
-            <!--<div class="mymessage container row col-md-6" [innerText]="successfullySentReply" *ngIf="successfullySentReply!=''"></div><br>-->
-          </div>
-           <!-- my items converstation reply -->     
+  <div class="container" >
+    <p>MY ITEMS</p>
+
+    <div class="row">
+        
+      <div class="col-md-3 " *ngFor="let item of myItems | async">
+
+        <div class="box">
 
           <div class="">
-       
-            <div class="" *ngIf="sendTo==''">  <p class="reply-area-err"> No recipient selected  </p> </div>
-            <div class="" *ngIf="sendTo!=''">  
-              <p class="reply-area"> To:  {{sendTo}} <button class="mention-close-btn" (click)=" deleteSetReplyUser()">X</button>  </p>
-  
-            </div>
-            <div *ngIf="replyMyitems!=''" class="mention-area">
-              {{replyMyitems}}
-              <button class="mention-close-btn" (click)=" deleteMentionMessageInMyItems()">X</button>
-            </div>
-            <form [formGroup]="sendReplyForm" (ngSubmit)="sendReply(item.itemId)">
-             
-              <div class="row">
-                <div class="col-md-10 col-md-offset-1">
+            <img src="{{'data:image/jpg;base64,'+ item.photo}}" class="item-img"  alt="" tabindex="0">
+          </div>
 
-                    <textarea  id=""  class="messagebox" name="" required="" [formControlName]="'reply'" placeholder="Type message..."></textarea>
-                </div>
-                
-                <div class="col-md-2">
-                  <button type="submit" class="send-btn">send</button>
-                </div>
+          <div class="">
+            <h3>
+             {{item.itemName}}
+            </h3>
+            <p> {{item.type}}</p>
+          </div>
+
+          <!-- my items converstation button -->
+          <div class="">
+            <button type="button" class="openconv-btn" data-toggle="modal" attr.data-target="#myitems{{item.itemId}}" (click)="getInquiries(item.itemId)">
+              Conversation
+            </button>
+          </div>
+
+        </div>
+
+        <br>
+          <!-- my items converstation modal -->
+        <div class="modal " id="myitems{{item.itemId}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">{{item.itemName}}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
               </div>
-             
-            </form>
 
-            
+              <div class="modal-body">
+                <div *ngFor="let inquiry of inquiries | async">
+
+                  <div class="row">
+
+                    <div class="col-md-6 col-md-offset-1 ">
+                      <div class="receivermessage" *ngIf="inquiry.from!=user">
+                        <div class="from-to">
+                          <span>{{inquiry.from}} </span>
+                          <button class="mention-btn" (click)="setReplyUser(inquiry.from)">  Reply {{inquiry.from}}</button>
+                        </div>
+                        {{inquiry.message}}
+                        <button class="mention-btn" (click)=" MentionMessageInMyItems(inquiry.from,inquiry.message)">@</button>
+                      </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                      <div class="mymessage container" *ngIf="inquiry.from==user">
+                        <div class="from-to">
+                          <span>From you to {{inquiry.to}} </span>
+                        </div>
+                        {{inquiry.message}}
+                        <button class="mention-btn" (click)=" MentionMessageInMyItems(inquiry.from,inquiry.message)">@</button>
+                        <br>
+                      </div >
+                    </div>
+                  </div>
+
+                </div>
+              
+                <!--<div class="mymessage container row col-md-6" [innerText]="successfullySentReply" *ngIf="successfullySentReply!=''"></div><br>-->
+              </div>
+              <!-- my items converstation reply -->     
+
+              <div class="">
+          
+                <div class="" *ngIf="sendTo==''">  <p class="reply-area-err"> No recipient selected  </p> </div>
+                <div class="" *ngIf="sendTo!=''">  
+                  <p class="reply-area"> To:  {{sendTo}} <button class="mention-close-btn" (click)=" deleteSetReplyUser()">X</button>  </p>
+                </div>
+
+                <div *ngIf="replyMyitems!=''" class="mention-area">
+                  {{replyMyitems}}
+                  <button class="mention-close-btn" (click)=" deleteMentionMessageInMyItems()">X</button>
+                </div>
+
+                <form [formGroup]="sendReplyForm" (ngSubmit)="sendReply(item.itemId)">
+                  <div class="row">
+
+                    <div class="col-md-10 col-md-offset-1">
+                        <textarea  id=""  class="messagebox" name="" required="" [formControlName]="'reply'" placeholder="Type message..."></textarea>
+                    </div>
+                    
+                    <div class="col-md-2">
+                      <button type="submit" class="send-btn">send</button>
+                    </div>
+
+                  </div>
+                </form>
+                
+              </div>
+
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-      </div>    
-  </div> 
-</div>
- 
 
+      </div>   
+
+    </div> 
+
+  </div>
 </div>
 
 
@@ -140,12 +145,14 @@
   <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-xl"  role="document">
       <div class="modal-content">
+
         <div class="modal-header">
           <h2 class="modal-title" id="exampleModalLongTitle">POST ITEM</h2>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
+
         <div class="modal-body">
             <section class="container">
              
@@ -160,8 +167,8 @@
                           <a href="/home" class="ok-btn">OK</a>
                         </div>         
                       </div>
-                     
-                    </div>        
+                    </div>
+
                     <form [formGroup]="addItemForm" (ngSubmit)="postItem()" *ngIf="!isSuccess">
                       <div>
                         <label>Item name</label> <br> 
@@ -194,7 +201,7 @@
                       <br>
                       <button type="submit" class="btn btn-lg btn-block ctm-btn" >POST</button>
                     </form>  
-                </div>
+                  </div>
               
                 </div>
                 <div class="col-md-6">
@@ -211,9 +218,8 @@
 
         </div>
         <div class="modal-footer">
-          
-         
         </div>
+
       </div>
     </div>
   </div>
@@ -226,78 +232,73 @@
       <div class="row">
         
         <div class="col-md-3 " *ngFor="let item of wishlist | async">
+
           <div class="box">
+
             <div class="">
               <img src="{{'data:image/jpg;base64,'+ item.photo}}" class="item-img"  alt="" tabindex="0">
             </div>
+
             <div class="">
               <h3>
                 {{item.itemName}}
-        
-              
               </h3>
               <p> {{item.type}}</p>
               <p> {{item.description}}</p>
             </div>
+
             <div class="">
-                <!-- wiahlist converation button -->
+                <!-- wishlist converation button -->
                 <button type="button" class="openconv-btn" data-toggle="modal" attr.data-target="#mymodal{{item.itemId}}" (click)="getInquiries(item.itemId)">
                   Conversation
                 </button>
+
                 <button type="button" class="removefromwishlist-btn" (click)="removeFromWishlist(item.itemId,$event.target)">
                   Remove
                 </button>
+
                 <!-- wishlist conversation modal -->
-                  <div class="modal " id="mymodal{{item.itemId}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-lg" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLabel">{{item.itemName}}</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body">
-                          <div *ngFor="let inquiry of inquiries | async">
-                            <div class="row">
-                              <div class="col-md-6 col-md-offset-1">
-                                <div class="receivermessage" *ngIf="inquiry.from!=user">
-                                  
-                    
-                                  <div class="from-to">
-                                    <span> </span>
-                                    {{inquiry.from}}
-                                  </div>
-                                  
-                                  {{inquiry.message}}
-                                  <button class="mention-btn" (click)="mentionMessageInWishlist(inquiry.from,inquiry.message)">@</button>
+                <div class="modal " id="mymodal{{item.itemId}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">{{item.itemName}}</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        
+                        <div *ngFor="let inquiry of inquiries | async">
+
+                          <div class="row">
+
+                            <div class="col-md-6 col-md-offset-1">
+                              <div class="receivermessage" *ngIf="inquiry.from!=user">
+                                <div class="from-to">
+                                  <span> </span>
+                                  {{inquiry.from}}
                                 </div>
-                               
-                              </div>
-                              <div class="col-md-6">
-                                <div class="mymessage container" *ngIf="inquiry.from==user">
-                                
-                                  <div class="from-to">
-                                    <span> </span>
-                                    {{inquiry.from}}
-                                  </div>
-                                  
                                   {{inquiry.message}}
-                                  <button class="mention-btn" (click)="mentionMessageInWishlist(inquiry.from,inquiry.message)">@</button>
-                                  
-                                </div >
-                                
-                                <div *ngIf="inquiry.from!=user"><span></span></div>
+                                <button class="mention-btn" (click)="mentionMessageInWishlist(inquiry.from,inquiry.message)">@</button>
                               </div>
-                               
-                               
-                              <br><br>
                             </div>
-                              
-                              
-                              
-                            
+                            <div class="col-md-6">
+                              <div class="mymessage container" *ngIf="inquiry.from==user">
+                                <div class="from-to">
+                                  <span> </span>
+                                  {{inquiry.from}}
+                                </div>
+                                  {{inquiry.message}}
+                                <button class="mention-btn" (click)="mentionMessageInWishlist(inquiry.from,inquiry.message)">@</button>
+                              </div >
+                            </div>
+                            <br><br>
+
                           </div>
+                            
+                        </div>
+
                           <!--<div class="mymessage container row col-md-6" [innerText]="successfullySentMsg" *ngIf="successfullySentMsg!=''"></div><br>-->
                         </div>
                         <!-- send inquiry in wishlist -->

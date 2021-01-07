@@ -1,13 +1,10 @@
 .banner-box{
     font-weight: bolder;
-    margin-top: 50px;
-    height: 500px;
-    box-shadow: 2px 2px 4px #817f7f;
-    color: rgb(46, 48, 48); 
-    padding: 50px; 
-    padding-left: 90px; 
-    border-radius: 10px;
-    background: transparent;  
+    box-shadow: 0px 0px 4px #5c5a5a;
+    color:rgb(41, 38, 38);
+    padding: 20px; 
+    background:transparent;  
+    
 }
 
 .bg{
@@ -21,7 +18,7 @@
     border-radius: 20px;
     margin-right: 10px;
     margin-top: 20px;
-    margin-left: 27%;
+    margin-left: 22%;
     width: 200px;
     height: 40px;
     font-size: 15px;
@@ -30,45 +27,37 @@
 }
 
 img{
-    max-width: 50%;
+    width:100%;
   
-    margin-left: 43%;
-    margin-top: -62px;
-    z-index: 0;
-    position: fixed;
 }
 
-
-
-
 input {
-    width: 90%;
+    width: 100%;
     border-top: none;
     border-left: none;
     border-right: none;
     background: none;
     background: none;
+    
+   
 }
 
 input:focus{
-    width: 95%;
+    width: 110%;
     outline: none;
     transition: width 0.2s;
     background: none;
 }
 input.ng-touched.ng-invalid{
     border-bottom : solid 2px  #fc0a2f;
-    width: 95%;
+    width: 110%;
     outline: none;
     transition: border-bottom 0.5s;
     transition: width 0.2s;
 }
-h2{
+h4{
     font-weight: bolder;
-    margin-left: 35%;
-}
-label{
-    font-weight: bold;
+    text-align: center;
 }
 
 h6{
@@ -78,4 +67,6 @@ h6{
 .padding-0{
     padding-left: 0;
     padding-right: 0;
+    margin-top: 10px;
+  
 }

@@ -2,16 +2,18 @@
 <div class="container   " >
   
   <div class="row">
-    <img src="assets\4052917.png" alt="">
-    <div class="col-md-3 col-md-offset-1"> 
+   
+    <div class="col-md-4 col-md-offset-1"> 
     </div>
-
-    <div class="col-md-6 banner-box">
-      
-        <div class=" " >
-          <h2>LOGIN </h2><br>
+   
+    <div class="col-md-4  ">
+        <div class="row padding-0">
+          <img src="assets/2682640.jpg" alt="">
+        </div>
+        <div class="row banner-box"  >
+         
           <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-
+            <h4>LOGIN </h4>
             <div>
               <label>Username</label> <br> 
               <input type="text" name="" required="" [formControlName]="'username'" placeholder="Enter username here">
@@ -39,10 +41,11 @@
             
           </form>  
       </div>
+      
     </div>
-
-    <div class="col-md-3 ">
+    <div class="col-md-4">
     </div>
+    
 
   </div>
  
