@@ -1,0 +1,28 @@
+<div class="container">
+   <br>
+    <button class="btn btn-light"> <a href="/discussionforum">Back</a></button>
+    <div >
+        
+        <div *ngFor="let answer of answers| async | slice :0:1">
+            <h4>{{answer.subject}}</h4>
+            <p>{{answer.questionContent}}</p>
+
+        </div>  
+        
+       
+    </div>
+    
+    <div *ngFor="let answer of answers| async" class="message">
+      
+        <h6>{{answer.answeredUsername}}</h6>
+        <h6>{{answer.answeredTimeStamp}}</h6>
+        <p>{{answer.answerContent}}</p>
+    
+    </div>
+</div>
+
+
+
+
+
+

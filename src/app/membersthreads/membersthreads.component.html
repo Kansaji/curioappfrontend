@@ -1,0 +1,36 @@
+<div class="container">
+    <br>
+    <button class="btn btn-light"> <a href="/discussionforum">Back</a></button>
+    <br>
+    <br>
+    <div >
+       
+        <div *ngFor="let answer of answers| async | slice :0:1">
+            <h4>{{answer.subject}}</h4>
+            <p>{{answer.questionContent}}</p>
+        </div>  
+    </div>
+    <hr>
+    <div *ngFor="let answer of answers| async" class="message">
+      
+        <h6>{{answer.answeredUsername}}</h6>
+        <h6>{{answer.answeredTimeStamp}}</h6>
+        <p>{{answer.answerContent}}</p>
+    
+    </div>
+    <div *ngFor="let answer of newAnswers" class="message">
+      
+        <h6>{{username}}</h6>
+        <h6>{{answer.answeredTimeStamp}}</h6>
+        <p>{{answer.answerContent}}</p>
+    
+    </div>
+    <div>
+        <form action="" [formGroup]="answerForm" (ngSubmit)="onSubmit()">
+            <label class="form-lable" for="answerContent">Answer</label>
+            <input type="text" class="form-control" [formControlName]="'answerContent'">
+            <br>
+            <button type="submit" class="btn btn-light">send Answer</button>
+        </form>
+    </div>
+</div>

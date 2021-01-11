@@ -8,11 +8,14 @@ import {DomSanitizer} from '@angular/platform-browser'
 import { AuthService } from '../auth/auth.service';
 import { LocalStorageService } from 'ngx-webstorage';
 import { rejects } from 'assert';
+import {InquiryPayload} from './inquiry-payload';
+import {DatePipe} from '@angular/common'; 
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
+  providers:[DatePipe]
 })
 export class HomeComponent implements OnInit {
 
@@ -35,7 +38,11 @@ export class HomeComponent implements OnInit {
   replyMyitems:String;
   successfullySentReply:String;
 
-  constructor(private formBuilder: FormBuilder, private itemService:ItemService , private router:Router, private localStorageService:LocalStorageService) { 
+  newlySentInquiries:Array<InquiryPayload>=[];
+  newlySentReplies:Array<InquiryPayload>=[];
+  inquiryPayload:InquiryPayload;
+
+  constructor(private formBuilder: FormBuilder, private itemService:ItemService , private router:Router, private localStorageService:LocalStorageService, private datePipe:DatePipe) { 
 
     this.addItemForm = this.formBuilder.group({
       itemName:['',Validators.required],
@@ -69,8 +76,16 @@ export class HomeComponent implements OnInit {
     this.replyInWishlist='';
     this.sendTo='';
     this.replyMyitems='';
-    
+    this.inquiryPayload={
+      from:'',
+      to:'',
+      itemId:0,
+      message:'',
+      timeStamp:''
+
+    }  
   }
+  
 
   ngOnInit(): void {
    this.myItems=this.itemService.getMyItems();
@@ -131,10 +146,18 @@ export class HomeComponent implements OnInit {
      if(this.replyInWishlist!=''){
       message="[ "+this.replyInWishlist+"]  "+message;
      }
-     
-    this.itemService.sendInquiry(itemId,message).subscribe(data=>{
+
+    this.inquiryPayload.message=message;
+    this.inquiryPayload.itemId=itemId;
+    this.inquiryPayload.from='';
+    this.inquiryPayload.to=this.sendTo;
+    this.inquiryPayload.timeStamp=this.datePipe.transform(new Date(),'yyyy mm dd, HH:MM:ss');
+
+    let inquiry=Object.assign({},this.inquiryPayload);
+
+    this.itemService.sendInquiry(this.inquiryPayload).subscribe(data=>{
       console.log('success'+itemId);
-      this.inquiries=this.itemService.getInquiries(itemId);
+      this.newlySentInquiries.push(inquiry);
     },error=>{
       console.log('failed');
 
@@ -151,6 +174,8 @@ export class HomeComponent implements OnInit {
     this.replyInWishlist='';
     this.replyMyitems='';
     this.sendTo='';
+    this.newlySentInquiries=[];
+    this.newlySentReplies=[];
     this.successfullySentReply='';
     
   }
@@ -186,12 +211,19 @@ export class HomeComponent implements OnInit {
       if(this.replyMyitems!=''){
       reply="[ "+this.replyMyitems+"]  " + reply;
       }
-      this.itemService.sendReply(itemId,this.sendTo,reply).subscribe(data=>{
-        console.log('successfully replied');
+      this.inquiryPayload.message=reply;
+      this.inquiryPayload.itemId=itemId;
+      this.inquiryPayload.from='';
+      this.inquiryPayload.to=this.sendTo;
+      this.inquiryPayload.timeStamp=this.datePipe.transform(new Date(),'yyyy mm dd, HH:MM:ss');
+      let inquiry=Object.assign({},this.inquiryPayload);
+      
+      this.itemService.sendReply(this.inquiryPayload).subscribe(data=>{
+        this.newlySentReplies.push(inquiry);
         this.sendTo='';
         this.replyMyitems='';
-        this.inquiries=this.itemService.getInquiries(itemId);
-        alert('sending');
+       
+       
       },error=>{
         console.log('replying failed');
       });
@@ -200,6 +232,20 @@ export class HomeComponent implements OnInit {
 
   removeFromWishlist(itemId,element){
     this.itemService.removeFromWishlist(itemId).subscribe(data=>{
+      element.textContent="Removed";
+      element.style.background='lightgreen';
+      console.log('success')
+    },error=>{
+      element.textContent="error";
+      element.style.background='lightred';
+      console.log('failed');
+
+    });
+
+  }
+
+  removeFromMyItems(itemId,element){
+    this.itemService.removeFromMyItems(itemId).subscribe(data=>{
       element.textContent="Removed";
       element.style.background='lightgreen';
       console.log('success')

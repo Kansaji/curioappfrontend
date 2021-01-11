@@ -8,14 +8,16 @@
       <div class="navbar-nav col-md-3" *ngIf="authService.isAuthenticated()">
         <a class="nav-item nav-link flinks " href="/home">Home</a>
         <a class="nav-item nav-link flinks " href="/items">Products</a>
+        <a class="nav-item nav-link flinks " href="/discussionforum">Discussion</a>
       </div>
-    
+      
       <div class="navbar-nav col-md-3">
         <a class="nav-item nav-link loginbtn" href="/login" *ngIf="!authService.isAuthenticated()" >Login</a>     
         <a class="nav-item nav-link signupbtn" href="/register"  *ngIf="!authService.isAuthenticated()" >Sign up</a>
     
         <div class="dropdown mystats" *ngIf="authService.isAuthenticated()">
           <button class="nav-item nav-link user dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="getMyStats()">
+          <img src="assets/person.svg" alt="">
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
             <p>Items posted:{{itemsPosted}} </p>

@@ -1,0 +1,11 @@
+textarea{
+    max-width: 90%;
+}
+
+.question-area{
+    width: 95%;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 5px;
+    border: 2px solid rgb(230, 230, 230);
+}

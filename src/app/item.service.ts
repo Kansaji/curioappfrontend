@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { InquiryPayload } from './home/inquiry-payload';
 import { ItemPaylord } from './home/item-paylord';
 
 @Injectable({
@@ -36,13 +37,8 @@ export class ItemService {
     
   }
 
-  sendInquiry(itemId:number,message:String):Observable<any>{
-    var body={
-      'from':'',
-      'to':'',
-      'itemId':itemId,
-      'message':message};
-    return this.httpClient.post("http://localhost:8080/api/items/makeinquiry",body);  
+  sendInquiry(inquiryPayload:InquiryPayload):Observable<any>{
+    return this.httpClient.post("http://localhost:8080/api/items/makeinquiry",inquiryPayload);  
   }
 
   getInquiries(itemId:number):Observable<any>{
@@ -51,17 +47,17 @@ export class ItemService {
 
   }
 
-  sendReply(itemId:number,sendTo:String,reply:String){
-    var body={
-      'from':'',
-      'to':sendTo,
-      'itemId':itemId,
-      'message':reply};
-      return this.httpClient.post("http://localhost:8080/api/items/reply",body);
+  sendReply(inquiryPayload:InquiryPayload){
+      return this.httpClient.post("http://localhost:8080/api/items/reply",inquiryPayload);
   }
 
   removeFromWishlist(itemId:number):Observable<any>{
     return this.httpClient.post("http://localhost:8080/api/items/removefromwishlist/"+itemId,{});
+  }
+
+  removeFromMyItems(itemId:number):Observable<any>{
+    console.log(itemId);
+    return this.httpClient.post("http://localhost:8080/api/items/removefrommyitems/"+itemId,{});
   }
 
   GeolocationPosition(): Promise<any>{

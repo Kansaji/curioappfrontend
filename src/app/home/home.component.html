@@ -15,8 +15,8 @@
 
  <div class="container">
  <!-- show my items ahow wishlist buttons --> 
-  <button (click)="showMyItems()" class=" home-link btn  btn-lg active"> My items</button>
-  <button (click)="showWishlist()" class="home-link btn  btn-lg active"> Wishlist</button>
+  <button (click)="showMyItems()" class=" btn btn-light "> <img src="assets/box.svg" alt=""> My items</button>
+  <button (click)="showWishlist()" class="btn btn-light"><img src="assets/heart.svg" alt=""> Wishlist</button>
  </div>
 
  <hr>
@@ -25,7 +25,7 @@
  <div *ngIf="myItemsSelected">
   
   <div class="container" >
-    <p>MY ITEMS</p>
+    <h3><img src="assets/box.svg" alt="" width="20px"> My items</h3>
 
     <div class="row">
         
@@ -49,6 +49,10 @@
             <button type="button" class="openconv-btn" data-toggle="modal" attr.data-target="#myitems{{item.itemId}}" (click)="getInquiries(item.itemId)">
               Conversation
             </button>
+              
+            <button type="button" class="removefromwishlist-btn" (click)="removeFromMyItems(item.itemId,$event.target)">
+              Remove
+            </button>
           </div>
 
         </div>
@@ -66,36 +70,39 @@
                 </button>
               </div>
 
-              <div class="modal-body">
+              <div class="modal-body modal-bg">
                 <div *ngFor="let inquiry of inquiries | async">
 
-                  <div class="row">
-
-                    <div class="col-md-6 col-md-offset-1 ">
-                      <div class="receivermessage" *ngIf="inquiry.from!=user">
+                      <div class="message" *ngIf="inquiry.from!=user">
                         <div class="from-to">
-                          <span>{{inquiry.from}} </span>
-                          <button class="mention-btn" (click)="setReplyUser(inquiry.from)">  Reply {{inquiry.from}}</button>
+                          <span>{{inquiry.from}} <span class="date-time">{{inquiry.timeStamp}}</span> </span>
+                          <button class="mention-btn" (click)="setReplyUser(inquiry.from)"> <img src="assets/reply.svg" alt="" class="reply-arrow"> Reply {{inquiry.from}}</button>
                         </div>
                         {{inquiry.message}}
-                        <button class="mention-btn" (click)=" MentionMessageInMyItems(inquiry.from,inquiry.message)">@</button>
+                        <button class="at-btn" (click)=" MentionMessageInMyItems(inquiry.from,inquiry.message)">@</button>
                       </div>
-                    </div>
                     
-                    <div class="col-md-6">
-                      <div class="mymessage container" *ngIf="inquiry.from==user">
+                      <div class="message" *ngIf="inquiry.from==user">
                         <div class="from-to">
-                          <span>From you to {{inquiry.to}} </span>
+                          <span>From you to {{inquiry.to}}<span class="date-time">{{inquiry.timeStamp}}</span> </span>
                         </div>
                         {{inquiry.message}}
-                        <button class="mention-btn" (click)=" MentionMessageInMyItems(inquiry.from,inquiry.message)">@</button>
+                        <button class="at-btn" (click)=" MentionMessageInMyItems(inquiry.from,inquiry.message)">@</button>
                         <br>
                       </div >
-                    </div>
-                  </div>
-
+                    
                 </div>
-              
+
+                      <div *ngFor="let inquiry of newlySentReplies">
+                        <div class="message">
+                          <div class="from-to">
+                            
+                            From you to {{inquiry.to}} <span class="date-time">{{inquiry.timeStamp}}</span>
+                          </div>
+                            {{inquiry.message}}
+                          <button class="at-btn" (click)="MentionMessageInMyItems(user,inquiry.message)">@</button>
+                        </div >
+                      </div>
                 <!--<div class="mymessage container row col-md-6" [innerText]="successfullySentReply" *ngIf="successfullySentReply!=''"></div><br>-->
               </div>
               <!-- my items converstation reply -->     
@@ -228,7 +235,7 @@
   <div *ngIf="wishlistSelected">
     
     <div class="container" >
-      <p>WISHLIST</p>
+      <h3><img src="assets/heart.svg" alt="" width="20px"> Wishlist</h3>
       <div class="row">
         
         <div class="col-md-3 " *ngFor="let item of wishlist | async">
@@ -267,36 +274,40 @@
                           <span aria-hidden="true">&times;</span>
                         </button>
                       </div>
-                      <div class="modal-body">
+                      <div class="modal-body modal-bg">
                         
                         <div *ngFor="let inquiry of inquiries | async">
-
-                          <div class="row">
-
-                            <div class="col-md-6 col-md-offset-1">
-                              <div class="receivermessage" *ngIf="inquiry.from!=user">
-                                <div class="from-to">
-                                  <span> </span>
-                                  {{inquiry.from}}
-                                </div>
-                                  {{inquiry.message}}
-                                <button class="mention-btn" (click)="mentionMessageInWishlist(inquiry.from,inquiry.message)">@</button>
-                              </div>
-                            </div>
-                            <div class="col-md-6">
-                              <div class="mymessage container" *ngIf="inquiry.from==user">
-                                <div class="from-to">
-                                  <span> </span>
-                                  {{inquiry.from}}
-                                </div>
-                                  {{inquiry.message}}
-                                <button class="mention-btn" (click)="mentionMessageInWishlist(inquiry.from,inquiry.message)">@</button>
-                              </div >
-                            </div>
-                            <br><br>
-
-                          </div>
+                         
                             
+                              <div class="message" *ngIf="inquiry.from!=user">
+                                <div class="from-to">
+                                  
+                                  {{inquiry.from}} <span class="date-time">{{inquiry.timeStamp}}</span>
+                                </div>
+                                  {{inquiry.message}}
+                                <button class="at-btn" (click)="mentionMessageInWishlist(inquiry.from,inquiry.message)">@</button>
+                              </div>
+                           
+                              
+                              <div class="message" *ngIf="inquiry.from==user">
+                                <div class="from-to">
+                                  You <span class="date-time">{{inquiry.timeStamp}}</span>
+                                </div>
+                                  {{inquiry.message}}
+                                <button class="at-btn" (click)="mentionMessageInWishlist(inquiry.from,inquiry.message)">@</button>
+                              </div >
+                            
+                        </div>
+                        
+                          <div *ngFor="let inquiry of newlySentInquiries">
+                            <div class="message ">
+                              <div class="from-to">
+                                <span> </span>
+                                You <span class="date-time">{{inquiry.timeStamp}}</span>
+                              </div>
+                                {{inquiry.message}}
+                              <button class="at-btn" (click)="mentionMessageInWishlist(user,inquiry.message)">@</button>
+                            </div >
                         </div>
 
                           <!--<div class="mymessage container row col-md-6" [innerText]="successfullySentMsg" *ngIf="successfullySentMsg!=''"></div><br>-->

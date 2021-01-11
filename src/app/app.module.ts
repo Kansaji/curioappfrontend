@@ -15,6 +15,9 @@ import { HomeComponent } from './home/home.component';
 import { HttpClientInterseptor } from './http-client-interceptor';
 import { ItemsComponent } from './items/items.component';
 import { AuthGuard } from './auth.guard';
+import { ForumComponent } from './forum/forum.component';
+import { MythreadComponent } from './mythread/mythread.component';
+import { MembersthreadsComponent } from './membersthreads/membersthreads.component';
 
 
 @NgModule({
@@ -25,7 +28,10 @@ import { AuthGuard } from './auth.guard';
     LoginComponent,
     RegisterSuccessComponent,
     HomeComponent,
-    ItemsComponent
+    ItemsComponent,
+    ForumComponent,
+    MythreadComponent,
+    MembersthreadsComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +45,11 @@ import { AuthGuard } from './auth.guard';
       {path:'login',component: LoginComponent},
       {path:'register-success',component: RegisterSuccessComponent, canActivate:[AuthGuard]},
       {path:'home',component: HomeComponent, canActivate:[AuthGuard]},
-      {path:'items',component: ItemsComponent, canActivate:[AuthGuard]}
+      {path:'items',component: ItemsComponent, canActivate:[AuthGuard]},
+      {path:'items',component: ItemsComponent, canActivate:[AuthGuard]},
+      {path:'discussionforum',component: ForumComponent,canActivate:[AuthGuard]},
+      {path:'mythread/:id',component: MythreadComponent, canActivate:[AuthGuard]},
+      {path:'membersthreads/:id',component: MembersthreadsComponent, canActivate:[AuthGuard]},
     ])
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: HttpClientInterseptor, multi:true}],
