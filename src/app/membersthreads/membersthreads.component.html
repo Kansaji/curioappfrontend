@@ -12,25 +12,88 @@
     </div>
     <hr>
     <div *ngFor="let answer of answers| async" class="message">
-      
+      <div *ngIf="answer.answeredTimeStamp!=''">
         <h6>{{answer.answeredUsername}}</h6>
-        <h6>{{answer.answeredTimeStamp}}</h6>
+        <div class="date-time">answered on {{answer.answeredTimeStamp}}</div>
         <p>{{answer.answerContent}}</p>
+
+        
+            <button class="comment-btn" data-toggle="modal" attr.data-target="#replymodal{{answer.answerId}}" (click)="getAnswerReplies(answer.answerId)">
+                {{answer.numOfReplies}} comments
+            </button>
+           
+        
+
+           
+          
+            
+            <!-- Modal -->
+            <div class="modal fade" id="replymodal{{answer.answerId}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">comments</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div class="modal-body">
+                        <div *ngFor="let answerReply of answerReplies|async">
+                            <h6>{{answerReply.answerReplyUsername}}</h6>
+                            <div class="date-time">{{answerReply.answerReplyTimeStamp}}</div>
+                            <div>
+                                <p>{{answerReply.answerReplyContent}}</p>
+                            </div>
+                            <hr>
+                        </div>
+
+                        <div *ngFor="let newAnswerReply of newAnswerReplies">
+                            <h6>{{username}}</h6>
+                            <div  class="date-time">{{newAnswerReply.answerReplyTimeStamp}}</div>
+                            <div>
+                                <p>{{newAnswerReply.answerReplyContent}}</p>
+                            </div>
+                            <hr>
+                        </div>
+
+
+                        <div class="">
+                            <div class="card card-body">
+                                <form action="" [formGroup]="answerReplyForm" (ngSubmit)="onReply(answer.answerId)"> 
+                                    <textarea name="" id="" cols="30" rows="3" class="form-control" placeholder="comment.." [formControlName]="'answerReplyContent'"></textarea>
+                                    <button type="submit" class="btn btn-light"> send</button>
+                                </form>
+                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                       
+                    </div>
+                </div>
+                </div>
+            </div>
+
+
+    </div>
+       
     
     </div>
+    <h3>Post your answer</h3>
     <div *ngFor="let answer of newAnswers" class="message">
       
         <h6>{{username}}</h6>
-        <h6>{{answer.answeredTimeStamp}}</h6>
+        <div class="date-time">answered on {{answer.answeredTimeStamp}}</div>
         <p>{{answer.answerContent}}</p>
     
     </div>
     <div>
         <form action="" [formGroup]="answerForm" (ngSubmit)="onSubmit()">
-            <label class="form-lable" for="answerContent">Answer</label>
-            <input type="text" class="form-control" [formControlName]="'answerContent'">
+        
+            <textarea name="" id="" cols="30" rows="4" class="form-control" [formControlName]="'answerContent'" placeholder="Type your answer.."></textarea>
             <br>
             <button type="submit" class="btn btn-light">send Answer</button>
         </form>
     </div>
 </div>
+

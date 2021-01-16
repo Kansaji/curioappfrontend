@@ -4,4 +4,5 @@ export class QuestionPayload{
 	questionContent:String;
 	questionedTimeStamp:String;
 	askedUsername:String;
+	numOfAnswers:number;
 }

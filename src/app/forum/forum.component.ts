@@ -4,11 +4,13 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { ForumService } from '../forum.service';
 import { QuestionPayload } from './question-payload';
+import {DatePipe} from '@angular/common'; 
 
 @Component({
   selector: 'app-forum',
   templateUrl: './forum.component.html',
-  styleUrls: ['./forum.component.css']
+  styleUrls: ['./forum.component.css'],
+  providers:[DatePipe]
 })
 export class ForumComponent implements OnInit {
 
@@ -20,7 +22,7 @@ export class ForumComponent implements OnInit {
 
   myQuestions:Observable<Array<QuestionPayload>>;
   allQuestions:Observable<Array<QuestionPayload>>;
-  constructor(private formBuilder:FormBuilder, private forumService:ForumService, private router:Router) {
+  constructor(private formBuilder:FormBuilder, private forumService:ForumService, private router:Router, private datePipe:DatePipe) {
 
     this.askQuestionForm=this.formBuilder.group({
       questionContent:['',Validators.required],
@@ -32,7 +34,8 @@ export class ForumComponent implements OnInit {
     subject:'',
     questionContent:'',
     questionedTimeStamp:'',
-    askedUsername:''
+    askedUsername:'',
+    numOfAnswers:0
    };
    }
 
@@ -46,6 +49,7 @@ export class ForumComponent implements OnInit {
 
       this.questionPayload.questionContent=this.askQuestionForm.get('questionContent').value;
       this.questionPayload.subject=this.askQuestionForm.get('subject').value;
+      this.questionPayload.questionedTimeStamp=this.datePipe.transform(new Date(),'yyyy MM dd, HH:mm:ss');
       this.forumService.postQuestion(this.questionPayload).subscribe(data=>{
         console.log('question post success');
         this.questionPosted=true;

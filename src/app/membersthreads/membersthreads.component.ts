@@ -5,11 +5,14 @@ import { LocalStorageService } from 'ngx-webstorage';
 import { Observable } from 'rxjs';
 import { ForumService } from '../forum.service';
 import { AnswerPayload } from '../forum/answer-payload';
+import {DatePipe} from '@angular/common'; 
+import { AnswerReplyPayload } from '../forum/answerReply-payload';
 
 @Component({
   selector: 'app-membersthreads',
   templateUrl: './membersthreads.component.html',
-  styleUrls: ['./membersthreads.component.css']
+  styleUrls: ['./membersthreads.component.css'],
+  providers:[DatePipe]
 })
 export class MembersthreadsComponent implements OnInit {
 
@@ -18,11 +21,19 @@ export class MembersthreadsComponent implements OnInit {
   answerPayload:AnswerPayload;
   newAnswers:Array<AnswerPayload>=[];
   username:String;
+  answerReplyForm:FormGroup;
+  answerReplyPayload:AnswerReplyPayload;
+  newAnswerReplies:Array<AnswerReplyPayload>=[];
+  answerReplies:Observable<Array<AnswerReplyPayload>>;
 
-  constructor(private route:ActivatedRoute, private forumService:ForumService, private formBuilder:FormBuilder, private localStorageService:LocalStorageService) { 
+  constructor(private route:ActivatedRoute, private forumService:ForumService, private formBuilder:FormBuilder, private localStorageService:LocalStorageService, private datePipe:DatePipe) { 
     this.answerForm=this.formBuilder.group({
       answerContent:['',Validators.required]
     });
+
+    this.answerReplyForm=this.formBuilder.group({
+      answerReplyContent:'',
+    })
 
     this.answerPayload={
       answerId:0,
@@ -31,8 +42,20 @@ export class MembersthreadsComponent implements OnInit {
       answeredUsername:'',
       questionId:0,
       questionContent:'',
-      subject:''
+      subject:'',
+      numOfReplies:0
     }
+
+    this.answerReplyPayload={
+      answerReplyId:0,
+      answerReplyContent:'',
+      answerReplyTimeStamp:'',
+      answerId:0,
+      answerReplyUsername:''
+    }
+   
+
+
     this.username=this.localStorageService.retrieve('username');
   }
 
@@ -49,6 +72,7 @@ export class MembersthreadsComponent implements OnInit {
     if(this.answerForm.get('answerContent').value!=''){
       this.answerPayload.answerContent=this.answerForm.get('answerContent').value;
       this.answerPayload.questionId=this.permalink;
+      this.answerPayload.answeredTimeStamp=this.datePipe.transform(new Date(),'yyyy MM dd, HH:mm:ss');
       let answer=Object.assign({},this.answerPayload);
      
         
@@ -62,5 +86,34 @@ export class MembersthreadsComponent implements OnInit {
     }
   }
   
+  onReply(answerId:number){
+    if(this.answerReplyForm.get('answerReplyContent').value!=''){
+      
+      this.answerReplyPayload.answerId=answerId;
+      this.answerReplyPayload.answerReplyContent=this.answerReplyForm.get('answerReplyContent').value;
+      this.answerReplyPayload.answerReplyId=0;
+      this.answerReplyPayload.answerReplyTimeStamp=this.datePipe.transform(new Date(),'yyyy MM dd, HH:mm:ss');
+      this.answerReplyPayload.answerReplyUsername='';
+      let answerReply=Object.assign({},this.answerReplyPayload);
 
+      this.forumService.postAnswerReply(this.answerReplyPayload).subscribe(data=>{
+        this.newAnswerReplies.push(answerReply);
+        console.log('successfully replied');
+      },error=>{
+        
+      });
+      
+    }
+  }
+
+  getAnswerReplies(answerId:number){
+    this.answerReplies=this.forumService.getAnswerReplies(answerId);
+    this.newAnswerReplies=[];
+
+  }
+
+  clearNewlySentanswerReplies(){
+    this.newAnswerReplies=[];
+
+  }
 }

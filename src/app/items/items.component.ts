@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ItemService } from '../item.service';
 import { ItemPaylord } from '../home/item-paylord';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-items',
@@ -17,10 +17,16 @@ export class ItemsComponent implements OnInit {
   goClicked:boolean=false;
   locationAllowed:boolean;
   blockedInBrowser:boolean=false;
+  searchForm:FormGroup;
 
   constructor(private itemService: ItemService, private formBuilder:FormBuilder) { 
     this.distanceForm = this.formBuilder.group({
       distance:['100'] 
+    });
+
+    this.searchForm=this.formBuilder.group({
+      searchBy:['',Validators.required],
+      search:['',Validators.required]
     });
 
     this.itemService.GeolocationPosition().then(pos=>{
@@ -44,7 +50,7 @@ export class ItemsComponent implements OnInit {
       x => {
         this.goClicked=false;
         if (x<100){
-        this.distance="users with in "+ this.distanceForm.get('distance').value+" km distance from your location"
+        this.distance=this.distanceForm.get('distance').value+"   kms";
       }else if(x>=100){
         this.distance='All users'
       }
@@ -94,5 +100,25 @@ export class ItemsComponent implements OnInit {
       console.log('unlock in browser');
       this.blockedInBrowser=true;
     });
+  }
+
+  onSearch(){
+    var searchBy=this.searchForm.get('searchBy').value;
+    var search=this.searchForm.get('search').value;
+    var distanceValue=this.distanceForm.get('distance').value;
+   
+    if(searchBy==='username'){
+     
+      this.allItems=this.itemService.getItemsByUsername(distanceValue,search);
+    }
+    if(searchBy==='type'){
+      this.allItems=this.itemService.getItemsByType(distanceValue,search);
+    }
+    if(searchBy==='itemName'){
+      this.allItems=this.itemService.getItemsByItemName(distanceValue,search);
+    }
+    if(searchBy==='all'){
+      this.allItems=this.itemService.getAllItems(distanceValue);
+    }
   }
 }

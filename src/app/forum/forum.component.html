@@ -4,13 +4,10 @@
     <button class="btn btn-light " (click)="  selectThreads()"><img src="assets/people.svg" alt=""> Community</button>
 </div>
 <br><br><br>
-
+ <!--my questions-->
 <div class="container" *ngIf="myQuestionSelected">
     
-    <!-- Button trigger modal -->
-    
-    
-    <!-- Modal -->
+    <!-- ansk question Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
         <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -56,19 +53,30 @@
 
     <!--go to my questions-->
     <h3><img src="assets/question.svg" alt="" width="20px"> My questions</h3>
+    <br>
+     <!--ask question button-->
     <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal">
         Ask Question
     </button>
     <div>
         <hr>
-        <div class="row question-area" *ngFor="let myQuestion of myQuestions | async">
-            <h6>
-                {{myQuestion.subject}}
-                {{myQuestion.questionedTimeStamp}}
-                <a type="button" class="btn btn-outline-secondary"  href="/mythread/{{myQuestion.questionId}}"> View more</a>
-            </h6>
-            <br>
-            <hr>
+        <div class="row" >
+            <div class="col-md-3" *ngFor="let myQuestion of myQuestions | async">
+                <div class="question-area">
+                    <div class="date-time">
+                        posted on {{myQuestion.questionedTimeStamp}}
+                    </div>
+                    <h6>
+                        {{myQuestion.subject |slice:0:20}}
+                    </h6>
+                    <br>
+                    <p>
+                        {{myQuestion.questionContent|slice:0:30}}
+                    </p>
+                    <a type="button" class="comment-btn"  href="/mythread/{{myQuestion.questionId}}"> View   {{myQuestion.numOfAnswers}} answers</a>
+                </div>
+                
+            </div>
         </div>
     </div>
     
@@ -76,24 +84,34 @@
 
 
 
-
+<!--community-->
 <div class="container" *ngIf="threadsSelected">
     <h3><img src="assets/people.svg" alt="" width="20px"> Community</h3>
     <div>
         <hr>
-        <div class="row question-area" *ngFor="let Question of allQuestions | async">
-            <div><h6> {{Question.askedUsername}}</h6>
+        <div class="row " >
+            <div class="col-md-3 " *ngFor="let question of allQuestions | async">
+                <div class="question-area">
+                    <div>
+                        <h6> <img src="assets/person.svg" alt=""> Aksed by {{question.askedUsername}}</h6>
+                    </div>
+                    <div class="date-time">
+                        posted on {{question.questionedTimeStamp}}
+                    </div>
+                    <div>
+                    
+                       <h6> {{question.subject |slice:0:20}}</h6>
+                        <br>
+                        <p>
+                            {{question.questionContent |slice:0:30}}
+                        </p>
+                      
+                        <a type="button" class="comment-btn"  href="/membersthreads/{{question.questionId}}"> View   {{question.numOfAnswers}} answers</a>
+                    </div>
+                </div>
             </div>
-            <br><br>
-            <div>
-            <p>
-                {{Question.subject}}
-                {{Question.questionedTimeStamp}}
-                <a type="button" class="btn btn-outline-secondary"  href="/membersthreads/{{Question.questionId}}"> View more</a>
-            </p>
-            </div>
-            <br>
-            <hr>
+            
+            
         </div>
     </div>
 </div>

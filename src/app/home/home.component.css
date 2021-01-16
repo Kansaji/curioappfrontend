@@ -1,57 +1,33 @@
-.banner-box{
+.post-item-modal{
     font-weight: bolder; 
     color: rgb(46, 48, 48);
     float: left;
     padding: 10px;
     
 }
-
 .item-bg{
     width: 70%;
     margin: 10%;
     filter: grayscale(100%);
     opacity: 50%;
 }
-
 a{ 
-    color: rgb(255, 255, 255);
+    color: rgb(146, 145, 145);
     padding: 10px;
     text-decoration: none;
     text-decoration: none;
 }
-
 .ctm-btn{
-    background-image: linear-gradient(to right,#32ff7e 70%,#32ff7e);
+    background-image: linear-gradient(to right,#fe3760 70%,#fe3760);
     color:white;
     border: none;
     border-radius: 20px;
-    margin-right: 10px;
-    margin-top: 20px;
-    margin-left: 27%;
     width: 200px;
     height: 40px;
     font-size: 15px;
     font-weight: bold;
-   
-}
-.ctm-btn2{
-    background:#0be881;
-    border:none;
-    border-radius: 20px;
-    text-align: center;
     outline: none;
-    color: white ;
-    font-weight: bold;
-   
 }
-.ctm-btn2:hover{
-    background:#11cc75;
-    color: white;
-    transition: 0.2s;
-    
-}
-
-
 input,select {
     width: 350px;
     border-top: none;
@@ -61,7 +37,6 @@ input,select {
     overflow-wrap: break-word;
     outline: none;
 }
-
 input:focus,select:focus{
     width: 400px;
     outline: none;
@@ -81,16 +56,11 @@ h2{
 label{
     font-weight: bold;
 }
-
 h6{
     color: #fc0a2f;
     margin: -2px;
 }
-
-
-
 .postitem-area{
-    
     padding: 2%;
     border-radius: 10px;
     box-shadow: 2px 2px 10px #d4cece;
@@ -106,23 +76,7 @@ h6{
     border-left: none;
     border-right: none;
     overflow-wrap: break-word;
-
 }
-
-.ok-btn{
-    background: none;
-    color: rgb(102, 101, 101);
-    border: 2px solid #0be881;
-    border-radius: 30px;
-    margin-top: 20%;
-    width: 100px;
-    height: 40px;
-    font-size: 15px;
-    text-align: center;
-    outline: none;
-    float: right;
-}
-
 .item-img:active,.item-img:focus{
     transform: scale(2);
     transition: 0.2s;
@@ -131,54 +85,19 @@ h6{
     outline: none;
     z-index: 2;
 }
-
-
 .item-img{
     max-width: 100%;
     padding: 2px;
     height: 200px;
     z-index: 1;
-  
 }
- 
- .box{
+.box{
      padding: 3px;
      background-color: transparent;
-     border-radius: 10px;
-     box-shadow: 2px 2px 4px #838181;
- }
-
- .openconv-btn{
-    color: white;
-    background: #0be881;
-    border-radius: 20px;
-    text-align: center;
-    outline: none;
-    border: none;
-    padding: 5pt;
- }
-
- 
- .messagebox{
-     width: 90%;
-     margin: 3%;
- }
- .send-btn{
-    
-    margin-top: 5%;
-    margin-right: 5%;
-    height: 90%;
-    background-color: #0be881;
-    color: white;
-    border-radius: 10px;
-    width: 50px;
-    height: 50px;
-    outline: none;
-    border: none;
-    padding: 3px;
+     border-radius: 5px;
+     box-shadow: 0px 0px 2px #838181;
  }
  .from-to{
-    
      font-size: smaller;
      border-radius: 10px;
      margin: 3px;
@@ -194,20 +113,7 @@ h6{
      margin-right: 20px;
     
  }
- 
- .mention-btn{
-     outline: none;  
-     border-radius: 5px;
-     border: 2px solid rgb(97, 210, 255);
-     padding: 5px;
-     font-weight: bold;
-     font-size: smaller;
-     background: none;
-     color: rgb(97, 210, 255);
-    
- }
- 
- .at-btn{
+.at-btn{
     color: rgb(97, 210, 255);
     background: none;
     outline: none;
@@ -224,7 +130,6 @@ h6{
     font-weight: bold;
     width: 30%;
     box-shadow: 2px 4px 10px #817f7f;
-    
 }
 .reply-area-err{
     outline: none;  
@@ -240,16 +145,6 @@ h6{
     background-color: rgb(248, 143, 164);
     text-align: center;
 }
-textarea{
-    outline: none;  
-    border-radius: 15px;
-    border: 2px solid rgb(95, 92, 92);
-    padding: 5px;
-    margin-left: 10px;
-    font-size: smaller;
-    font-weight: bold;
-    width: 100%;
-}
 .mention-area{
     outline: none;  
     border-radius: 5px;
@@ -262,7 +157,6 @@ textarea{
     box-shadow: 2px 4px 10px #817f7f;
   
 }
-
 .mention-close-btn{
     outline: none;  
     border-radius: 50%;
@@ -276,28 +170,28 @@ textarea{
     right: 20px;
     box-shadow: 2px 4px 10px #817f7f;
 }
-.removefromwishlist-btn{
-    color: white;
-    background-image: linear-gradient(to right,#fed330 30%, #fed330);
-    border-radius: 20px;
-    text-align: center;
-    outline: none;
-    border: none;
-    padding: 5pt;
-    margin-left: 3px;
-}
-
 .modal-bg{
     background-color: rgb(241, 239, 239);
-    
 }
-
 .date-time{
     color: rgb(138, 135, 135);
     font-size: x-small;
     margin-left: 5px;
     margin-right: 20px;
 }
-.reply-arrow{
-    color:rgb(97, 210, 255);
+.reply-btn{
+    border-radius: 20px;
+    outline: none;
+    border: 2px solid #0fbcf9;
+    color: #0fbcf9;
+    background: transparent;
+    padding: 5px;
+    font-size: smaller;
+    font-weight: bold;
+}
+.reply-btn:hover{
+    color:white;
+    background:#0fbcf9;
+    transition: 0.2s;
+  
 }

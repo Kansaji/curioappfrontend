@@ -1,13 +1,32 @@
 <br>
-
+<br>
+<br>
 <div class="container">
   <div class="row">
-      <div class="col-md-12">
-        <p>
-        <button type="button" class="btn btn-light" id="findNearbyUsers-btn" data-toggle="collapse" data-target="#findNearbyUsers" aria-expanded="false" aria-controls="">
-          <img src="assets/geo.svg" alt=""> Find nearby users.
-       </button>
-        </p>
+      <div class="ml-auto mr-3">
+       
+          <form action="" [formGroup]="searchForm" (ngSubmit)="onSearch()">
+           
+            <label for="cars">Search </label>
+            <select name="" id="" class="search" [formControlName]="'searchBy'">
+              <option value="all">All</option>
+              <option value="username"> By username</option>
+              <option value="type">By item type</option>
+              <option value="itemName">BY item Name</option>
+            
+            </select>
+            <input type="text" class="search " [formControlName]="'search'" placeholder="search..">
+            <button type="submit" class="search-btn"> <img src="assets/search.svg" alt=""></button>
+          </form>
+          <br>
+          <label for="">Set distance to see items from nearby users </label>
+          <button type="button" class="btn btn-light" id="findNearbyUsers-btn" data-toggle="collapse" data-target="#findNearbyUsers" aria-expanded="false" aria-controls="">
+            <img src="assets/geo.svg"  alt="">{{distance}}
+          </button>
+        
+        
+         
+
         <div class="collapse" id="findNearbyUsers">
           <div class="card card-body">
             <form action="" [formGroup]="distanceForm" (ngSubmit)="onSubmit()">
@@ -17,21 +36,24 @@
               <input type="range" name="distance" id="" max="100" min="1"  [formControlName]="'distance'">
               <label for="">All</label>
             
-              <label for="distance" class="distance-display">See items from {{distance}} ? </label>
+      
              
-              <button type="submit" class="go-btn"> Go </button>
+              <button type="submit" class="btn btn-light"> set </button>
               
               
             </form>
             <div class="location-err" *ngIf="!locationAllowed && !blockedInBrowser">
               <p >Allow location for precise results</p>
-              <button class="allow-lct-btn" (click)="allowLocation()">Allow location</button>
+              <button class="btn btn-light" (click)="allowLocation()">Allow location</button>
             </div>
             <div class="location-err" *ngIf="!locationAllowed && blockedInBrowser">
-              <p >Location access is blocked in browser</p>
+              <p >Location access is blocked in browser or no internet </p>
               
             </div>
           </div>
+        </div>
+        <div class="col-md-6">
+
         </div>
       </div>
     
@@ -51,14 +73,18 @@
           </div>
           <div class="">
             <h3>
+              
               {{item.itemName}} 
             </h3>
-            <span class="distance-msg" *ngIf="distance!='All users' && goClicked">{{item.postedUser}} {{item.away| number:'1.1-2'}} km away</span>
+            <div class="distance-msg">
+              posted by {{item.postedUser}}
+            </div>
+            <span class="distance-msg" *ngIf="distance!='All users' && goClicked">{{item.away| number:'1.1-2'}} kms away</span>
             <p> {{item.type}}</p>
             <p> {{item.description}}</p>
           </div>
           <div class="">
-              <button class="wish-list-btn" (click)="addToinquiredItems($event.target,item.itemId)">Add to Wishlist</button>
+              <button class="btn ctm-btn" (click)="addToinquiredItems($event.target,item.itemId)"><img src="assets/heart.svg" alt=""> Add to Wishlist</button>
           </div>
         </div>
         <br>

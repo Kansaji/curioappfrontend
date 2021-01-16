@@ -6,4 +6,5 @@ export class AnswerPayload{
 	questionId:number;
 	questionContent:String;
 	subject:String;
+	numOfReplies:number;
 }

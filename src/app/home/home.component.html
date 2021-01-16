@@ -4,7 +4,7 @@
 
   <div class="row  postitem-area">
     <p class=" col-md-10">Have items to share sell or donate?</p>
-    <button type="button" class="  ctm-btn2 col-md-2" data-toggle="modal" data-target="#exampleModalCenter">
+    <button type="button" class="  ctm-btn col-md-2" data-toggle="modal" data-target="#exampleModalCenter">
       Post Product
     </button>
   </div>
@@ -26,7 +26,7 @@
   
   <div class="container" >
     <h3><img src="assets/box.svg" alt="" width="20px"> My items</h3>
-
+    <br>
     <div class="row">
         
       <div class="col-md-3 " *ngFor="let item of myItems | async">
@@ -46,11 +46,11 @@
 
           <!-- my items converstation button -->
           <div class="">
-            <button type="button" class="openconv-btn" data-toggle="modal" attr.data-target="#myitems{{item.itemId}}" (click)="getInquiries(item.itemId)">
+            <button type="button" class="btn btn-outline-info" data-toggle="modal" attr.data-target="#myitems{{item.itemId}}" (click)="getInquiries(item.itemId)">
               Conversation
             </button>
               
-            <button type="button" class="removefromwishlist-btn" (click)="removeFromMyItems(item.itemId,$event.target)">
+            <button type="button" class="btn btn-outline-danger" (click)="removeFromMyItems(item.itemId,$event.target)">
               Remove
             </button>
           </div>
@@ -76,7 +76,7 @@
                       <div class="message" *ngIf="inquiry.from!=user">
                         <div class="from-to">
                           <span>{{inquiry.from}} <span class="date-time">{{inquiry.timeStamp}}</span> </span>
-                          <button class="mention-btn" (click)="setReplyUser(inquiry.from)"> <img src="assets/reply.svg" alt="" class="reply-arrow"> Reply {{inquiry.from}}</button>
+                          <button class="reply-btn" (click)="setReplyUser(inquiry.from)"> <img src="assets/reply.svg" alt="" class=""> Reply {{inquiry.from}}</button>
                         </div>
                         {{inquiry.message}}
                         <button class="at-btn" (click)=" MentionMessageInMyItems(inquiry.from,inquiry.message)">@</button>
@@ -123,11 +123,11 @@
                   <div class="row">
 
                     <div class="col-md-10 col-md-offset-1">
-                        <textarea  id=""  class="messagebox" name="" required="" [formControlName]="'reply'" placeholder="Type message..."></textarea>
+                        <textarea  id=""  class="form-control" name="" required="" [formControlName]="'reply'" placeholder="Type message..."></textarea>
                     </div>
                     
                     <div class="col-md-2">
-                      <button type="submit" class="send-btn">send</button>
+                      <button type="submit" class="btn btn-light">send</button>
                     </div>
 
                   </div>
@@ -165,13 +165,13 @@
              
               <div class="row">
                 <div class="col-md-6 col-md-offset-1"> 
-                  <div class=" banner-box " >
+                  <div class=" post-item-modal" >
               
                     <div *ngIf="isSuccess">
                       <div class="alert" >
                         <h5>{{addItemForm.get('itemName').value}}  is posted successfuly</h5><br>
                         <div> 
-                          <a href="/home" class="ok-btn">OK</a>
+                          <a href="/home" class="btn btn-light">OK</a>
                         </div>         
                       </div>
                     </div>
@@ -206,7 +206,7 @@
                         <span *ngIf="addItemForm.controls.photo.invalid && addItemForm.controls.photo.touched"><h6>!Please select a photo</h6></span>
                       </div>
                       <br>
-                      <button type="submit" class="btn btn-lg btn-block ctm-btn" >POST</button>
+                      <button type="submit" class="btn btn-light" >POST</button>
                     </form>  
                   </div>
               
@@ -236,6 +236,7 @@
     
     <div class="container" >
       <h3><img src="assets/heart.svg" alt="" width="20px"> Wishlist</h3>
+      <br>
       <div class="row">
         
         <div class="col-md-3 " *ngFor="let item of wishlist | async">
@@ -256,11 +257,11 @@
 
             <div class="">
                 <!-- wishlist converation button -->
-                <button type="button" class="openconv-btn" data-toggle="modal" attr.data-target="#mymodal{{item.itemId}}" (click)="getInquiries(item.itemId)">
+                <button type="button" class="btn btn-outline-info" data-toggle="modal" attr.data-target="#mymodal{{item.itemId}}" (click)="getInquiries(item.itemId)">
                   Conversation
                 </button>
 
-                <button type="button" class="removefromwishlist-btn" (click)="removeFromWishlist(item.itemId,$event.target)">
+                <button type="button" class="btn btn-outline-danger" (click)="removeFromWishlist(item.itemId,$event.target)">
                   Remove
                 </button>
 
@@ -325,11 +326,11 @@
                               <div class="col-md-10 col-md-offset-1">
                         
                                
-                                  <textarea  id=""  class="messagebox" name="" required="" [formControlName]="'message'" placeholder="Type message..."></textarea>
+                                  <textarea  id=""  class="form-control" name="" required="" [formControlName]="'message'" placeholder="Type message..."></textarea>
                               </div>
                               
                               <div class="col-md-2">
-                                <button type="submit" class="send-btn">send</button>
+                                <button type="submit" class="btn btn-light">send</button>
                               </div>
                             </div>
                            

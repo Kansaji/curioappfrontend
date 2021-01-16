@@ -8,3 +8,18 @@
        
     
 }
+.date-time{
+    color: rgb(138, 135, 135);
+    font-size: x-small;
+    margin-left: 5px;
+    margin-right: 50px;
+    font-weight: bold;
+}
+.comment-btn{
+    outline: none;
+    color: rgb(45, 129, 238);
+    border: none;
+    border-top: 20px;
+    background-color: transparent;
+    
+}

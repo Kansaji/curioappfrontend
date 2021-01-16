@@ -85,5 +85,17 @@ export class ItemService {
   getMyStats():Observable<any>{
     return this.httpClient.get("http://localhost:8080/api/items/getmystats");
   }
+
+  getItemsByUsername(distanceValue:number,search:String):Observable<Array<ItemPaylord>>{
+    return this.httpClient.get<Array<ItemPaylord>>("http://localhost:8080/api/items/getitemsbyusername/"+distanceValue+"/"+search);
+  }
+
+  getItemsByType(distanceValue:number,search:String):Observable<Array<ItemPaylord>>{
+    return this.httpClient.get<Array<ItemPaylord>>("http://localhost:8080/api/items/getitemsbyitemtype/"+distanceValue+"/"+search);
+  }
+
+  getItemsByItemName(distanceValue:number,search:String):Observable<Array<ItemPaylord>>{
+    return this.httpClient.get<Array<ItemPaylord>>("http://localhost:8080/api/items/getitemsbyitemname/"+distanceValue+"/"+search);
+  }
 }
 

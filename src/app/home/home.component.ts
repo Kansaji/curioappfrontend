@@ -29,14 +29,14 @@ export class HomeComponent implements OnInit {
   myItemsSelected:boolean;
   wishlistSelected:boolean;
   sendInquiryForm: FormGroup;
-  successfullySentMsg:String;
+ 
   inquiries:Observable<Array<any>>;
   user:String;
   replyInWishlist:String;
   sendTo:String;
   sendReplyForm:FormGroup;
   replyMyitems:String;
-  successfullySentReply:String;
+ 
 
   newlySentInquiries:Array<InquiryPayload>=[];
   newlySentReplies:Array<InquiryPayload>=[];
@@ -151,13 +151,14 @@ export class HomeComponent implements OnInit {
     this.inquiryPayload.itemId=itemId;
     this.inquiryPayload.from='';
     this.inquiryPayload.to=this.sendTo;
-    this.inquiryPayload.timeStamp=this.datePipe.transform(new Date(),'yyyy mm dd, HH:MM:ss');
+    this.inquiryPayload.timeStamp=this.datePipe.transform(new Date(),'yyyy MM dd, HH:mm:ss');
 
     let inquiry=Object.assign({},this.inquiryPayload);
 
     this.itemService.sendInquiry(this.inquiryPayload).subscribe(data=>{
       console.log('success'+itemId);
       this.newlySentInquiries.push(inquiry);
+      this.replyInWishlist='';
     },error=>{
       console.log('failed');
 
@@ -169,14 +170,13 @@ export class HomeComponent implements OnInit {
   getInquiries(itemId){
     this.inquiries=this.itemService.getInquiries(itemId);
     console.log(itemId)
-    this.successfullySentMsg="";
     console.log(this.inquiries)
     this.replyInWishlist='';
     this.replyMyitems='';
     this.sendTo='';
     this.newlySentInquiries=[];
     this.newlySentReplies=[];
-    this.successfullySentReply='';
+
     
   }
 
@@ -215,7 +215,7 @@ export class HomeComponent implements OnInit {
       this.inquiryPayload.itemId=itemId;
       this.inquiryPayload.from='';
       this.inquiryPayload.to=this.sendTo;
-      this.inquiryPayload.timeStamp=this.datePipe.transform(new Date(),'yyyy mm dd, HH:MM:ss');
+      this.inquiryPayload.timeStamp=this.datePipe.transform(new Date(),'yyyy MM dd, HH:mm:ss');
       let inquiry=Object.assign({},this.inquiryPayload);
       
       this.itemService.sendReply(this.inquiryPayload).subscribe(data=>{

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AnswerPayload } from './forum/answer-payload';
 import { QuestionPayload } from './forum/question-payload';
+import {AnswerReplyPayload} from './forum/answerReply-payload'
 
 @Injectable({
   providedIn: 'root'
@@ -31,5 +32,14 @@ export class ForumService {
 
   postAnswer(answerPayload:AnswerPayload):Observable<any>{
     return this.httpClient.post("http://localhost:8080/api/discussion/postanswer",answerPayload);
+  }
+
+
+  postAnswerReply(answerReplyPayload:AnswerReplyPayload):Observable<any>{
+    return this.httpClient.post("http://localhost:8080/api/discussion/postanswerreply",answerReplyPayload);
+  }
+
+  getAnswerReplies(answerId:number):Observable<Array<AnswerReplyPayload>>{
+    return this.httpClient.get<Array<AnswerReplyPayload>>("http://localhost:8080/api/discussion/showanswerreplies/"+answerId);
   }
 }
