@@ -18,15 +18,58 @@ a{
     text-decoration: none;
 }
 .ctm-btn{
-    background-image: linear-gradient(to right,#fe3760 70%,#fe3760);
-    color:white;
     border: none;
     border-radius: 20px;
-    width: 200px;
-    height: 40px;
     font-size: 15px;
     font-weight: bold;
     outline: none;
+    color:white;
+    background-image: linear-gradient(to right,#ff6b6b 70%,#ff6b6b);
+    width: 200px;
+    height: 40px;
+}
+.ctm-btn:hover{
+  
+    transition: 0.2s;
+    background-image: linear-gradient(to right,#fc8080 70%,#fc8080);
+}
+.conversation-btn{
+    border: none;
+    border-radius: 20px;
+    font-size: 15px;
+    font-weight: bold;
+    outline: none;
+    color:rgb(155, 151, 151) ;
+    background:transparent;
+    width: 120px;
+    height: 40px;
+}
+.conversation-btn:hover{
+    transition: 0.2s;
+    color: #0be881;
+}
+.remove-btn{
+    border: none;
+    border-radius: 20px;
+    font-size: 15px;
+    font-weight: bold;
+    outline: none;
+    color:rgb(155, 151, 151) ;
+    background:transparent;
+    width: 80px;
+    height: 30px;
+    text-decoration: none;
+    padding: 10px;
+}
+.remove-btn:hover{
+  
+    transition: 0.2s;
+    color: #f86d8b;
+}
+
+
+.landing-img{
+    width: 50%;
 }
 input,select {
     width: 350px;
@@ -62,11 +105,11 @@ h6{
 }
 .postitem-area{
     padding: 2%;
-    border-radius: 10px;
-    box-shadow: 2px 2px 10px #d4cece;
+    border-radius: 5px;
     margin: none;
     font-weight: bold;
-    color: rgb(102, 101, 101);
+    color:rgb(70, 66, 66);
+    box-shadow: 0px 0px 5px #838181;
 }
 .text-area,#type{
     width: 350px;
@@ -194,4 +237,27 @@ h6{
     background:#0fbcf9;
     transition: 0.2s;
   
+}
+.landing-img{
+    margin-left: 500px;
+
+}
+.welcome-msg{
+    position: absolute;
+    color:#fc8080 ;
+    margin-top: 150px;
+   
+}
+.description{
+    justify-content: center;
+    border: 1px solid rgb(226, 220, 220);
+    border-radius: 5px;
+    background: white;
+    text-align: center;
+}
+.distance-msg{
+    font-style: italic;
+    font-size: x-small;
+    font-weight: bold;
+    color: rgb(61, 59, 59);
 }

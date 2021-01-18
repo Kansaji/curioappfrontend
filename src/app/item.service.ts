@@ -97,5 +97,8 @@ export class ItemService {
   getItemsByItemName(distanceValue:number,search:String):Observable<Array<ItemPaylord>>{
     return this.httpClient.get<Array<ItemPaylord>>("http://localhost:8080/api/items/getitemsbyitemname/"+distanceValue+"/"+search);
   }
+  getItemInfo(permalink:number):Observable<Array<ItemPaylord>>{
+    return this.httpClient.get<Array<ItemPaylord>>("http://localhost:8080/api/items/item/"+permalink);
+  }
 }
 

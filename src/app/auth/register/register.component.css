@@ -12,19 +12,21 @@
 }
   
 .ctm-btn{
-    background-image: linear-gradient(to right,#fe3760 70%,#fe3760);
-    color:white;
     border: none;
     border-radius: 20px;
-    margin-right: 10px;
-    margin-top: 20px;
-    margin-left: 27%;
-    width: 200px;
-    height: 40px;
     font-size: 15px;
     font-weight: bold;
-    
-    
+    outline: none;
+    color:white;
+    background-image: linear-gradient(to right,#ff6b6b 70%,#ff6b6b);
+    width: 200px;
+    height: 40px;
+    margin-top: 20px;
+}
+.ctm-btn:hover{
+  
+    transition: 0.2s;
+    background-image: linear-gradient(to right,#fc8080 70%,#fc8080);
 }
 
 input {
@@ -58,14 +60,7 @@ label{
 h6{
     color: #fc0a2f;
 }
-img{
-   
-    width: 64%;
-    margin-top: 3%;
-    position: absolute;
-    margin-left: 28%;
-    
-}
+
 a{
     font-weight: bold;
 }

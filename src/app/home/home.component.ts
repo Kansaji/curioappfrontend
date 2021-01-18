@@ -233,11 +233,12 @@ export class HomeComponent implements OnInit {
   removeFromWishlist(itemId,element){
     this.itemService.removeFromWishlist(itemId).subscribe(data=>{
       element.textContent="Removed";
-      element.style.background='lightgreen';
+      element.style.background='none';
+      element.style.color='#f86d8b';
       console.log('success')
     },error=>{
       element.textContent="error";
-      element.style.background='lightred';
+      element.style.background='none';
       console.log('failed');
 
     });
@@ -247,11 +248,12 @@ export class HomeComponent implements OnInit {
   removeFromMyItems(itemId,element){
     this.itemService.removeFromMyItems(itemId).subscribe(data=>{
       element.textContent="Removed";
-      element.style.background='lightgreen';
+      element.style.background='none';
+      element.style.color='#f86d8b';
       console.log('success')
     },error=>{
       element.textContent="error";
-      element.style.background='lightred';
+      element.style.background='none';
       console.log('failed');
 
     });

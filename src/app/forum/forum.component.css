@@ -25,5 +25,35 @@ textarea{
     background-color: transparent;
     
 }
+.landing-img{
+    width: 650px;
+   
 
+}
+h2{
+    font-weight: bolder;
+}
+.welcome-msg{
+    position: absolute;
+    color:#147096 ;
+    margin-top: 150px;
+    margin-left: 650px;
+   
+}
 
+.ctm-btn{
+    border: none;
+    border-radius: 20px;
+    font-size: 15px;
+    font-weight: bold;
+    outline: none;
+    color:white;
+    background-image: linear-gradient(to right,#147096 70%,#147096);
+    width: 200px;
+    height: 40px;
+}
+.ctm-btn:hover{
+  
+    transition: 0.2s;
+    background-image: linear-gradient(to right,#1981ad 70%,#1981ad);
+}

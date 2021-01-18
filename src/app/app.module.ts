@@ -18,6 +18,7 @@ import { AuthGuard } from './auth.guard';
 import { ForumComponent } from './forum/forum.component';
 import { MythreadComponent } from './mythread/mythread.component';
 import { MembersthreadsComponent } from './membersthreads/membersthreads.component';
+import { ItemComponent } from './item/item.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { MembersthreadsComponent } from './membersthreads/membersthreads.compone
     ItemsComponent,
     ForumComponent,
     MythreadComponent,
-    MembersthreadsComponent
+    MembersthreadsComponent,
+    ItemComponent
   ],
   imports: [
     BrowserModule,
@@ -50,6 +52,7 @@ import { MembersthreadsComponent } from './membersthreads/membersthreads.compone
       {path:'discussionforum',component: ForumComponent,canActivate:[AuthGuard]},
       {path:'mythread/:id',component: MythreadComponent, canActivate:[AuthGuard]},
       {path:'membersthreads/:id',component: MembersthreadsComponent, canActivate:[AuthGuard]},
+      {path:'item/:id',component: ItemComponent, canActivate:[AuthGuard]}
     ])
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: HttpClientInterseptor, multi:true}],

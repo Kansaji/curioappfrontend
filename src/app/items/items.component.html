@@ -76,15 +76,15 @@
               
               {{item.itemName}} 
             </h3>
-            <div class="distance-msg">
-              posted by {{item.postedUser}}
-            </div>
-            <span class="distance-msg" *ngIf="distance!='All users' && goClicked">{{item.away| number:'1.1-2'}} kms away</span>
+          
+            <span class="distance-msg" *ngIf="distance!='All users' && goClicked">by {{item.postedUser}} {{item.away| number:'1.1-2'}} kms away</span>
             <p> {{item.type}}</p>
-            <p> {{item.description}}</p>
+            
           </div>
           <div class="">
-              <button class="btn ctm-btn" (click)="addToinquiredItems($event.target,item.itemId)"><img src="assets/heart.svg" alt=""> Add to Wishlist</button>
+
+              <a class="view-btn" href="/item/{{item.itemId}}">View</a>
+             
           </div>
         </div>
         <br>

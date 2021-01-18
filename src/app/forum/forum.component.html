@@ -1,5 +1,27 @@
 <br><br>
 <div class="container">
+    <div>
+        <div class="welcome-msg">
+            <br>
+            <h2>DISCUSSION</h2>
+            <p>Post your questions to get answers from other members </p>
+            <p>and share your thoughts on parenting.</p>
+            <p>get help and help others.</p>
+
+                    <!--ask question button-->
+            <button type="button" class="btn ctm-btn" data-toggle="modal" data-target="#exampleModal">
+                Ask a Question
+            </button>
+         </div>
+        <img class="landing-img" src="assets/discussion.jpg" alt="">
+    </div>
+</div>
+    
+
+
+
+
+<div class="container">
     <button class="btn btn-light " (click)=" selectMyQuestion()"> <img src="assets/question.svg" alt=""> My Questions</button>
     <button class="btn btn-light " (click)="  selectThreads()"><img src="assets/people.svg" alt=""> Community</button>
 </div>
@@ -54,10 +76,7 @@
     <!--go to my questions-->
     <h3><img src="assets/question.svg" alt="" width="20px"> My questions</h3>
     <br>
-     <!--ask question button-->
-    <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal">
-        Ask Question
-    </button>
+   
     <div>
         <hr>
         <div class="row" >

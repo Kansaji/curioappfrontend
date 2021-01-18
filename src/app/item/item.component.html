@@ -1,0 +1,51 @@
+<br>
+<br>
+<div class="container">
+    <div class="row" *ngFor="let item of items | slice:0:1">
+        <div class="col-md-8">
+            <img src="{{'data:image/jpg;base64,'+ item.photo}}" class="item-img"  alt="" tabindex="0">
+        </div>
+        <div class="col-md-4">
+            <h2>{{item.itemName}}</h2>
+            <div class="distance-msg">
+                posted by {{item.postedUser}}
+            </div>
+            <p> {{item.type}}</p>
+            <p>{{item.description}}</p>
+            <br>
+            <button class="addtowishlist-btn" (click)="addToinquiredItems($event.target,item.itemId)">Add to Wishlist</button>
+        </div>
+       
+    </div>
+</div>
+<br><br><br><br>
+
+<div class="container" >
+    <h4 *ngIf="items?.length > 1">You might also like</h4>
+    <br>
+    <div class="row">
+      
+      <div class="col-md-3 " *ngFor="let item of items |  slice:1:5">
+        <div class="box">
+          <div class="">
+            <img src="{{'data:image/jpg;base64,'+ item.photo}}" class="item-img"  alt="" tabindex="0">
+          </div>
+          <div class="">
+            <h3>
+              
+              {{item.itemName}} 
+            </h3>
+            <p> {{item.type}}</p>
+          </div>
+          <div class="">
+              <a class="view-btn" href="/item/{{item.itemId}}">View more</a>
+          </div>
+        </div>
+        <br>
+        </div> 
+     
+      
+    </div>
+   
+  </div>
+

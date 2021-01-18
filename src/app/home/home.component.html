@@ -1,13 +1,23 @@
 <!-- post item button -->
-<br><br>
+<br>
 <div class="container">
-
-  <div class="row  postitem-area">
-    <p class=" col-md-10">Have items to share sell or donate?</p>
-    <button type="button" class="  ctm-btn col-md-2" data-toggle="modal" data-target="#exampleModalCenter">
-      Post Product
-    </button>
-  </div>
+ 
+ 
+    <div class="">
+      <div class="welcome-msg">
+        <br>
+        <h2>WELCOME BACK</h2>
+        <p>Have anything to share sell or donate?</p>
+        <p>Post your used kids' toys and gear to find if anyone is interested </p>
+        <p>in buying or exchanging.</p>
+        <button type="button" class="ctm-btn " data-toggle="modal" data-target="#exampleModalCenter">
+          Post Product
+        </button>
+      </div>
+      <img class=" landing-img"src="assets/swap.jpg" alt="">
+     
+    </div>
+  
 
 </div>
  
@@ -46,11 +56,11 @@
 
           <!-- my items converstation button -->
           <div class="">
-            <button type="button" class="btn btn-outline-info" data-toggle="modal" attr.data-target="#myitems{{item.itemId}}" (click)="getInquiries(item.itemId)">
+            <button type="button" class="conversation-btn" data-toggle="modal" attr.data-target="#myitems{{item.itemId}}" (click)="getInquiries(item.itemId)">
               Conversation
             </button>
               
-            <button type="button" class="btn btn-outline-danger" (click)="removeFromMyItems(item.itemId,$event.target)">
+            <button type="button" class="remove-btn" (click)="removeFromMyItems(item.itemId,$event.target)">
               Remove
             </button>
           </div>
@@ -71,6 +81,18 @@
               </div>
 
               <div class="modal-body modal-bg">
+                
+                <div class="description">
+                  <h3>
+                    {{item.itemName}}
+                  </h3>
+                
+                  <p> {{item.type}}</p>
+                  
+                  <p> {{item.description}}</p>
+                </div>
+        
+                
                 <div *ngFor="let inquiry of inquiries | async">
 
                       <div class="message" *ngIf="inquiry.from!=user">
@@ -196,13 +218,14 @@
                      <br>
                       <div>
                         <label>Description</label> <br> 
-                        <input type="text" class="text-area" name="" required="" [formControlName]="'description'" placeholder="Enter a description of item here">
+                        <textarea  class="text-area" name="" id="" cols="30" rows="10"  [formControlName]="'description'" placeholder="Enter a description of item here"></textarea>
+                       
                         <span *ngIf="addItemForm.controls.description.invalid && addItemForm.controls.description.touched"><h6>!Please enter an item description</h6></span>
                       </div>
                       <br>
                       <div>
                         <label>Photo</label> <br> 
-                        <input type="file" class="text-area" name="" required="" [formControlName]="'photo'" (change)="onFileChange($event)">
+                        <input type="file" class="" name="" required="" [formControlName]="'photo'" (change)="onFileChange($event)">
                         <span *ngIf="addItemForm.controls.photo.invalid && addItemForm.controls.photo.touched"><h6>!Please select a photo</h6></span>
                       </div>
                       <br>
@@ -252,16 +275,15 @@
                 {{item.itemName}}
               </h3>
               <p> {{item.type}}</p>
-              <p> {{item.description}}</p>
             </div>
 
             <div class="">
                 <!-- wishlist converation button -->
-                <button type="button" class="btn btn-outline-info" data-toggle="modal" attr.data-target="#mymodal{{item.itemId}}" (click)="getInquiries(item.itemId)">
+                <button type="button" class="conversation-btn" data-toggle="modal" attr.data-target="#mymodal{{item.itemId}}" (click)="getInquiries(item.itemId)">
                   Conversation
                 </button>
 
-                <button type="button" class="btn btn-outline-danger" (click)="removeFromWishlist(item.itemId,$event.target)">
+                <button type="button" class="remove-btn" (click)="removeFromWishlist(item.itemId,$event.target)">
                   Remove
                 </button>
 
@@ -276,7 +298,20 @@
                         </button>
                       </div>
                       <div class="modal-body modal-bg">
+
+                        <div class="description">
+                          <h3>
+                            {{item.itemName}}
+                          </h3>
+                          <div class="distance-msg">
+                            posted by {{item.postedUser}}
+                          </div>
                         
+                          <p> {{item.type}}</p>
+                          
+                          <p> {{item.description}}</p>
+                        </div>
+
                         <div *ngFor="let inquiry of inquiries | async">
                          
                             
