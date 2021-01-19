@@ -26,7 +26,7 @@ textarea{
     
 }
 .landing-img{
-    width: 650px;
+    width: 80%;
    
 
 }
@@ -34,10 +34,10 @@ h2{
     font-weight: bolder;
 }
 .welcome-msg{
-    position: absolute;
+    
     color:#147096 ;
-    margin-top: 150px;
-    margin-left: 650px;
+   
+  
    
 }
 
@@ -56,4 +56,20 @@ h2{
   
     transition: 0.2s;
     background-image: linear-gradient(to right,#1981ad 70%,#1981ad);
+}
+.search{
+    border: 2px solid #1981ad;
+    border-radius: 20px;
+    margin-right: 10px;
+    outline: none;
+    padding: 5px ;
+    margin-bottom: 2px;
+    width: 70%;
+}
+.search-btn{
+    outline: none;
+    border: none;
+    background-color: transparent;
+   
+    
 }

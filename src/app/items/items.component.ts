@@ -120,5 +120,8 @@ export class ItemsComponent implements OnInit {
     if(searchBy==='all'){
       this.allItems=this.itemService.getAllItems(distanceValue);
     }
+    if(searchBy===''){
+      this.allItems=this.itemService.getAllItems(distanceValue);
+    }
   }
 }

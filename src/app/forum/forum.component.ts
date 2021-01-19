@@ -19,9 +19,10 @@ export class ForumComponent implements OnInit {
   myQuestionSelected:boolean=true;
   threadsSelected=false;
   questionPosted:boolean=false;
-
+  searchQuestionForm:FormGroup;
   myQuestions:Observable<Array<QuestionPayload>>;
   allQuestions:Observable<Array<QuestionPayload>>;
+
   constructor(private formBuilder:FormBuilder, private forumService:ForumService, private router:Router, private datePipe:DatePipe) {
 
     this.askQuestionForm=this.formBuilder.group({
@@ -37,6 +38,23 @@ export class ForumComponent implements OnInit {
     askedUsername:'',
     numOfAnswers:0
    };
+
+   this.searchQuestionForm=this.formBuilder.group({
+     searchTerm:['',Validators.required]
+   })
+
+   this.searchQuestionForm.controls.searchTerm.valueChanges.subscribe(value=>{
+     
+        if(value =='' && this.myQuestionSelected){
+          this.myQuestions=this.forumService.getMyQuestions();
+        }
+        if(value =='' && this.threadsSelected){
+          this.allQuestions=this.forumService.getAllQuestions();
+        }
+     
+   },error=>{
+     
+   })
    }
 
   ngOnInit(): void {
@@ -67,5 +85,15 @@ export class ForumComponent implements OnInit {
     this.myQuestionSelected=false;
     this.threadsSelected=true;
     this.allQuestions=this.forumService.getAllQuestions();
+  }
+
+  search(){
+    var searchTerm=this.searchQuestionForm.get('searchTerm').value;
+    if(this.myQuestionSelected){
+      this.myQuestions=this.forumService.searchQuestions(searchTerm);
+    }
+    if(this.threadsSelected){
+      this.allQuestions=this.forumService.searchQuestions(searchTerm);
+    }
   }
 }

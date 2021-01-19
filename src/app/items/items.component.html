@@ -5,7 +5,7 @@
   <div class="row">
       <div class="ml-auto mr-3">
        
-          <form action="" [formGroup]="searchForm" (ngSubmit)="onSearch()">
+          <form action="" [formGroup]="searchForm" (ngSubmit)="onSearch()" autocomplete="off">
            
             <label for="cars">Search </label>
             <select name="" id="" class="search" [formControlName]="'searchBy'">
@@ -29,7 +29,7 @@
 
         <div class="collapse" id="findNearbyUsers">
           <div class="card card-body">
-            <form action="" [formGroup]="distanceForm" (ngSubmit)="onSubmit()">
+            <form action="" [formGroup]="distanceForm" (ngSubmit)="onSubmit()" autocomplete="off">
               <label for="" class="select-distance-label">Select distance to see products from nearby users</label>
               <br/>
               <label for="">1 km</label>

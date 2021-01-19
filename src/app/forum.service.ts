@@ -42,4 +42,8 @@ export class ForumService {
   getAnswerReplies(answerId:number):Observable<Array<AnswerReplyPayload>>{
     return this.httpClient.get<Array<AnswerReplyPayload>>("http://localhost:8080/api/discussion/showanswerreplies/"+answerId);
   }
+
+  searchQuestions(searchTerm:String):Observable<Array<QuestionPayload>>{
+    return this.httpClient.get<Array<QuestionPayload>>("http://localhost:8080/api/discussion/allquestions/"+searchTerm);
+  }
 }

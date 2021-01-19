@@ -1,31 +1,46 @@
-<br><br>
+<br>
 <div class="container">
-    <div>
-        <div class="welcome-msg">
-            <br>
-            <h2>DISCUSSION</h2>
-            <p>Post your questions to get answers from other members </p>
-            <p>and share your thoughts on parenting.</p>
-            <p>get help and help others.</p>
-
-                    <!--ask question button-->
-            <button type="button" class="btn ctm-btn" data-toggle="modal" data-target="#exampleModal">
-                Ask a Question
-            </button>
+    <div class="row">
+        <div class="col-md-6">
+            <img class="landing-img" src="assets/discussion.jpg" alt="">
          </div>
-        <img class="landing-img" src="assets/discussion.jpg" alt="">
+        <div class="col-md-6">
+            <div class=" welcome-msg">
+                <br>
+                <br>
+                <h2>DISCUSSION</h2>
+                <p>Post your questions to get answers from other members </p>
+                <p>and share your thoughts on parenting.</p>
+                <p>get help and help others.</p>
+    
+                        <!--ask question button-->
+                <button type="button" class="btn ctm-btn" data-toggle="modal" data-target="#exampleModal">
+                    Ask a Question
+                </button>
+             </div>
+        </div>
     </div>
 </div>
-    
 
-
-
-
+<br>
 <div class="container">
+    
     <button class="btn btn-light " (click)=" selectMyQuestion()"> <img src="assets/question.svg" alt=""> My Questions</button>
     <button class="btn btn-light " (click)="  selectThreads()"><img src="assets/people.svg" alt=""> Community</button>
 </div>
-<br><br><br>
+<hr>
+
+<div class="row">
+    <div class="col-md-8"></div>
+<div class="col-md-4">
+    <form action="" [formGroup]="searchQuestionForm" (ngSubmit)="search()">
+        <input type="text" class="search" [formControlName]="'searchTerm'" placeholder="search questions ..">
+        <button type="submit" class="search-btn"> <img src="assets/search.svg" alt=""></button>
+    </form>
+</div>
+</div>
+
+<br>
  <!--my questions-->
 <div class="container" *ngIf="myQuestionSelected">
     
@@ -78,7 +93,7 @@
     <br>
    
     <div>
-        <hr>
+        
         <div class="row" >
             <div class="col-md-3" *ngFor="let myQuestion of myQuestions | async">
                 <div class="question-area">
@@ -107,7 +122,7 @@
 <div class="container" *ngIf="threadsSelected">
     <h3><img src="assets/people.svg" alt="" width="20px"> Community</h3>
     <div>
-        <hr>
+        
         <div class="row " >
             <div class="col-md-3 " *ngFor="let question of allQuestions | async">
                 <div class="question-area">
