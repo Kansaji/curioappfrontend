@@ -8,7 +8,7 @@
     <div class="col-md-6">
 
 
-      <div class="register-success" *ngIf="!registrationSuccessful">
+      <div class="register-success" *ngIf="registrationSuccessful">
         <img src="assets/check-circle.svg" alt=""> 
         <br>
         <p> Account created successfully. Click <a href="/login">here</a> to login</p>
@@ -16,7 +16,7 @@
       </div>
 
 
-      <div class="form-register" *ngIf="registrationSuccessful" >
+      <div class="form-register" *ngIf="!registrationSuccessful" >
         <h2>CREATE  ACCOUNT </h2><br>
         <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
           <div>
