@@ -259,5 +259,14 @@ export class HomeComponent implements OnInit {
     });
 
   }
+
+  reloadInquiries(itemId){
+    this.inquiries=this.itemService.getInquiries(itemId);
+    this.replyInWishlist='';
+    this.replyMyitems='';
+    this.sendTo='';
+    this.newlySentInquiries=[];
+    this.newlySentReplies=[];
+  }
  
 }

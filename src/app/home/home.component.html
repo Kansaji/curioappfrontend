@@ -99,6 +99,7 @@
                   
                   <p> {{item.description}}</p>
                 </div>
+                <div> <button class="btn btn-light" (click)="reloadInquiries(item.itemId)"><img src="assets/arrow-repeat.svg" alt=""></button> </div>
         
                 
                 <div *ngFor="let inquiry of inquiries | async">
@@ -319,7 +320,8 @@
                           
                           <p> {{item.description}}</p>
                         </div>
-
+                        <div> <button class="btn btn-light" (click)="reloadInquiries(item.itemId)"><img src="assets/arrow-repeat.svg" alt=""></button> </div>
+                       
                         <div *ngFor="let inquiry of inquiries | async">
                          
                             

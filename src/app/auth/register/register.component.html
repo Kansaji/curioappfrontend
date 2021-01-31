@@ -1,10 +1,22 @@
 
 <div class="container ">
- 
+
+
+
   <div class="row">
     <div class="col-md-3 col-md-offset-1"></div>
     <div class="col-md-6">
-      <div class="form-register" >
+
+
+      <div class="register-success" *ngIf="!registrationSuccessful">
+        <img src="assets/check-circle.svg" alt=""> 
+        <br>
+        <p> Account created successfully. Click <a href="/login">here</a> to login</p>
+       
+      </div>
+
+
+      <div class="form-register" *ngIf="registrationSuccessful" >
         <h2>CREATE  ACCOUNT </h2><br>
         <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
           <div>

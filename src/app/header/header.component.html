@@ -25,7 +25,7 @@
             <p>Inquiries received:{{inquiriesReveived}} </p>
             <p>items in wishlist:{{itemsInWishlist}}</p>
             
-            <button class="dropdown-item logoutbtn"  *ngIf="authService.isAuthenticated()" (click)="logout()" >Logout</button>
+            <button class="dropdown-item btn btn-light"  *ngIf="authService.isAuthenticated()" (click)="logout()" >{{username}} <img src="assets/dot.svg" alt=""> Logout</button>
           </div>
         </div>
         

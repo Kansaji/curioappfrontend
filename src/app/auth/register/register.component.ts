@@ -15,6 +15,7 @@ export class RegisterComponent implements OnInit {
   registerPaylord: RegisterPaylord;
   usernameTaken:boolean;
   username:string;
+  registrationSuccessful:boolean;
   
 
   constructor(private formBuilder:FormBuilder, private authService:AuthService, private router:Router) {
@@ -40,6 +41,7 @@ export class RegisterComponent implements OnInit {
     }
     this.usernameTaken=false;
     this.username='';
+    this.registrationSuccessful=false;
   }
 
   ngOnInit(): void {
@@ -56,7 +58,7 @@ export class RegisterComponent implements OnInit {
       this.username=this.registerForm.get('username').value;
      
       this.authService.register(this.registerPaylord).subscribe(data=>{
-        this.router.navigateByUrl('/register-success');
+        this.registrationSuccessful=true;
       },error=>{
         console.log('register failed')
         this.usernameTaken=true;

@@ -39,54 +39,57 @@
     </form>
 </div>
 </div>
+<!-- ansk question Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+    <div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Ask Question</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        <div class="modal-body">
+
+           <form action="" [formGroup]="askQuestionForm" (ngSubmit)="onSubmit()" *ngIf="!questionPosted">
+                <br>
+                <div class="mb-3">
+                    <label for="subject" class="form-label">Subject</label>
+                    <input type="text"  class="form-control" [formControlName]="'subject'" placeholder="Enter a brief title">
+                    <h6 *ngIf="askQuestionForm.controls.subject.invalid && askQuestionForm.controls.subject.touched"> !Subject can not be empty</h6>
+                    <br>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="questionContent"  class="form-label">Content</label>
+                    <textarea class="form-control" rows="3" [formControlName]="'questionContent'" placeholder="Type your question here"></textarea>
+                    <h6 *ngIf="askQuestionForm.controls.questionContent.invalid && askQuestionForm.controls.questionContent.touched">!Content can not be empty</h6>
+                    <br>
+                </div>
+
+                <button class="btn btn-light" type="submit">Ask</button>
+            </form>
+        
+            <div *ngIf="questionPosted">
+                <h4>Question Posted</h4>
+               <a class="btn btn-success" href="/discussionforum">OK</a>       
+            </div>
+           
+    
+        </div>
+        <div class="modal-footer">
+        </div>
+    </div>
+    </div>
+</div>
+
+
 
 <br>
  <!--my questions-->
 <div class="container" *ngIf="myQuestionSelected">
     
-    <!-- ansk question Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
-        <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Ask Question</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            </div>
-            <div class="modal-body">
-
-               <form action="" [formGroup]="askQuestionForm" (ngSubmit)="onSubmit()" *ngIf="!questionPosted">
-                    <br>
-                    <div class="mb-3">
-                        <label for="subject" class="form-label">Subject</label>
-                        <input type="text"  class="form-control" [formControlName]="'subject'" placeholder="Enter a brief title">
-                        <h6 *ngIf="askQuestionForm.controls.subject.invalid && askQuestionForm.controls.subject.touched"> !Subject can not be empty</h6>
-                        <br>
-                    </div>
-                    
-                    <div class="mb-3">
-                        <label for="questionContent"  class="form-label">Content</label>
-                        <textarea class="form-control" rows="3" [formControlName]="'questionContent'" placeholder="Type your question here"></textarea>
-                        <h6 *ngIf="askQuestionForm.controls.questionContent.invalid && askQuestionForm.controls.questionContent.touched">!Content can not be empty</h6>
-                        <br>
-                    </div>
-
-                    <button class="btn btn-light" type="submit">Ask</button>
-                </form>
-            
-                <div *ngIf="questionPosted">
-                    <h4>Question Posted</h4>
-                   <a class="btn btn-success" href="/discussionforum">OK</a>       
-                </div>
-               
-        
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
-        </div>
-    </div>
+    
 
     <!--go to my questions-->
     <h3><img src="assets/question.svg" alt="" width="20px"> My questions</h3>

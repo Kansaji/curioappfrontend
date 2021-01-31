@@ -64,3 +64,18 @@ h6{
 a{
     font-weight: bold;
 }
+
+.register-success{
+
+    box-shadow: 0px 0px 2px #c4bdbd;
+    border-radius: 10px;
+    margin-top: 200px;
+    padding: 10px;
+    border: 1px solid rgb(184, 183, 183);
+    text-align: center;
+   
+}
+
+img{
+    width: 20px;
+}
