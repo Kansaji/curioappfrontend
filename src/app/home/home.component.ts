@@ -144,7 +144,7 @@ export class HomeComponent implements OnInit {
    var message=this.sendInquiryForm.get('message').value
    if(message!=""){
      if(this.replyInWishlist!=''){
-      message="[ "+this.replyInWishlist+"]  "+message;
+      message="<b><i>"+this.replyInWishlist+"</i></b><br><hr>"+message;
      }
 
     this.inquiryPayload.message=message;
@@ -209,7 +209,7 @@ export class HomeComponent implements OnInit {
     var reply=this.sendReplyForm.get('reply').value
     if(reply!=''&& this.sendTo!=''){
       if(this.replyMyitems!=''){
-      reply="[ "+this.replyMyitems+"]  " + reply;
+      reply="<b><i>"+this.replyMyitems+"</i></b><br><hr>" + reply;
       }
       this.inquiryPayload.message=reply;
       this.inquiryPayload.itemId=itemId;

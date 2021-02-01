@@ -12,7 +12,7 @@
               <option value="all">All</option>
               <option value="username"> By username</option>
               <option value="type">By item type</option>
-              <option value="itemName">BY item Name</option>
+              <option value="itemName">By item Name</option>
             
             </select>
             <input type="text" class="search " [formControlName]="'search'" placeholder="search..">
@@ -29,7 +29,7 @@
 
         <div class="collapse" id="findNearbyUsers">
           <div class="card card-body">
-            <form action="" [formGroup]="distanceForm" (ngSubmit)="onSubmit()" autocomplete="off">
+            <form action="" [formGroup]="distanceForm"  autocomplete="off">
               <label for="" class="select-distance-label">Select distance to see products from nearby users</label>
               <br/>
               <label for="">1 km</label>
@@ -38,7 +38,7 @@
             
       
              
-              <button type="submit" class="btn btn-light"> set </button>
+              
               
               
             </form>
@@ -77,7 +77,7 @@
               {{item.itemName}} 
             </h3>
           
-            <span class="distance-msg" *ngIf="distance!='All users' && goClicked">by {{item.postedUser}} {{item.away| number:'1.1-2'}} kms away</span>
+            <span class="distance-msg" *ngIf="distance!='All users' && searched">by {{item.postedUser}} {{item.away| number:'1.1-2'}} kms away</span>
             <p> {{item.type}}</p>
             
           </div>

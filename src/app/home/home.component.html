@@ -109,16 +109,22 @@
                           <span>{{inquiry.from}} <span class="date-time">{{inquiry.timeStamp}}</span> </span>
                           <button class="reply-btn" (click)="setReplyUser(inquiry.from)"> <img src="assets/reply.svg" alt="" class=""> Reply {{inquiry.from}}</button>
                         </div>
-                        {{inquiry.message}}
-                        <button class="at-btn" (click)=" MentionMessageInMyItems(inquiry.from,inquiry.message)">@</button>
+                        <div [innerHTML]="inquiry.message">
+
+                        </div>
+                       
+                        <button class="at-btn" (click)=" MentionMessageInMyItems(inquiry.from,inquiry.message)">[quote]</button>
                       </div>
                     
                       <div class="message" *ngIf="inquiry.from==user">
                         <div class="from-to">
                           <span>From you to {{inquiry.to}}<span class="date-time">{{inquiry.timeStamp}}</span> </span>
                         </div>
-                        {{inquiry.message}}
-                        <button class="at-btn" (click)=" MentionMessageInMyItems(inquiry.from,inquiry.message)">@</button>
+                        <div [innerHTML]="inquiry.message">
+
+                        </div>
+                       
+                        <button class="at-btn" (click)=" MentionMessageInMyItems(inquiry.from,inquiry.message)">[quote]</button>
                         <br>
                       </div >
                     
@@ -130,8 +136,11 @@
                             
                             From you to {{inquiry.to}} <span class="date-time">{{inquiry.timeStamp}}</span>
                           </div>
-                            {{inquiry.message}}
-                          <button class="at-btn" (click)="MentionMessageInMyItems(user,inquiry.message)">@</button>
+                          <div [innerHTML]="inquiry.message">
+
+                          </div>
+                         
+                          <button class="at-btn" (click)="MentionMessageInMyItems(user,inquiry.message)">[quote]</button>
                         </div >
                       </div>
                 <!--<div class="mymessage container row col-md-6" [innerText]="successfullySentReply" *ngIf="successfullySentReply!=''"></div><br>-->
@@ -146,10 +155,11 @@
                 </div>
 
                 <div *ngIf="replyMyitems!=''" class="mention-area">
-                  {{replyMyitems}}
+                
+                  <div [innerHTML]="replyMyitems"></div>
                   <button class="mention-close-btn" (click)=" deleteMentionMessageInMyItems()">X</button>
                 </div>
-
+                <br>
                 <form [formGroup]="sendReplyForm" (ngSubmit)="sendReply(item.itemId)">
                   <div class="row">
 
@@ -330,8 +340,11 @@
                                   
                                   {{inquiry.from}} <span class="date-time">{{inquiry.timeStamp}}</span>
                                 </div>
-                                  {{inquiry.message}}
-                                <button class="at-btn" (click)="mentionMessageInWishlist(inquiry.from,inquiry.message)">@</button>
+                                <div [innerHTML]="inquiry.message">
+
+                                </div>
+                               
+                                <button class="at-btn" (click)="mentionMessageInWishlist(inquiry.from,inquiry.message)">[quote]</button>
                               </div>
                            
                               
@@ -339,8 +352,11 @@
                                 <div class="from-to">
                                   You <span class="date-time">{{inquiry.timeStamp}}</span>
                                 </div>
-                                  {{inquiry.message}}
-                                <button class="at-btn" (click)="mentionMessageInWishlist(inquiry.from,inquiry.message)">@</button>
+                                <div [innerHTML]="inquiry.message">
+
+                                </div>
+                               
+                                <button class="at-btn" (click)="mentionMessageInWishlist(inquiry.from,inquiry.message)">[quote]</button>
                               </div >
                             
                         </div>
@@ -351,8 +367,11 @@
                                 <span> </span>
                                 You <span class="date-time">{{inquiry.timeStamp}}</span>
                               </div>
-                                {{inquiry.message}}
-                              <button class="at-btn" (click)="mentionMessageInWishlist(user,inquiry.message)">@</button>
+                              <div [innerHTML]="inquiry.message">
+
+                              </div>
+                             
+                              <button class="at-btn" (click)="mentionMessageInWishlist(user,inquiry.message)">[quote]</button>
                             </div >
                         </div>
 
@@ -362,9 +381,11 @@
                         <div class="">
                           
                           <div *ngIf="replyInWishlist!=''" class="mention-area">
-                            {{replyInWishlist}}
+                        
+                            <div [innerHTML]="replyInWishlist"></div>
                             <button class="mention-close-btn" (click)="deletementionMessageInWishlist()">X</button>
                           </div>
+                          <br>
                           <form [formGroup]="sendInquiryForm" (ngSubmit)="sendInquiry(item.itemId)">
                            
                             <div class="row">

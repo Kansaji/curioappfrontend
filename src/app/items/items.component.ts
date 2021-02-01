@@ -14,7 +14,7 @@ export class ItemsComponent implements OnInit {
   allItems: Observable<Array<ItemPaylord>>;
   distanceForm: FormGroup;
   distance:String='All users';
-  goClicked:boolean=false;
+  searched:boolean=false;
   locationAllowed:boolean;
   blockedInBrowser:boolean=false;
   searchForm:FormGroup;
@@ -48,7 +48,7 @@ export class ItemsComponent implements OnInit {
     this.distanceForm.controls.distance.valueChanges.subscribe(
     
       x => {
-        this.goClicked=false;
+        this.searched=false;
         if (x<100){
         this.distance=this.distanceForm.get('distance').value+"   kms";
       }else if(x>=100){
@@ -79,13 +79,7 @@ export class ItemsComponent implements OnInit {
     });
   }
 
-  onSubmit(){
-    var distanceValue=this.distanceForm.get('distance').value
-    console.log(distanceValue);
-    this.allItems=this.itemService.getAllItems(distanceValue);
-    this.goClicked=true;
-    
-  }
+ 
   
   allowLocation(){
     navigator.geolocation.getCurrentPosition(resp=>{
@@ -106,13 +100,14 @@ export class ItemsComponent implements OnInit {
     var searchBy=this.searchForm.get('searchBy').value;
     var search=this.searchForm.get('search').value;
     var distanceValue=this.distanceForm.get('distance').value;
-   
+    this.searched=true;
     if(searchBy==='username'){
      
       this.allItems=this.itemService.getItemsByUsername(distanceValue,search);
     }
     if(searchBy==='type'){
       this.allItems=this.itemService.getItemsByType(distanceValue,search);
+      console.log(search);
     }
     if(searchBy==='itemName'){
       this.allItems=this.itemService.getItemsByItemName(distanceValue,search);
