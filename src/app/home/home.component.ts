@@ -144,7 +144,7 @@ export class HomeComponent implements OnInit {
    var message=this.sendInquiryForm.get('message').value
    if(message!=""){
      if(this.replyInWishlist!=''){
-      message="<b><i>"+this.replyInWishlist+"</i></b><br><hr>"+message;
+      message="<i><h6>"+this.replyInWishlist+"</h6></i><hr>"+message;
      }
 
     this.inquiryPayload.message=message;
@@ -181,7 +181,7 @@ export class HomeComponent implements OnInit {
   }
 
   mentionMessageInWishlist(user,message){
-      this.replyInWishlist=user+': '+message+' ';
+      this.replyInWishlist=message+' : '+user;
    
   }
   deletementionMessageInWishlist(){
@@ -189,7 +189,7 @@ export class HomeComponent implements OnInit {
   }
 
   MentionMessageInMyItems(user,message){
-      this.replyMyitems=user+': '+message+' ';
+      this.replyMyitems=message+' : '+ user;
    
   }
   
@@ -209,7 +209,7 @@ export class HomeComponent implements OnInit {
     var reply=this.sendReplyForm.get('reply').value
     if(reply!=''&& this.sendTo!=''){
       if(this.replyMyitems!=''){
-      reply="<b><i>"+this.replyMyitems+"</i></b><br><hr>" + reply;
+      reply="<i><h6>"+this.replyMyitems+"</h6></i><hr>" + reply;
       }
       this.inquiryPayload.message=reply;
       this.inquiryPayload.itemId=itemId;

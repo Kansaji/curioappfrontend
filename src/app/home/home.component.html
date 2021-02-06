@@ -116,9 +116,10 @@
                         <button class="at-btn" (click)=" MentionMessageInMyItems(inquiry.from,inquiry.message)">[quote]</button>
                       </div>
                     
-                      <div class="message" *ngIf="inquiry.from==user">
+                      <div class="my-message" *ngIf="inquiry.from==user">
                         <div class="from-to">
                           <span>From you to {{inquiry.to}}<span class="date-time">{{inquiry.timeStamp}}</span> </span>
+                          <button class="reply-btn" (click)="setReplyUser(inquiry.to)"> <img src="assets/reply.svg" alt="" class=""> Reply {{inquiry.to}}</button>
                         </div>
                         <div [innerHTML]="inquiry.message">
 
@@ -131,10 +132,11 @@
                 </div>
 
                       <div *ngFor="let inquiry of newlySentReplies">
-                        <div class="message">
+                        <div class="my-message">
                           <div class="from-to">
                             
                             From you to {{inquiry.to}} <span class="date-time">{{inquiry.timeStamp}}</span>
+                            <button class="reply-btn" (click)="setReplyUser(inquiry.to)"> <img src="assets/reply.svg" alt="" class=""> Reply {{inquiry.to}}</button>
                           </div>
                           <div [innerHTML]="inquiry.message">
 
@@ -348,7 +350,7 @@
                               </div>
                            
                               
-                              <div class="message" *ngIf="inquiry.from==user">
+                              <div class="my-message" *ngIf="inquiry.from==user">
                                 <div class="from-to">
                                   You <span class="date-time">{{inquiry.timeStamp}}</span>
                                 </div>
@@ -362,7 +364,7 @@
                         </div>
                         
                           <div *ngFor="let inquiry of newlySentInquiries">
-                            <div class="message ">
+                            <div class="my-message ">
                               <div class="from-to">
                                 <span> </span>
                                 You <span class="date-time">{{inquiry.timeStamp}}</span>

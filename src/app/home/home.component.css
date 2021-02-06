@@ -151,14 +151,25 @@ h6{
  .message{
      background: white;
      margin: 10px;
+     margin-right: 25%;
      padding: 10px;
      border-radius: 5px;
      border: 1px solid rgb(240, 238, 238);
-     margin-right: 20px;
+    
     
  }
+ .my-message{
+    background:#e1f0f0 ;
+    margin: 10px;
+    margin-left: 25%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid rgb(240, 238, 238);
+    margin-right: 20px;
+ } 
+
 .at-btn{
-    color: rgb(97, 210, 255);
+    color: rgb(12, 106, 143);
     background: none;
     outline: none;
     border: none;
@@ -215,7 +226,7 @@ h6{
     box-shadow: 2px 4px 10px #817f7f;
 }
 .modal-bg{
-    background-color: rgb(241, 239, 239);
+    background-color: #74b9ff;
 }
 .date-time{
     color: rgb(138, 135, 135);
