@@ -100,5 +100,9 @@ export class ItemService {
   getItemInfo(permalink:number):Observable<Array<ItemPaylord>>{
     return this.httpClient.get<Array<ItemPaylord>>("http://localhost:8080/api/items/item/"+permalink);
   }
+
+  removeInquiry(inquiryId:number){
+    return this.httpClient.delete("http://localhost:8080/api/items/removeinquiry/"+inquiryId);
+  }
 }
 

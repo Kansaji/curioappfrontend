@@ -27,18 +27,17 @@ textarea{
 }
 .landing-img{
     width: 80%;
-   
-
-}
+ }
+ .welcome-msg{   
+     color:#1B9CFC ;
+     padding: 10px;  
+ }
+ .banner-bg{
+     background-color: #a0dddf;
+     padding: 0;
+ }
 h2{
     font-weight: bolder;
-}
-.welcome-msg{
-    
-    color:#147096 ;
-   
-  
-   
 }
 
 .ctm-btn{
@@ -48,7 +47,7 @@ h2{
     font-weight: bold;
     outline: none;
     color:white;
-    background-image: linear-gradient(to right,#147096 70%,#147096);
+    background-image: linear-gradient(to right,#0abde3 70%,#0abde3);
     width: 200px;
     height: 40px;
 }

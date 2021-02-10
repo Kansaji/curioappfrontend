@@ -1,10 +1,11 @@
-<br>
-<br>
-<br>
-<div class="container">
+
+<div class="container-fluid banner-bg">
   <div class="row">
+    <div class="col-md-6">
+
+    
       <div class="ml-auto mr-3">
-       
+        <br><br><br>
           <form action="" [formGroup]="searchForm" (ngSubmit)="onSearch()" autocomplete="off">
            
             <label for="cars">Search by </label>
@@ -47,7 +48,7 @@
               <button class="btn btn-light" (click)="allowLocation()">Allow location</button>
             </div>
             <div class="location-err" *ngIf="!locationAllowed && blockedInBrowser">
-              <p >Location access is blocked in browser or no internet </p>
+              <p >Location access is blocked in browser or no internet. Try allowing location or check your internet connection and reload the page </p>
               
             </div>
           </div>
@@ -56,8 +57,11 @@
 
         </div>
       </div>
-    
+    </div>
     <br>
+    <div class="col-md-6">
+      <img class=" landing-img"src="assets/browse.png" alt="">
+    </div>
     
   </div>
 </div>

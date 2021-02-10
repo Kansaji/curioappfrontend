@@ -81,7 +81,8 @@ export class HomeComponent implements OnInit {
       to:'',
       itemId:0,
       message:'',
-      timeStamp:''
+      timeStamp:'',
+      inquiryId:0
 
     }  
   }
@@ -152,7 +153,7 @@ export class HomeComponent implements OnInit {
     this.inquiryPayload.from='';
     this.inquiryPayload.to=this.sendTo;
     this.inquiryPayload.timeStamp=this.datePipe.transform(new Date(),'yyyy MM dd, HH:mm:ss');
-
+    this.inquiryPayload.inquiryId=0;
     let inquiry=Object.assign({},this.inquiryPayload);
 
     this.itemService.sendInquiry(this.inquiryPayload).subscribe(data=>{
@@ -216,6 +217,7 @@ export class HomeComponent implements OnInit {
       this.inquiryPayload.from='';
       this.inquiryPayload.to=this.sendTo;
       this.inquiryPayload.timeStamp=this.datePipe.transform(new Date(),'yyyy MM dd, HH:mm:ss');
+      this.inquiryPayload.inquiryId=0;
       let inquiry=Object.assign({},this.inquiryPayload);
       
       this.itemService.sendReply(this.inquiryPayload).subscribe(data=>{
@@ -269,4 +271,13 @@ export class HomeComponent implements OnInit {
     this.newlySentReplies=[];
   }
  
+  removeInquiry(inquiryId,element){
+    
+    this.itemService.removeInquiry(inquiryId).subscribe(data=>{
+      element.textContent="removed";
+     
+    },error=>{
+      element.textContent="error";
+    });
+  }
 }

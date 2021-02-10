@@ -4,4 +4,5 @@ export class InquiryPayload{
     itemId:number;
     message:String;
     timeStamp:String;
+    inquiryId:number;
 }

@@ -1,12 +1,9 @@
 <!-- post item button -->
-<br>
-<div class="container">
+<div class="container-fluid banner-bg">
  
  
     <div class="row">
-      <div class="col-md-6">
-        <img class=" landing-img"src="assets/swap.jpg" alt="">
-      </div>
+     
       <div class="col-md-6">
         <div class="welcome-msg">
           <br>
@@ -20,7 +17,9 @@
           </button>
         </div>
       </div>
-      
+      <div class="col-md-6">
+        <img class=" landing-img"src="assets/home.png" alt="">
+      </div>
      
      
      
@@ -99,7 +98,7 @@
                   
                   <p> {{item.description}}</p>
                 </div>
-                <div> <button class="btn btn-light" (click)="reloadInquiries(item.itemId)"><img src="assets/arrow-repeat.svg" alt=""></button> </div>
+                <div> <button class="btn btn-light" (click)="reloadInquiries(item.itemId)"><img src="assets/arrow-repeat.svg" alt="">reload</button> </div>
         
                 
                 <div *ngFor="let inquiry of inquiries | async">
@@ -126,10 +125,13 @@
                         </div>
                        
                         <button class="at-btn" (click)=" MentionMessageInMyItems(inquiry.from,inquiry.message)">[quote]</button>
+                        <button class="at-btn" (click)=" removeInquiry(inquiry.inquiryId,$event.target)"> <img src="assets/trash.svg" alt="">  remove</button>
                         <br>
                       </div >
                     
                 </div>
+                <hr>
+                      <div class="from-to"*ngIf="newlySentReplies?.length > 0"> <p>New Replies<p></div>
 
                       <div *ngFor="let inquiry of newlySentReplies">
                         <div class="my-message">
@@ -332,7 +334,7 @@
                           
                           <p> {{item.description}}</p>
                         </div>
-                        <div> <button class="btn btn-light" (click)="reloadInquiries(item.itemId)"><img src="assets/arrow-repeat.svg" alt=""></button> </div>
+                        <div> <button class="btn btn-light" (click)="reloadInquiries(item.itemId)"><img src="assets/arrow-repeat.svg" alt="">reload</button> </div>
                        
                         <div *ngFor="let inquiry of inquiries | async">
                          
@@ -359,10 +361,13 @@
                                 </div>
                                
                                 <button class="at-btn" (click)="mentionMessageInWishlist(inquiry.from,inquiry.message)">[quote]</button>
+                                <button class="at-btn" (click)=" removeInquiry(inquiry.inquiryId,$event.target)"> <img src="assets/trash.svg" alt="">  remove</button>
                               </div >
                             
                         </div>
-                        
+                        <hr>
+                        <div class="from-to" *ngIf="newlySentInquiries?.length > 0"> <p>New inquiries</p></div>
+
                           <div *ngFor="let inquiry of newlySentInquiries">
                             <div class="my-message ">
                               <div class="from-to">

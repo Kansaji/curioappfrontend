@@ -24,14 +24,14 @@ a{
     font-weight: bold;
     outline: none;
     color:white;
-    background-image: linear-gradient(to right,#ff6b6b 70%,#ff6b6b);
+    background-image: linear-gradient(to right,#0abde3 70%,#0abde3);
     width: 200px;
     height: 40px;
 }
 .ctm-btn:hover{
   
     transition: 0.2s;
-    background-image: linear-gradient(to right,#fc8080 70%,#fc8080);
+    background-image: linear-gradient(to right,#228fe2 70%,#228fe2);
 }
 .conversation-btn{
     border: none;
@@ -173,6 +173,7 @@ h6{
     background: none;
     outline: none;
     border: none;
+    margin-left: 20px;
  }
 .reply-area{
     outline: none;  
@@ -226,7 +227,7 @@ h6{
     box-shadow: 2px 4px 10px #817f7f;
 }
 .modal-bg{
-    background-color: #74b9ff;
+    background-color: #c8d6e5;
 }
 .date-time{
     color: rgb(138, 135, 135);
@@ -251,14 +252,15 @@ h6{
   
 }
 .landing-img{
-   width: 90%;
-
+    width: 80%;
+ }
+.welcome-msg{   
+    color:white ;
+    padding: 10px;
+    margin-left: 30%;  
 }
-.welcome-msg{
-    
-    color:#fc8080 ;
-   
-   
+.banner-bg{
+    background-color: #a0dddf;
 }
 .description{
     justify-content: center;

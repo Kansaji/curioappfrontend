@@ -19,7 +19,7 @@
     font-weight: bold;
     outline: none;
     color:white;
-    background-image: linear-gradient(to right,#ff6b6b 70%,#ff6b6b);
+    background-image: linear-gradient(to right,#0abde3 70%,#0abde3);
     width: 50%;
     height: 40px;
     margin-left: 25%;
@@ -27,7 +27,7 @@
 .ctm-btn:hover{
   
     transition: 0.2s;
-    background-image: linear-gradient(to right,#fc8080 70%,#fc8080);
+    background-image: linear-gradient(to right,#228fe2 70%,#228fe2);
 }
 
 input {
