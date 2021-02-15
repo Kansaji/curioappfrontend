@@ -1,0 +1,134 @@
+<br><br>
+<div class="container">
+<!-- Button trigger modal -->
+    <button type="button" class="btn btn-light" data-toggle="modal" data-target="#exampleModal">
+    Post  an advertisement
+    </button>
+    
+  <!-- Modal -->
+  <div class="modal " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          
+            <form  [formGroup]="advertisementForm" (ngSubmit)="onSubmit()" *ngIf="!advertisementPosted">
+                <div class="form-group">
+                  <label for="Subject">Organization</label>
+                  <input type="text" class="form-control" [formControlName]="'organization'"  placeholder="Enter your organization name">
+                  <span *ngIf="advertisementForm.controls.organization.invalid && advertisementForm.controls.organization.touched"><h6>!Please enter your organization name</h6></span>  
+                </div>
+
+                <div class="form-group">
+                    <label for="Subject">TItle</label>
+                    <input type="text" class="form-control" [formControlName]="'subject'"  placeholder="Enter a title">
+                    <span *ngIf="advertisementForm.controls.subject.invalid && advertisementForm.controls.subject.touched"><h6>!Please enter a title</h6></span>  
+                </div>
+
+                <div class="form-group">
+                    <label for="Subject">Description</label>
+                    <textarea name="" id="" cols="30" rows="5" type="text" class="form-control" [formControlName]="'description'" placeholder="Enter a Description"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="Subject">Contact Information</label>
+                    <textarea name="" id="" cols="30" rows="5" class="form-control" [formControlName]="'contactDetails'"  placeholder="Enter your contact information"></textarea>
+                    <span *ngIf="advertisementForm.controls.contactDetails.invalid && advertisementForm.controls.contactDetails.touched"><h6>!Please enter your contact details</h6></span>  
+                </div>
+
+                <div class="form-group">
+                    <label for="date">Expiry date</label>
+                    
+                    <input type="date" class="form-control" [formControlName]="'expiryDate'"  placeholder="Select an expiry date for your advertisement">
+                    <span *ngIf="advertisementForm.controls.expiryDate.invalid && advertisementForm.controls.expiryDate.touched"><h6>!Please select an expiry date</h6></span>  
+
+                </div>
+               
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+
+
+              <div *ngIf="advertisementPosted">
+                <h3 class="ad-bullets">Successfully posted <img src="assets/check-circle.svg" alt=""> </h3>
+
+                <a class="btn btn-light" href="/advertisements">Ok</a>
+              </div>
+
+
+        </div>
+        <div class="modal-footer">
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<br><br>
+
+
+<div class="container  " >
+    <h4>CURRENT ADVERTISEMENTS</h4>
+    <br>
+<div class="row">
+    <div class="col-md-6"  *ngFor="let advertisement of allAdvertisements | async">
+        <button type="button" class="ad-area" data-toggle="modal"   attr.data-target="#mymodal{{advertisement.advertisementId}}">
+            <b><h5>{{advertisement.organization}}</h5></b>
+        
+            <h6>{{advertisement.subject}}</h6>
+            <hr>
+            <h3 class="ad-bullets">Posted on  {{advertisement.postedDate}}. </h3>
+          </button>
+          
+          <!-- Modal -->
+          <div class="modal"  id="mymodal{{advertisement.advertisementId}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">  <b><h5>{{advertisement.organization}}</h5></b><br>
+                  <h6>{{advertisement.subject}}</h6></h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    {{advertisement.description}} 
+                    <br>
+                    <br>
+                    <br>
+                    <div  class="contact">
+                        <h3  class="ad-bullets">Contact details</h3>
+                         {{advertisement.contactDetails}}
+                    </div>
+                    
+                    <br>
+                    <br>
+                   
+                    
+                    <br>
+                </div>
+                <div class="modal-footer">
+                    <h3 class="ad-bullets">Posted on  {{advertisement.postedDate}}. This advertisement expires on {{advertisement.expiryDate}} </h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+
+    </div>
+</div>
+
+
+
+<!-- Button trigger modal -->
+
+</div>
+
+

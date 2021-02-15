@@ -19,6 +19,7 @@ import { ForumComponent } from './forum/forum.component';
 import { MythreadComponent } from './mythread/mythread.component';
 import { MembersthreadsComponent } from './membersthreads/membersthreads.component';
 import { ItemComponent } from './item/item.component';
+import { AdvertisementsComponent } from './advertisements/advertisements.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { ItemComponent } from './item/item.component';
     ForumComponent,
     MythreadComponent,
     MembersthreadsComponent,
-    ItemComponent
+    ItemComponent,
+    AdvertisementsComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +54,8 @@ import { ItemComponent } from './item/item.component';
       {path:'discussionforum',component: ForumComponent,canActivate:[AuthGuard]},
       {path:'mythread/:id',component: MythreadComponent, canActivate:[AuthGuard]},
       {path:'membersthreads/:id',component: MembersthreadsComponent, canActivate:[AuthGuard]},
-      {path:'item/:id',component: ItemComponent, canActivate:[AuthGuard]}
+      {path:'item/:id',component: ItemComponent, canActivate:[AuthGuard]},
+      {path:'advertisements',component: AdvertisementsComponent},
     ])
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: HttpClientInterseptor, multi:true}],

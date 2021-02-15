@@ -10,12 +10,7 @@
 .flinks{
     color: #0a7188;
     font-weight: bold;
-    border-radius: 20px;
     margin: 5px;
-    width:100px;
-    text-align: center;
-    margin-right:30px ;
-    
 }
 
 
@@ -24,7 +19,6 @@
     width:100px;
     text-align: center;
     font-weight: bold;
-    margin: 5px;
     background-color:#ec005b;
     color: white;
 
@@ -34,19 +28,14 @@
     width:100px;
     text-align: center;
     font-weight: bold;
-    margin-right: 30px;
     color: #0a7188;
 }
 
 .user{
-   
-   
-    border-radius: 10px;
-    padding: 5px;
-    width: 100px;
     color:rgb(65, 62, 62);
     outline: none;
     border: none;
+    border-radius: 50px;
 }
 .logoutbtn{   
     width:100px;
@@ -60,5 +49,5 @@
     padding :5px;
 }
 .mystats{
-    margin-left: 100px;
+
 }
