@@ -149,22 +149,22 @@ h6{
      color: rgb(102, 101, 101);
  }
  .message{
-     background: white;
+     background: #c7ecee;
      margin: 10px;
      margin-right: 25%;
      padding: 10px;
      border-radius: 5px;
-     border: 1px solid rgb(240, 238, 238);
+     border: 1px solid #c7ecee;
     
     
  }
  .my-message{
-    background:#e1f0f0 ;
+    background:#dff9fb ;
     margin: 10px;
     margin-left: 25%;
     padding: 10px;
     border-radius: 5px;
-    border: 1px solid rgb(240, 238, 238);
+    border: 1px solid #dff9fb;
     margin-right: 20px;
  } 
 
@@ -227,7 +227,7 @@ h6{
     box-shadow: 2px 4px 10px #817f7f;
 }
 .modal-bg{
-    background-color: #c8d6e5;
+    background-color: white;
 }
 .date-time{
     color: rgb(138, 135, 135);
@@ -268,10 +268,20 @@ h6{
     border-radius: 5px;
     background: white;
     text-align: center;
+    margin: 5px;
+    padding: 5px;
+    color: #1289A7;
+    font-weight: bolder;
+    box-shadow: 0px 0px 3px rgb(194, 193, 193);
 }
 .distance-msg{
     font-style: italic;
     font-size: x-small;
     font-weight: bold;
     color: rgb(61, 59, 59);
+}
+
+.conversation-title{
+ color: #1289A7;
+ font-weight: bolder;
 }

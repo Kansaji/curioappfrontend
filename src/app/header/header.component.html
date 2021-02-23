@@ -9,9 +9,9 @@
         <a class="nav-item nav-link flinks " href="/home"  *ngIf="authService.isAuthenticated()">Home</a>
         <a class="nav-item nav-link flinks " href="/items"  *ngIf="authService.isAuthenticated()" >Products</a>
         <a class="nav-item nav-link flinks " href="/discussionforum"  *ngIf="authService.isAuthenticated()">Discussion</a>
-        <a class="nav-item nav-link flinks" href="/advertisements"  >Advertisements</a>
+        <a class="nav-item nav-link flinks" href="/advertisements"   *ngIf="authService.isAuthenticated()" >Donations</a>
         
-        <div class="dropdown mystats" *ngIf="authService.isAuthenticated()">
+        <div class="dropdown" *ngIf="authService.isAuthenticated()">
           <button class="nav-item nav-link user dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="getMyStats()">
           <img src="assets/person.svg" alt="">
           </button>

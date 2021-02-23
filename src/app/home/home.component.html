@@ -46,6 +46,17 @@
     <br>
     <div class="row">
         
+      <div class="alert alert-light" role="alert" *ngIf="(myItems | async)?.length == 0">
+        No items posted yet. Items you post will appear here.
+        <button type="button" class="btn btn-light " data-toggle="modal" data-target="#exampleModalCenter">
+          Post your first item
+        </button>
+
+      </div>
+
+
+
+
       <div class="col-md-3 " *ngFor="let item of myItems | async">
 
         <div class="box">
@@ -81,7 +92,7 @@
             <div class="modal-content">
 
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">{{item.itemName}}</h5>
+                <h5 class="modal-title  conversation-title" id="exampleModalLabel"><img src="assets\chat-square-dots.svg" alt=""> {{item.itemName}}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -111,8 +122,8 @@
                         <div [innerHTML]="inquiry.message">
 
                         </div>
-                       
-                        <button class="at-btn" (click)=" MentionMessageInMyItems(inquiry.from,inquiry.message)">[quote]</button>
+                        <br>
+                        <button class="at-btn" (click)=" MentionMessageInMyItems(inquiry.from,inquiry.message)"> <img src="assets\chat-square-quote.svg" alt=""> quote</button>
                       </div>
                     
                       <div class="my-message" *ngIf="inquiry.from==user">
@@ -123,8 +134,8 @@
                         <div [innerHTML]="inquiry.message">
 
                         </div>
-                       
-                        <button class="at-btn" (click)=" MentionMessageInMyItems(inquiry.from,inquiry.message)">[quote]</button>
+                        <br>
+                        <button class="at-btn" (click)=" MentionMessageInMyItems(inquiry.from,inquiry.message)"><img src="assets\chat-square-quote.svg" alt=""> quote</button>
                         <button class="at-btn" (click)=" removeInquiry(inquiry.inquiryId,$event.target)"> <img src="assets/trash.svg" alt="">  remove</button>
                         <br>
                       </div >
@@ -143,8 +154,8 @@
                           <div [innerHTML]="inquiry.message">
 
                           </div>
-                         
-                          <button class="at-btn" (click)="MentionMessageInMyItems(user,inquiry.message)">[quote]</button>
+                          <br>
+                          <button class="at-btn" (click)="MentionMessageInMyItems(user,inquiry.message)"><img src="assets\chat-square-quote.svg" alt=""> quote</button>
                         </div >
                       </div>
                 <!--<div class="mymessage container row col-md-6" [innerText]="successfullySentReply" *ngIf="successfullySentReply!=''"></div><br>-->
@@ -284,6 +295,10 @@
       <h3><img src="assets/heart.svg" alt="" width="20px"> Wishlist</h3>
       <br>
       <div class="row">
+
+        <div class="alert alert-light" role="alert" *ngIf="(wishlist | async)?.length == 0">
+          No items added yet. Items you add to wishlist will appear here.
+        </div>
         
         <div class="col-md-3 " *ngFor="let item of wishlist | async">
 
@@ -315,7 +330,7 @@
                   <div class="modal-dialog modal-lg" role="document">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">{{item.itemName}}</h5>
+                        <h5 class="modal-title conversation-title" id="exampleModalLabel"><img src="assets\chat-square-dots.svg" alt=""> {{item.itemName}}</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                         </button>
@@ -347,8 +362,8 @@
                                 <div [innerHTML]="inquiry.message">
 
                                 </div>
-                               
-                                <button class="at-btn" (click)="mentionMessageInWishlist(inquiry.from,inquiry.message)">[quote]</button>
+                                <br>
+                                <button class="at-btn" (click)="mentionMessageInWishlist(inquiry.from,inquiry.message)"><img src="assets\chat-square-quote.svg" alt=""> quote</button>
                               </div>
                            
                               
@@ -359,8 +374,8 @@
                                 <div [innerHTML]="inquiry.message">
 
                                 </div>
-                               
-                                <button class="at-btn" (click)="mentionMessageInWishlist(inquiry.from,inquiry.message)">[quote]</button>
+                                <br>
+                                <button class="at-btn" (click)="mentionMessageInWishlist(inquiry.from,inquiry.message)"><img src="assets\chat-square-quote.svg" alt=""> quote</button>
                                 <button class="at-btn" (click)=" removeInquiry(inquiry.inquiryId,$event.target)"> <img src="assets/trash.svg" alt="">  remove</button>
                               </div >
                             
@@ -377,8 +392,8 @@
                               <div [innerHTML]="inquiry.message">
 
                               </div>
-                             
-                              <button class="at-btn" (click)="mentionMessageInWishlist(user,inquiry.message)">[quote]</button>
+                              <br>
+                              <button class="at-btn" (click)="mentionMessageInWishlist(user,inquiry.message)"><img src="assets\chat-square-quote.svg" alt=""> quote</button>
                             </div >
                         </div>
 

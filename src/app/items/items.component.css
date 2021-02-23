@@ -91,15 +91,7 @@ input[type="range"]{
     color: rgb(61, 59, 59);
 }
 
-.location-err{
-    background-color: rgb(255, 220, 220);
-    border-radius: 5px;
-    padding: 5px;
-    font-size: smaller;
-    font-weight: bold;
-    width: 100%;
-    margin: 2px;
-}
+
 .select-distance-label{
     border-radius: 10px;
     padding: 10px;

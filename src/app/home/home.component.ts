@@ -132,6 +132,7 @@ export class HomeComponent implements OnInit {
   showMyItems(){
     this.myItemsSelected=true;
     this.wishlistSelected=false;
+    this.myItems=this.itemService.getMyItems();
   }
 
   showWishlist(){

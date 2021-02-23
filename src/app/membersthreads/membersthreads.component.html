@@ -6,7 +6,7 @@
     <div >
        
         <div *ngFor="let answer of answers| async | slice :0:1">
-            <h4>{{answer.subject}}</h4>
+            <h4 class="question-title">{{answer.subject}}</h4>
             <p>{{answer.questionContent}}</p>
         </div>  
     </div>
@@ -19,7 +19,7 @@
 
         
             <button class="comment-btn" data-toggle="modal" attr.data-target="#replymodal{{answer.answerId}}" (click)="getAnswerReplies(answer.answerId)">
-                {{answer.numOfReplies}} comments
+                <img src="assets\chat-square-dots.svg" alt="">  {{answer.numOfReplies}} comments
             </button>
            
         
@@ -28,11 +28,11 @@
           
             
             <!-- Modal -->
-            <div class="modal fade" id="replymodal{{answer.answerId}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal " id="replymodal{{answer.answerId}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">comments</h5>
+                    <h5 class="modal-title" id="exampleModalLongTitle"><img src="assets\chat-square-dots.svg" alt=""> comments</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -79,7 +79,8 @@
        
     
     </div>
-    <h3>Leave a reply</h3>
+    <br>
+    <h5>Leave a reply</h5>
     <div *ngFor="let answer of newAnswers" class="message">
       
         <h6>{{username}}</h6>

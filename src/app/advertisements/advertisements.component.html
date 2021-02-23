@@ -10,7 +10,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <h5 class="modal-title" id="exampleModalLabel">POST ADVERTISEMENT</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -48,7 +48,12 @@
                     <span *ngIf="advertisementForm.controls.expiryDate.invalid && advertisementForm.controls.expiryDate.touched"><h6>!Please select an expiry date</h6></span>  
 
                 </div>
-               
+             
+                <div class="alert alert-warning" role="alert" *ngIf="isAdBlocked">
+                  Cannot post your advertisement. Disable your adblocker and try again.
+                </div>
+
+
                 <button type="submit" class="btn btn-primary">Submit</button>
               </form>
 
@@ -77,14 +82,17 @@
 <div class="container  " >
     <h4>CURRENT ADVERTISEMENTS</h4>
     <br>
+
+    <div class="alert alert-warning" role="alert" *ngIf="(allAdvertisements | async)?.length == 0 ">
+     If advertisements are not loading Try disabling the ad blocker and reloading the page.
+    </div>
 <div class="row">
     <div class="col-md-6"  *ngFor="let advertisement of allAdvertisements | async">
         <button type="button" class="ad-area" data-toggle="modal"   attr.data-target="#mymodal{{advertisement.advertisementId}}">
-            <b><h5>{{advertisement.organization}}</h5></b>
-        
-            <h6>{{advertisement.subject}}</h6>
-            <hr>
+           
             <h3 class="ad-bullets">Posted on  {{advertisement.postedDate}}. </h3>
+            <b><h5>{{advertisement.organization}}</h5></b>
+            <h6>{{advertisement.subject}}</h6>
           </button>
           
           <!-- Modal -->
@@ -115,7 +123,7 @@
                     <br>
                 </div>
                 <div class="modal-footer">
-                    <h3 class="ad-bullets">Posted on  {{advertisement.postedDate}}. This advertisement expires on {{advertisement.expiryDate}} </h3>
+                    <h3 class="ad-bullets">Posted on  {{advertisement.postedDate}}. This advertisement will expire on {{advertisement.expiryDate}} </h3>
                 </div>
               </div>
             </div>

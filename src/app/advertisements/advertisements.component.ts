@@ -16,6 +16,9 @@ export class AdvertisementsComponent implements OnInit {
   advertisementPayload:AdvertisementPayload;
   allAdvertisements:Observable<Array<AdvertisementPayload>>;
   advertisementPosted:boolean;
+
+  isAdBlocked:boolean;
+
   constructor(private formBuilder:FormBuilder, private advertisementService:AdvertisementService, private datePipe:DatePipe) {
     this.advertisementForm=this.formBuilder.group({
       advertisementId:[0],
@@ -36,14 +39,18 @@ export class AdvertisementsComponent implements OnInit {
       postedDate:'',
     }
     this.advertisementPosted=false;
+    this.isAdBlocked=false;
    }
 
   ngOnInit(): void {
     this.allAdvertisements=this.advertisementService.getAllAdvertisements();
+    console.log("observable array");
+    console.log(this.allAdvertisements);
   }
 
   onSubmit(){
     this.advertisementForm.markAllAsTouched();
+    this.isAdBlocked=false;
     if(this.advertisementForm.valid){
       this.advertisementPayload.organization=this.advertisementForm.get('organization').value;
       this.advertisementPayload.description=this.advertisementForm.get('description').value;
@@ -56,7 +63,7 @@ export class AdvertisementsComponent implements OnInit {
         console.log('success');
         this.advertisementPosted=true;
       },error=>{
-        console.log('failed');
+        this.isAdBlocked=true;
       })
       console.log(this.advertisementPayload);
     }

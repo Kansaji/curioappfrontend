@@ -1,15 +1,19 @@
 .ad-area{
     width: 90%;
     outline: none;
-    border: 1px solid rgb(190, 186, 186);
-    border-radius: 5px;
-    height: 100px;
-    margin: 10px;
-    background: rgb(212, 237, 243);
+    background-color:white;
+    padding: 10px;
+    border-top: 1px solid rgb(196, 196, 199);
+    border-bottom: 1px solid rgb(196, 196, 199);
+    border-left: none;
+    border-right: none;
+    margin: 15px;
 }
 
 .ad-area:hover{
-   box-shadow: 0px 0px 4px rgb(129, 127, 127);
+    border-top: 1px solid #1289A7;
+    border-bottom: 1px solid #1289A7;
+    transition: 0.2s;
 
 }
 
@@ -33,5 +37,6 @@ a{
     text-decoration: none;
 }
 h5{
-    color: rgb(9, 105, 129);
+    color: #1289A7;
+    font-weight: bolder;
 }

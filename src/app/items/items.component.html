@@ -43,12 +43,12 @@
               
               
             </form>
-            <div class="location-err" *ngIf="!locationAllowed && !blockedInBrowser">
-              <p >Allow location for precise results</p>
+            <div class="alert alert-warning" role="alert" *ngIf="!locationAllowed && !blockedInBrowser">
+              <p >Allow location for precise results.</p>
               <button class="btn btn-light" (click)="allowLocation()">Allow location</button>
             </div>
-            <div class="location-err" *ngIf="!locationAllowed && blockedInBrowser">
-              <p >Location access is blocked in browser or no internet. Try allowing location or check your internet connection and reload the page </p>
+            <div class="alert alert-warning" role="alert" *ngIf="!locationAllowed && blockedInBrowser">
+              <p >Location access is blocked in browser or no internet. Try allowing location access in your browser or check your internet connection and reload the page. </p>
               
             </div>
           </div>
@@ -81,7 +81,7 @@
               {{item.itemName}} 
             </h3>
           
-            <span class="distance-msg" *ngIf="distance!='All users' && searched">by {{item.postedUser}} {{item.away| number:'1.1-2'}} kms away</span>
+            <span class="distance-msg" *ngIf="distance!='All users' && searched">  <img src="assets/geo.svg"  alt=""> by {{item.postedUser}} {{item.away| number:'1.1-2'}} kms away</span>
             <p> {{item.type}}</p>
             
           </div>
