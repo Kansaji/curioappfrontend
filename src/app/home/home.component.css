@@ -252,15 +252,17 @@ h6{
   
 }
 .landing-img{
-    width: 80%;
+    margin-top: 50px;
+    width: 100%;
+    margin-left: 15px;
  }
 .welcome-msg{   
     color:white ;
-    padding: 10px;
+   
     margin-left: 30%;  
 }
 .banner-bg{
-    background-color: #a0dddf;
+    background-color: #1a33a9;
 }
 .description{
     justify-content: center;
