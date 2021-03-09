@@ -1,6 +1,6 @@
 .banner-box{
     font-weight: bolder;
-    box-shadow: 0px 0px 4px #5c5a5a;
+    box-shadow: 0px 0px 4px #dbdbdb;
     color:rgb(41, 38, 38);
     padding: 40px; 
     background:transparent;  
@@ -14,20 +14,19 @@
 
 .ctm-btn{
     border: none;
-    border-radius: 20px;
+    border-radius: 5px;
     font-size: 15px;
     font-weight: bold;
     outline: none;
     color:white;
-    background-image: linear-gradient(to right,#0abde3 70%,#0abde3);
+    background-image: linear-gradient(to right,#eb3b5a 70%,#eb3b5a);
     width: 50%;
     height: 40px;
     margin-left: 25%;
 }
 .ctm-btn:hover{
   
-    transition: 0.2s;
-    background-image: linear-gradient(to right,#228fe2 70%,#228fe2);
+    background-image: linear-gradient(to right,#e03050 70%,#e03050);
 }
 
 input {
@@ -42,17 +41,16 @@ input {
 }
 
 input:focus{
-    width: 110%;
+    border-bottom: 2px solid #0fbcf9;
     outline: none;
     transition: width 0.2s;
     background: none;
 }
 input.ng-touched.ng-invalid{
     border-bottom : solid 2px  #fc0a2f;
-    width: 110%;
     outline: none;
     transition: border-bottom 0.5s;
-    transition: width 0.2s;
+    transition: width 0.5s;
 }
 h4{
     font-weight: bolder;

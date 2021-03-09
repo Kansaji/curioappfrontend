@@ -21,9 +21,9 @@
 }
 .distance-msg{
     font-style: italic;
-    font-size: x-small;
+    font-size: smaller;
     font-weight: bold;
-    color: rgb(61, 59, 59);
+    color: #eb3b5a;
 }
 .addtowishlist-btn{
     border: none;

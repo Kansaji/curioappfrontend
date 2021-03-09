@@ -86,9 +86,9 @@ input[type="range"]{
 
 .distance-msg{
     font-style: italic;
-    font-size: x-small;
+    font-size: smaller;
     font-weight: bold;
-    color: rgb(61, 59, 59);
+    color:#eb3b5a;
 }
 
 
@@ -105,7 +105,7 @@ input[type="range"]{
     outline: none;
     padding: 5px ;
     margin-bottom: 2px;
-    box-shadow: 0px 0px 4px rgb(143, 141, 141);
+    box-shadow: 0px 0px 4px rgb(214, 214, 214);
    
 }
 label{
@@ -113,7 +113,7 @@ label{
     margin-right: 1%;
     font-size: small;
     font-weight: bold;
-    color: #2e86de;
+    color: #eb3b5a;
 }
 .search-btn{
     outline: none;
@@ -134,4 +134,16 @@ label{
  }
  .banner-bg{
      background-color: white;
+ }
+
+ .tag{
+     font-size: small;
+     font-style: italic;
+     font-weight: bolder;
+     color: rgb(78, 78, 78);
+     background-color: rgb(197, 197, 197);
+     padding: 3px;
+     border-radius: 10px;
+     margin: 1px;
+    
  }

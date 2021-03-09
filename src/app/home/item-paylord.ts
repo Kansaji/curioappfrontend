@@ -5,4 +5,8 @@ export class ItemPaylord{
     description:String;
     photo: String;
     postedUser:String;
+    sale:String;
+    donation:String;
+    exchange:String;
+    renting:String;  
 }

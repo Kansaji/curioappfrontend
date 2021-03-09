@@ -48,7 +48,11 @@ export class HomeComponent implements OnInit {
       itemName:['',Validators.required],
       type:['',Validators.required],
       description:['',Validators.required],
-      photo:['',Validators.required]
+      photo:['',Validators.required],
+      sale:[''],
+      donation:[''],
+      exchange:[''],
+      renting:['']
     });
 
     this.itemPaylord={
@@ -57,7 +61,11 @@ export class HomeComponent implements OnInit {
       type:'',
       description:'',
       photo:'',
-      postedUser:''
+      postedUser:'',
+      sale:'',
+      donation:'',
+      exchange:'',
+      renting:''
     };
 
     this.sendInquiryForm=this.formBuilder.group({
@@ -102,13 +110,20 @@ export class HomeComponent implements OnInit {
       this.itemPaylord.type=this.addItemForm.get('type').value;
       this.itemPaylord.description=this.addItemForm.get('description').value;
       this.itemPaylord.photo=this.base64textString;
+
+      this.itemPaylord.sale=this.addItemForm.get('sale').value;
+      this.itemPaylord.donation=this.addItemForm.get('donation').value;
+      this.itemPaylord.exchange=this.addItemForm.get('exchange').value;
+      this.itemPaylord.renting=this.addItemForm.get('renting').value;
+
       console.log(this.base64textString);
       this.itemService.addItem(this.itemPaylord).subscribe(data=>{
        this.isSuccess=true;
         
       },error=>{
         console.log("post item failed");
-        this.isSuccess=true;
+        this.isSuccess=false;
+        console.log(this.itemPaylord);
       });
     }
     

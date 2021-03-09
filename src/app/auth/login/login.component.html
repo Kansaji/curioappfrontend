@@ -29,7 +29,10 @@
 
             <div>
               <br>
-              <span *ngIf="invalidCredentials"><h6>!Invalid username or password</h6></span>
+              <div class="alert alert-danger" role="alert" *ngIf="invalidCredentials">
+                <span ><h6>!Invalid username or password</h6></span>
+              </div>
+             
             </div>
 
             <div>

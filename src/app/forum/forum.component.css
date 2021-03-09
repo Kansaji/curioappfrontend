@@ -31,11 +31,11 @@ textarea{
     margin-left: 15px;
  }
  .welcome-msg{   
-     color:rgb(83, 81, 81) ;
+     color:white ;
      padding: 10px;  
  }
  .banner-bg{
-     background-color: white;
+     background-color: #2e86de;
      padding: 0;
  }
 h2{
@@ -48,15 +48,16 @@ h2{
     font-size: 15px;
     font-weight: bold;
     outline: none;
-    color:white;
-    background-image: linear-gradient(to right,#0abde3 70%,#0abde3);
+    color:#2e86de;
+    background-image: linear-gradient(to right,white 70%,white);
     width: 200px;
     height: 40px;
 }
 .ctm-btn:hover{
   
     transition: 0.2s;
-    background-image: linear-gradient(to right,#1981ad 70%,#1981ad);
+    color:white;
+    background-image: linear-gradient(to right,#38b0e4 70%,#38b0e4 );
 }
 .search{
     border: 2px solid white;

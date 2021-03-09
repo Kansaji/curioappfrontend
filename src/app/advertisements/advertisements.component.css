@@ -11,8 +11,8 @@
 }
 
 .ad-area:hover{
-    border-top: 1px solid #1289A7;
-    border-bottom: 1px solid #1289A7;
+    border-top: 1px solid #eb3b5a;
+    border-bottom: 1px solid #eb3b5a;
     transition: 0.2s;
 
 }
@@ -37,6 +37,6 @@ a{
     text-decoration: none;
 }
 h5{
-    color: #1289A7;
+    color: #eb3b5a ;
     font-weight: bolder;
 }

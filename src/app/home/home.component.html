@@ -88,7 +88,7 @@
         <br>
           <!-- my items converstation modal -->
         <div class="modal " id="myitems{{item.itemId}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-dialog modal-xl" role="document">
             <div class="modal-content">
 
               <div class="modal-header">
@@ -108,6 +108,15 @@
                   <p> {{item.type}}</p>
                   
                   <p> {{item.description}}</p>
+
+                  <div>
+                    <span class="tag" *ngIf="item.sale!=''"> {{item.sale}}</span>
+                    <span class="tag" *ngIf="item.donation!=''"> {{item.donation}}</span>
+                    <span class="tag" *ngIf="item.exchange!=''"> {{item.exchange}}</span>
+                    <span class="tag" *ngIf="item.renting!=''"> {{item.renting}}</span>
+                  </div>
+
+
                 </div>
                 <div> <button class="btn btn-light" (click)="reloadInquiries(item.itemId)"><img src="assets/arrow-repeat.svg" alt="">reload</button> </div>
         
@@ -206,7 +215,7 @@
   
   <!-- post items form modal -->
   <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-xl"  role="document">
+    <div class="modal-dialog modal-dialog-centered modal-lg"  role="document">
       <div class="modal-content">
 
         <div class="modal-header">
@@ -217,10 +226,10 @@
         </div>
 
         <div class="modal-body">
-            <section class="container">
+            <section class="">
              
               <div class="row">
-                <div class="col-md-6 col-md-offset-1"> 
+                <div class="col-md-12"> 
                   <div class=" post-item-modal" >
               
                     <div *ngIf="isSuccess">
@@ -252,7 +261,7 @@
                      <br>
                       <div>
                         <label>Description</label> <br> 
-                        <textarea  class="text-area" name="" id="" cols="30" rows="10"  [formControlName]="'description'" placeholder="Enter a description of item here"></textarea>
+                        <textarea  class="text-area" name="" id="" cols="30" rows="4"  [formControlName]="'description'" placeholder="Enter a description of the item here"></textarea>
                        
                         <span *ngIf="addItemForm.controls.description.invalid && addItemForm.controls.description.touched"><h6>!Please enter an item description</h6></span>
                       </div>
@@ -263,16 +272,22 @@
                         <span *ngIf="addItemForm.controls.photo.invalid && addItemForm.controls.photo.touched"><h6>!Please select a photo</h6></span>
                       </div>
                       <br>
+                      <br>
+                      <div>
+                        <p>Add tags to let others know the availability of your item</p>
+                        <label class=" tag-label"><input type="checkbox" value="sale" [formControlName]="'sale'">Sale</label> 
+                        <label class=" tag-label"><input type="checkbox" value="donation" [formControlName]="'donation'">Donation</label> 
+                        <label class=" tag-label"><input type="checkbox" value="exchange" [formControlName]="'exchange'">Exchange</label>
+                        <label class=" tag-label"><input type="checkbox" value="renting" [formControlName]="'renting'">Renting</label>
+                      </div>
+
+                      <br>
                       <button type="submit" class="btn btn-light" >POST</button>
                     </form>  
                   </div>
               
                 </div>
-                <div class="col-md-6">
-                  <div class=" item-bg" >
-                    <img src="\assets\tag.svg" alt="" class="item-bg">  
-                  </div>
-                </div>
+                
                 
               </div>
                 
@@ -327,7 +342,7 @@
 
                 <!-- wishlist conversation modal -->
                 <div class="modal " id="mymodal{{item.itemId}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                  <div class="modal-dialog modal-lg" role="document">
+                  <div class="modal-dialog modal-xl" role="document">
                     <div class="modal-content">
                       <div class="modal-header">
                         <h5 class="modal-title conversation-title" id="exampleModalLabel"><img src="assets\chat-square-dots.svg" alt=""> {{item.itemName}}</h5>
@@ -348,6 +363,14 @@
                           <p> {{item.type}}</p>
                           
                           <p> {{item.description}}</p>
+
+                          <div>
+                            <span class="tag" *ngIf="item.sale!=''"> {{item.sale}}</span>
+                            <span class="tag" *ngIf="item.donation!=''"> {{item.donation}}</span>
+                            <span class="tag" *ngIf="item.exchange!=''"> {{item.exchange}}</span>
+                            <span class="tag" *ngIf="item.renting!=''"> {{item.renting}}</span>
+                          </div>
+
                         </div>
                         <div> <button class="btn btn-light" (click)="reloadInquiries(item.itemId)"><img src="assets/arrow-repeat.svg" alt="">reload</button> </div>
                        
