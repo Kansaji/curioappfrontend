@@ -10,9 +10,14 @@
             <div class="distance-msg">
                 posted by {{item.postedUser}}
             </div>
-            <p> {{item.type}}</p>
-            <p>{{item.description}}</p>
             <br>
+            <p><img src="assets/box.svg" alt=""> {{item.type}}</p>
+            <p> <img src="assets/tag.svg" alt="">{{item.description}}</p>
+            
+            <div class="distance-msg">
+             <img src="assets/award.svg" alt=""> Condition : {{item.quality}}
+          </div>
+          <br>
             <button class="addtowishlist-btn" (click)="addToinquiredItems($event.target,item.itemId)">Add to Wishlist</button>
         </div>
        

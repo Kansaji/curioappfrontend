@@ -1,14 +1,12 @@
-.banner-box{
+.form-login{
+
     font-weight: bolder;
-    box-shadow: 0px 0px 4px #dbdbdb;
     color:rgb(41, 38, 38);
     padding: 40px; 
-    background:transparent;  
-    margin-top: 20%;
-    height: 100%;
-    width: 120%;
+    background-color: transparent;
+    border: 1px solid rgb(223, 223, 223);
     border-radius: 5px;
-
+   
     
 }
 
@@ -36,7 +34,7 @@ input {
     border-right: none;
     background: none;
     background: none;
-    
+    border-bottom: 2px solid rgb(167, 165, 165);
    
 }
 
@@ -54,7 +52,7 @@ input.ng-touched.ng-invalid{
 }
 h4{
     font-weight: bolder;
-    text-align: center;
+   
 }
 
 h6{
@@ -67,3 +65,24 @@ h6{
     margin-top: 10px;
   
 }
+
+.bg{
+    background: white;
+}
+
+.welcome-img{
+    
+    z-index: -1;
+    margin-top: 55%;
+    
+}
+
+.welcome-msg{
+   text-align: center;
+   color:#d34b71;
+   font-weight: bolder;
+   
+
+   
+}
+

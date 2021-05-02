@@ -48,6 +48,7 @@ export class HomeComponent implements OnInit {
       itemName:['',Validators.required],
       type:['',Validators.required],
       description:['',Validators.required],
+      quality:['',Validators.required],
       photo:['',Validators.required],
       sale:[''],
       donation:[''],
@@ -60,6 +61,7 @@ export class HomeComponent implements OnInit {
       itemName:'',
       type:'',
       description:'',
+      quality:'',
       photo:'',
       postedUser:'',
       sale:'',
@@ -109,6 +111,7 @@ export class HomeComponent implements OnInit {
       this.itemPaylord.itemName=this.addItemForm.get('itemName').value;
       this.itemPaylord.type=this.addItemForm.get('type').value;
       this.itemPaylord.description=this.addItemForm.get('description').value;
+      this.itemPaylord.quality=this.addItemForm.get('quality').value;
       this.itemPaylord.photo=this.base64textString;
 
       this.itemPaylord.sale=this.addItemForm.get('sale').value;
@@ -145,6 +148,9 @@ export class HomeComponent implements OnInit {
   }
 
   showMyItems(){
+
+    
+
     this.myItemsSelected=true;
     this.wishlistSelected=false;
     this.myItems=this.itemService.getMyItems();

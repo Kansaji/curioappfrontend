@@ -3,12 +3,10 @@
 .form-register { 
     padding: 20px;
     box-sizing: border-box;
-    margin-top: 10px;
-    background: none;
-    box-shadow: 0px 0px 4px #dbdbdb;
-    border-radius: 10px;
-    background-color: transparent;
-   
+    margin: 1%;
+    background-color: white;
+    border: 1px solid rgb(223, 223, 223);
+    border-radius: 5px;
 }
   
 .ctm-btn{
@@ -35,6 +33,7 @@ input {
     border-left: none;
     border-right: none;
     background: none;
+    border-bottom: 2px solid rgb(167, 165, 165);
 }
 
 input:focus{
@@ -48,9 +47,10 @@ input.ng-touched.ng-invalid{
     transition: border-bottom 0.5s;
     transition: width 0.2s;
 }
-h2{
+h3{
     font-weight: bolder;
-    margin-left: 20%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: left;
 }
 label{
     font-weight: bold;
@@ -75,6 +75,12 @@ a{
    
 }
 
-img{
-    width: 20px;
+
+.bg{
+    background: white;
 }
+
+.success-img{
+    width: 5%;
+}
+

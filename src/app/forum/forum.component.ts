@@ -80,6 +80,7 @@ export class ForumComponent implements OnInit {
   selectMyQuestion(){
     this.myQuestionSelected=true;
     this.threadsSelected=false;
+    this.myQuestions=this.forumService.getMyQuestions();
   }
   selectThreads(){
     this.myQuestionSelected=false;
@@ -95,5 +96,16 @@ export class ForumComponent implements OnInit {
     if(this.threadsSelected){
       this.allQuestions=this.forumService.searchQuestions(searchTerm);
     }
+  }
+
+  removeQuestion(questionId,element){
+    this.forumService.removeQuestion(questionId).subscribe(data=>{
+      element.textContent="removed";
+      console.log('success')
+    },error=>{
+      element.textContent="error";
+      console.log('failed');
+
+    });
   }
 }

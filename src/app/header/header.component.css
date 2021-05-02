@@ -1,16 +1,11 @@
 .header{
-
-    box-shadow: 0px 2px 4px #f8f8f8;
-    background-color: white;
-    z-index: 1;
-    
+    background-color: #eb3b5a;
 }
 
-
 .flinks{
-    color: #eb3b5a;
+    color: white;
     font-weight: bold;
-    margin: 5px;
+    
 }
 
 
@@ -19,8 +14,8 @@
     width:100px;
     text-align: center;
     font-weight: bold;
-    background-color:#eb3b5a;
-    color: white;
+    background-color:white;
+    color: #eb3b5a;
 
 }
 
@@ -28,11 +23,11 @@
     width:100px;
     text-align: center;
     font-weight: bold;
-    color: #eb3b5a;
+    color: white;
 }
 
 .user{
-    color:rgb(65, 62, 62);
+    background-color: transparent;
     outline: none;
     border: none;
     border-radius: 50px;

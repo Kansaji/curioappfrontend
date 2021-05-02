@@ -55,7 +55,7 @@ import { AdvertisementsComponent } from './advertisements/advertisements.compone
       {path:'mythread/:id',component: MythreadComponent, canActivate:[AuthGuard]},
       {path:'membersthreads/:id',component: MembersthreadsComponent, canActivate:[AuthGuard]},
       {path:'item/:id',component: ItemComponent, canActivate:[AuthGuard]},
-      {path:'advertisements',component: AdvertisementsComponent, canActivate:[AuthGuard]},
+      {path:'donations',component: AdvertisementsComponent, canActivate:[AuthGuard]},
     ])
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: HttpClientInterseptor, multi:true}],

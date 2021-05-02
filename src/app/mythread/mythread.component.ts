@@ -76,5 +76,16 @@ export class MythreadComponent implements OnInit {
     this.newAnswerReplies=[];
 
   }
+
+  removeAnswerReply(answerReplyId,element){
+    this.forumService.removeAnswerReply(answerReplyId).subscribe(data=>{
+      element.textContent="removed";
+      console.log('success')
+    },error=>{
+      element.textContent="error";
+      console.log('failed');
+
+    });
+  }
   
 }

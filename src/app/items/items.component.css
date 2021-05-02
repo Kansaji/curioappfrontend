@@ -66,7 +66,7 @@
 }
 input[type="range"]{
 
-    width: 30%;
+    width: 70%;
     height: 2px;
     color: green;
     margin: 10px;
@@ -76,9 +76,10 @@ input[type="range"]{
 
 }
 #findNearbyUsers{
-  border: 1px solid gainsboro;
+  border: 1px solid rgb(122, 119, 119);
   border-radius: 5px;
   outline:none;
+  width: 60%;
     
 
 }
@@ -95,17 +96,17 @@ input[type="range"]{
 .select-distance-label{
     border-radius: 10px;
     padding: 10px;
-    font-size: small;
-    font-weight: bold;
+   
+    
 }
 .search{
-    border: 2px solid white;
+    border: 1px solid rgb(192, 54, 54);
     border-radius: 20px;
-    margin-right: 10px;
+    margin-right: 15px;
     outline: none;
     padding: 5px ;
     margin-bottom: 2px;
-    box-shadow: 0px 0px 4px rgb(214, 214, 214);
+    width: 30%;
    
 }
 label{
@@ -129,21 +130,38 @@ label{
     margin-left: 15px;
  }
  .welcome-msg{   
-     color:#0984e3 ;
-     padding: 10px;  
- }
- .banner-bg{
-     background-color: white;
+    color:#0984e3 ;
+    padding: 10px;  
  }
 
+
  .tag{
-     font-size: small;
-     font-style: italic;
-     font-weight: bolder;
-     color: rgb(78, 78, 78);
-     background-color: rgb(197, 197, 197);
-     padding: 3px;
-     border-radius: 10px;
-     margin: 1px;
+    font-size: small;
+    font-style: italic;
+    font-weight: bolder;
+    color: rgb(78, 78, 78);
+    background-color: rgb(197, 197, 197);
+    padding: 3px;
+    border-radius: 10px;
+    margin: 1px;
     
+ }
+
+ #findNearbyUsers-btn{
+    background-color: none;
+    border-radius: 50px;
+    border: 1px solid rgb(192, 54, 54);
+    margin-left: 50%;
+
+ }
+
+ .img-drp{
+     width: 10%;
+ }
+
+ .no-search-result-img{
+    width: 10%;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
  }

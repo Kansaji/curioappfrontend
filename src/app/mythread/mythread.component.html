@@ -6,7 +6,7 @@
     <div >
         
         <div  *ngFor="let answer of answers| async | slice :0:1">
-            <h4 class="question-title">{{answer.subject}}</h4>
+            <h4 class="question-title">{{answer.subject}}</h4><hr>
             <p>{{answer.questionContent}}</p>
 
         </div>  
@@ -50,6 +50,7 @@
                         <div class="date-time">{{answerReply.answerReplyTimeStamp}}</div>
                         <div>
                             <p>{{answerReply.answerReplyContent}}</p>
+                            <button *ngIf="answerReply.answerReplyUsername==username" class="remove-btn" (click)=" removeAnswerReply(answerReply.answerReplyId,$event.target)"> <img src="assets/trash.svg" alt="">  remove</button>
                         </div>
                         <hr>
                     </div>

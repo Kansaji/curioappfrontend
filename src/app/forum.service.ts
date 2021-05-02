@@ -46,4 +46,16 @@ export class ForumService {
   searchQuestions(searchTerm:String):Observable<Array<QuestionPayload>>{
     return this.httpClient.get<Array<QuestionPayload>>("http://localhost:8080/api/discussion/allquestions/"+searchTerm);
   }
+
+  removeQuestion(questionId:number):Observable<any>{
+    return this.httpClient.post("http://localhost:8080/api/discussion/removequestion/"+questionId,{})
+  }
+
+  removeAnswer(answerId:number):Observable<any>{
+    return this.httpClient.post("http://localhost:8080/api/discussion/removeanswer/"+answerId,{})
+  }
+
+  removeAnswerReply(answerReplyId:number):Observable<any>{
+    return this.httpClient.post("http://localhost:8080/api/discussion/removeanswerreply/"+answerReplyId,{})
+  }
 }

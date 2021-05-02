@@ -1,15 +1,18 @@
 
-<div class="container ">
+<br>
+<div class="container-fluid bg">
 
 
 
   <div class="row">
-    <div class="col-md-3 col-md-offset-1"></div>
+    <div class="col-md-3">
+   
+    </div>
+
+
     <div class="col-md-6">
-
-
       <div class="register-success" *ngIf="registrationSuccessful">
-        <img src="assets/check-circle.svg" alt=""> 
+        <img class="success-img" src="assets/check-circle.svg" alt=""> 
         <br>
         <p> Account created successfully. Click <a href="/login">here</a> to login</p>
        
@@ -17,7 +20,8 @@
 
 
       <div class="form-register" *ngIf="!registrationSuccessful" >
-        <h2>CREATE  ACCOUNT </h2><br>
+        
+        <h3>  CREATE  ACCOUNT </h3> <br><hr>
         <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
           <div>
             <label>Username</label> <br> 
@@ -63,11 +67,9 @@
           </div>
         </form>  
     </div>
-    <div class="col-md-3 col-md-offset-1"></div>
-   
-   
+  </div>
 
-    
+  <div class="col-md-3">
    
   </div>
  

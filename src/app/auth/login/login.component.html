@@ -1,18 +1,26 @@
+<br>
 <div class="">
-<div class="container " >
+<div class="container-fluid bg" >
   
   <div class="row">
    
     <div class="col-md-4 col-md-offset-1"> 
+     
+     <div>
+      <img class="welcome-img" src="assets/home.png" alt="">
+     </div>
+     
     </div>
    
     <div class="col-md-4">
        
-        <div class="banner-box"  >
+        <div class="form-login"  >
          
           <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-            <h4>LOGIN </h4>
-            <br>
+            <h4>LOGIN </h4><br>
+           
+            <hr>
+            
             <div>
               <label>Username</label> <br> 
               <input type="text" name="" required="" [formControlName]="'username'" placeholder="Enter username here">
@@ -38,17 +46,27 @@
             <div>
                 <button class="btn btn-lg btn-block ctm-btn" type="submit">LOGIN</button>
                 <br>
-                <a href="/register">Do not have an account? Create an account</a>
+             
             </div>
             
           </form>  
       </div>
       
     </div>
-    <div class="col-md-4">
-    </div>
+    <div class="col-md-4"> 
+     
+    
+      
+     </div>
     
 
+  </div>
+
+  <div class="row" class="welcome-msg">
+    <a href="/register">Do not have an account? Create an account</a>
+    <div >
+      <p>Curio helps you sell, share, donate or exchange your  used kids toys and gear.</p>
+    </div>
   </div>
  
 </div>

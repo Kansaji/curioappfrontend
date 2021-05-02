@@ -116,4 +116,26 @@ export class MembersthreadsComponent implements OnInit {
     this.newAnswerReplies=[];
 
   }
+
+  removeAnswer(answerId,element){
+    this.forumService.removeAnswer(answerId).subscribe(data=>{
+      element.textContent="removed";
+      console.log('success')
+    },error=>{
+      element.textContent="error";
+      console.log('failed');
+
+    });
+  }
+
+  removeAnswerReply(answerReplyId,element){
+    this.forumService.removeAnswerReply(answerReplyId).subscribe(data=>{
+      element.textContent="removed";
+      console.log('success')
+    },error=>{
+      element.textContent="error";
+      console.log('failed');
+
+    });
+  }
 }

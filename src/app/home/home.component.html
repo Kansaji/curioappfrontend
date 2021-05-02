@@ -1,53 +1,34 @@
 <!-- post item button -->
-<div class="container-fluid banner-bg">
- 
- 
-    <div class="row">
-     
-      <div class="col-md-6">
-        <div class="welcome-msg">
-          <br>
-          <br>
-          <h2>WELCOME BACK</h2>
-          <p>Have anything to share sell or donate?</p>
-          <p>Post your used kids' toys and gear to find if anyone is interested </p>
-          <p>in buying or exchanging.</p>
-          <button type="button" class="ctm-btn " data-toggle="modal" data-target="#exampleModalCenter">
-            Post Product
-          </button>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <img class=" landing-img"src="assets/home.png" alt="">
-      </div>
-     
-     
-     
-    </div>
-  
+<br>
+<div class="row container-fluid">
+
+<div class="col-md-2 side-menu vh-100">
+   <!-- show my items show wishlist buttons --> 
+  <br>
+  <button (click)="showMyItems()" class="menu-btn" [ngStyle]="myItemsSelected?{'color':'#2f3542'}:{'color':'#a4b0be'}"> <img src="assets/box.svg" alt=""> My items</button><br>
+  <button (click)="showWishlist()" class="menu-btn" [ngStyle]="wishlistSelected?{'color':'#2f3542'}:{'color':'#a4b0be'}"><img src="assets/heart.svg" alt=""> Wishlist</button><br>
+  <button type="button" class="menu-btn" data-toggle="modal" data-target="#exampleModalCenter">
+    <img src="assets/tag.svg" alt=""> Post new item
+  </button>
 
 </div>
- <br>
 
 
- <div class="container">
- <!-- show my items ahow wishlist buttons --> 
-  <button (click)="showMyItems()" class=" btn btn-light "> <img src="assets/box.svg" alt=""> My items</button>
-  <button (click)="showWishlist()" class="btn btn-light"><img src="assets/heart.svg" alt=""> Wishlist</button>
- </div>
 
- <hr>
-  
+<div class="col-md-10">
+
 <!-- myitems -->
  <div *ngIf="myItemsSelected">
   
   <div class="container" >
-    <h3><img src="assets/box.svg" alt="" width="20px"> My items</h3>
+   
+    <br>
+    <h4>My Items</h4>
     <br>
     <div class="row">
         
       <div class="alert alert-light" role="alert" *ngIf="(myItems | async)?.length == 0">
-        No items posted yet. Items you post will appear here.
+        No posted items. Items you post will appear here.
         <button type="button" class="btn btn-light " data-toggle="modal" data-target="#exampleModalCenter">
           Post a new item
         </button>
@@ -92,7 +73,7 @@
             <div class="modal-content">
 
               <div class="modal-header">
-                <h5 class="modal-title  conversation-title" id="exampleModalLabel"><img src="assets\chat-square-dots.svg" alt=""> {{item.itemName}}</h5>
+                <h5 class="modal-title  conversation-title" id="exampleModalLabel"> {{item.itemName}}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -105,9 +86,10 @@
                     {{item.itemName}}
                   </h3>
                 
-                  <p> {{item.type}}</p>
+                  <p> <img src="assets/box.svg" alt=""> {{item.type}}</p>
                   
-                  <p> {{item.description}}</p>
+                  <p> <img src="assets/tag.svg" alt=""> {{item.description}}</p>
+                  <p> <img src="assets/award.svg" alt="">  {{item.quality}}</p>
 
                   <div>
                     <span class="tag" *ngIf="item.sale!=''"> {{item.sale}}</span>
@@ -128,7 +110,7 @@
                           <span>{{inquiry.from}} <span class="date-time">{{inquiry.timeStamp}}</span> </span>
                           <button class="reply-btn" (click)="setReplyUser(inquiry.from)"> <img src="assets/reply.svg" alt="" class=""> Reply {{inquiry.from}}</button>
                         </div>
-                        <div [innerHTML]="inquiry.message">
+                        <div  [innerHTML]="inquiry.message">
 
                         </div>
                         <br>
@@ -188,7 +170,7 @@
                   <div class="row">
 
                     <div class="col-md-10 col-md-offset-1">
-                        <textarea  id=""  class="form-control" name="" required="" [formControlName]="'reply'" placeholder="Type message..."></textarea>
+                        <textarea  id=""  class="form-control reply-text-box" name="" required="" [formControlName]="'reply'" placeholder="Type message..."></textarea>
                     </div>
                     
                     <div class="col-md-2">
@@ -219,7 +201,7 @@
       <div class="modal-content">
 
         <div class="modal-header">
-          <h2 class="modal-title" id="exampleModalLongTitle">POST ITEM</h2>
+          <h2 class="modal-title conversation-title" id="exampleModalLongTitle">  POST NEW ITEM</h2>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -266,6 +248,22 @@
                         <span *ngIf="addItemForm.controls.description.invalid && addItemForm.controls.description.touched"><h6>!Please enter an item description</h6></span>
                       </div>
                       <br>
+
+                      <div>
+                        <label>Condition</label><br>
+                       <select id="type" name="" [formControlName]="'quality'">
+                           <option value="new">New</option>
+                           <option value="like new">Like new</option>
+                           <option value="good">Good</option>
+                           <option value="fair">Fair</option>
+                           <option value="poor">poor</option>
+              
+                       </select>
+                       
+                        <span *ngIf="addItemForm.controls.quality.invalid && addItemForm.controls.quality.touched"><h6>!Please select the condition of your item</h6></span>
+                      </div>
+
+                      <br>
                       <div>
                         <label>Photo</label> <br> 
                         <input type="file" class="" name="" required="" [formControlName]="'photo'" (change)="onFileChange($event)">
@@ -282,7 +280,8 @@
                       </div>
 
                       <br>
-                      <button type="submit" class="btn btn-light" >POST</button>
+                      <button type="submit" class="btn ctm-btn" >Post</button>
+                      <button type="reset" class="btn btn-light">Reset</button>
                     </form>  
                   </div>
               
@@ -307,8 +306,10 @@
   <div *ngIf="wishlistSelected">
     
     <div class="container" >
-      <h3><img src="assets/heart.svg" alt="" width="20px"> Wishlist</h3>
       <br>
+      <h4>Wishlist</h4>
+      <br>
+      
       <div class="row">
 
         <div class="alert alert-light" role="alert" *ngIf="(wishlist | async)?.length == 0">
@@ -345,7 +346,7 @@
                   <div class="modal-dialog modal-xl" role="document">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h5 class="modal-title conversation-title" id="exampleModalLabel"><img src="assets\chat-square-dots.svg" alt=""> {{item.itemName}}</h5>
+                        <h5 class="modal-title conversation-title" id="exampleModalLabel"> {{item.itemName}}</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                         </button>
@@ -359,10 +360,11 @@
                           <div class="distance-msg">
                             posted by {{item.postedUser}}
                           </div>
-                        
-                          <p> {{item.type}}</p>
-                          
-                          <p> {{item.description}}</p>
+                          <br>
+                          <p> <img src="assets/box.svg" alt=""> {{item.type}}</p>
+    
+                          <p> <img src="assets/tag.svg" alt=""> {{item.description}}</p>
+                          <p><img src="assets/award.svg" alt="">  {{item.quality}}</p>
 
                           <div>
                             <span class="tag" *ngIf="item.sale!=''"> {{item.sale}}</span>
@@ -437,7 +439,7 @@
                               <div class="col-md-10 col-md-offset-1">
                         
                                
-                                  <textarea  id=""  class="form-control" name="" required="" [formControlName]="'message'" placeholder="Type message..."></textarea>
+                                  <textarea  id=""  class="form-control  reply-text-box" name="" required="" [formControlName]="'message'" placeholder="Type message..."></textarea>
                               </div>
                               
                               <div class="col-md-2">
@@ -465,7 +467,8 @@
      
     </div>
   </div>
-
+</div>
+</div>
   <!-- Button trigger modal -->
 
 

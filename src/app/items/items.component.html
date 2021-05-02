@@ -1,72 +1,66 @@
-
-<div class="container-fluid banner-bg">
+<br><br>
+<div class="container ">
+  
   <div class="row">
-    <div class="col-md-6">
+  
 
-    
-      <div class="ml-auto mr-3">
-        <br><br><br>
+   
+
+    <div class="col-md-3">
+      <button type="button" class="btn" id="findNearbyUsers-btn" data-toggle="collapse" data-target="#findNearbyUsers" aria-expanded="false" aria-controls="">
+        <img src="assets/geo.svg"  alt="">{{distance}}
+      </button>
+    </div>
+
+      <div class="col-md-9">
           <form action="" [formGroup]="searchForm" (ngSubmit)="onSearch()" autocomplete="off">
            
             <label for="cars">Search by </label>
             <select name="" id="" class="search" [formControlName]="'searchBy'">
               <option value="all">All</option>
-              <option value="username">  username</option>
-              <option value="type"> item type</option>
-              <option value="itemName"> item Name</option>
+              <option value="username">  Username</option>
+              <option value="type"> Item type</option>
+              <option value="itemName"> Item name</option>
             
             </select>
             <input type="text" class="search " [formControlName]="'search'" placeholder="search term..">
             <button type="submit" class="search-btn"> <img src="assets/search.svg" alt=""></button>
           </form>
           <br>
-          <label for="">Set distance to see items from nearby users </label>
-          <button type="button" class="btn btn-light" id="findNearbyUsers-btn" data-toggle="collapse" data-target="#findNearbyUsers" aria-expanded="false" aria-controls="">
-            <img src="assets/geo.svg"  alt="">{{distance}}
-          </button>
-        
-        
-         
-
-        <div class="collapse" id="findNearbyUsers">
-          <div class="card card-body">
-            <form action="" [formGroup]="distanceForm"  autocomplete="off">
-              <label for="" class="select-distance-label">Select distance to see products from nearby users</label>
-              <br/>
-              <label for="">1 km</label>
-              <input type="range" name="distance" id="" max="100" min="1"  [formControlName]="'distance'">
-              <label for="">All</label>
-            
+      </div>
       
-             
-              
-              
-              
-            </form>
-            <div class="alert alert-warning" role="alert" *ngIf="!locationAllowed && !blockedInBrowser">
-              <p >Allow location for precise results.</p>
-              <button class="btn btn-light" (click)="allowLocation()">Allow location</button>
-            </div>
-            <div class="alert alert-warning" role="alert" *ngIf="!locationAllowed && blockedInBrowser">
-              <p >Location access is blocked in browser or no internet. Try allowing location access in your browser or check your internet connection and reload the page. </p>
-              
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6">
+  
+    
+   
+    
+  </div>
 
+  <div class="row">
+    <div class="collapse" id="findNearbyUsers">
+      <div class="card card-body">
+        <form action="" [formGroup]="distanceForm"  autocomplete="off">
+          <p class="select-distance-label">Set distance to see products from nearby users</p>
+          <label for="">1 km</label>
+          <input type="range" name="distance" id="" max="100" min="1"  [formControlName]="'distance'">
+          <label for="">All</label>
+        </form>
+        <div class="alert alert-light" role="alert" *ngIf="!locationAllowed && !blockedInBrowser">
+          <p > <img class="img-drp" src="assets/location.svg" alt="">  Allow location for precise results.</p>
+          <button class="btn btn-light" (click)="allowLocation()">Allow location</button>
+        </div>
+        <div class="alert alert-warning" role="alert" *ngIf="!locationAllowed && blockedInBrowser">
+          <p ><img class="img-drp" src="assets/warning.svg" alt=""> Location access is blocked in browser or no internet. Try allowing location access in your browser or check your internet connection and reload the page. </p>
+          
         </div>
       </div>
     </div>
-    <br>
-    <div class="col-md-6">
-      <img class=" landing-img"src="assets/browse.png" alt="">
-    </div>
-    
+
+
   </div>
+
 </div>
 
-<br>
+<br><br>
 <div class="container" >
     <div class="row">
       
@@ -104,5 +98,9 @@
      
       
     </div>
-   
+
+    <div class="alert alert-light" role="alert" *ngIf="(allItems | async)?.length == 0">
+      <img class="no-search-result-img" src="assets/search (1).svg" alt="">
+      <h3>No items found</h3>
+    </div>
   </div>

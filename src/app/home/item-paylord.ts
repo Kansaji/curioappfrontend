@@ -3,6 +3,7 @@ export class ItemPaylord{
     itemName:String;
     type:String;
     description:String;
+    quality:String;
     photo: String;
     postedUser:String;
     sale:String;

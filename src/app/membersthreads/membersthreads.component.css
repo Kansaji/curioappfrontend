@@ -1,18 +1,10 @@
-.question-area{
 
-    padding: 5px;
-    border-radius: 5px;
-    border: 5px solid rgb(199, 199, 199);
-}
 .message{
-    background: white;
+
     margin: 10px;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid rgb(240, 238, 238);
-    margin-right: 20px;
-       
-    
+    border-bottom: 1px solid rgb(230, 230, 230);
+    padding: 20px;
+ 
 }
 .date-time{
     color: rgb(138, 135, 135);
@@ -39,4 +31,19 @@
 
 a{
     text-decoration: none;
+}
+
+.question-text{
+
+    text-align: justify;
+  
+    
+}
+
+.remove-btn{
+    border:none;
+    outline: none;
+    background-color: transparent;
+    color: rgb(0, 110, 255);
+    margin-left: 50px;
 }

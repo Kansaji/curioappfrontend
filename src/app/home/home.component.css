@@ -21,18 +21,20 @@ a{
     border: none;
     border-radius: 5px;
     font-size: 15px;
-    font-weight: bold;
     outline: none;
-    color:#eb3b5a;
-    background-image: linear-gradient(to right,white 70%,white);
-    width: 50%;
-    height: 40px;
-    margin-left: 25%;
+    color:white;
+    background-color: #eb3b5a;
+   
+    font-weight: bold;
+    margin-left: 60%;
+    
+    margin-right: 20px;
+   
 }
 .ctm-btn:hover{
   
     color: white;
-    background-image: linear-gradient(to right,#e03050 70%,#e03050);
+    background-color: #c9324e;
 }
 .conversation-btn{
     border: none;
@@ -69,9 +71,6 @@ a{
 }
 
 
-.landing-img{
-    width: 50%;
-}
 input,select {
     width: 95%;
     border-top: none;
@@ -80,6 +79,7 @@ input,select {
     background: none;
     overflow-wrap: break-word;
     outline: none;
+    border-bottom:2px solid rgb(66, 65, 65);
 }
 input:focus,select:focus{
     border-bottom: 2px solid #0fbcf9;
@@ -102,14 +102,7 @@ h6{
     color: #fc0a2f;
     margin: -2px;
 }
-.postitem-area{
-    padding: 2%;
-    border-radius: 5px;
-    margin: none;
-    font-weight: bold;
-    color:rgb(70, 66, 66);
-    box-shadow: 0px 0px 5px #838181;
-}
+
 .text-area,#type{
     width: 95%;
     border: 2px solid rgb(102, 101, 101);
@@ -158,7 +151,7 @@ h6{
      background: white;
      margin: 10px;
      margin-right: 25%;
-     padding: 10px;
+     padding: 5px;
      border-radius: 5px;
      border: 1px solid rgb(235, 229, 229);
     
@@ -168,7 +161,7 @@ h6{
     background:white ;
     margin: 10px;
     margin-left: 25%;
-    padding: 10px;
+    padding: 5px;
     border-radius: 5px;
     border: 1px solid rgb(235, 229, 229);
     margin-right: 20px;
@@ -258,29 +251,21 @@ h6{
     transition: 0.2s;
   
 }
-.landing-img{
-    margin-top: 50px;
-    width: 100%;
-    margin-left: 15px;
- }
-.welcome-msg{   
-    color:white ;
-   
-    margin-left: 30%;  
-}
-.banner-bg{
-    background-color: #eb3b5a;
-}
+
+
+
+
+
 .description{
-    justify-content: center;
-    border: 1px solid rgb(226, 220, 220);
+    
+    border: 1px solid rgb(230, 229, 229);
     border-radius: 5px;
     background: white;
-    text-align: center;
+    text-align: left;
     margin: 5px;
     padding: 15px;
     color: rgb(82, 79, 79);
-    box-shadow: 0px 0px 4px #dbdbdb;
+   
 }
 .distance-msg{
     font-style: italic;
@@ -309,4 +294,33 @@ h6{
     border-radius: 10px;
     margin: 5px;
    
+}
+
+.menu-btn{
+    width: 200px;
+    height:40px;
+    outline: none;
+    border: none;
+    background: none;
+    text-align: left;
+    font-weight: bolder;
+    color: #95afc0;
+}
+
+
+
+.reply-text-box{
+    margin: 15px;
+}
+
+
+.side-menu{
+    border:none;
+    padding-left: 2%;
+    border-right: 1px solid gainsboro;
+  
+}
+
+h4{
+    color: #747d8c;
 }

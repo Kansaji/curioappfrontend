@@ -1,15 +1,15 @@
-<nav class="navbar navbar-default navbar-expand-lg header ">
+<nav class="navbar navbar-default navbar-expand-lg header">
     <a class="navbar-brand flinks" href="#">CURIO</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon">...</span>
+      <span class="navbar-toggler-icon"></span>
     </button>
     
     <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-      <div class="navbar-nav col-md-3" >
+      <div class="navbar-nav col-md-1" >
         <a class="nav-item nav-link flinks " href="/home"  *ngIf="authService.isAuthenticated()">Home</a>
         <a class="nav-item nav-link flinks " href="/items"  *ngIf="authService.isAuthenticated()" >Products</a>
         <a class="nav-item nav-link flinks " href="/discussionforum"  *ngIf="authService.isAuthenticated()">Discussion</a>
-        <a class="nav-item nav-link flinks" href="/advertisements"   *ngIf="authService.isAuthenticated()" >Donations</a>
+        <a class="nav-item nav-link flinks" href="/donations"   *ngIf="authService.isAuthenticated()" >Donations</a>
         
         <div class="dropdown" *ngIf="authService.isAuthenticated()">
           <button class="nav-item nav-link user dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="getMyStats()">
@@ -41,3 +41,4 @@
 
     
   </nav>
+  

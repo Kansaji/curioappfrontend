@@ -1,38 +1,21 @@
-
-<div class="container-fluid banner-bg">
-    <div class="row">
-        <div class="col-md-6">
-            <img class="landing-img" src="assets/discussion.png" alt="">
-         </div>
-        <div class="col-md-6">
-            <div class=" welcome-msg">
-                <br>
-                <br>
-                <h2>Q&A</h2>
-                <p>Post your questions to get answers from other members </p>
-                <p>and share your thoughts.</p>
-                <p>get help and help others.</p>
-    
-                        <!--ask question button-->
-                <button type="button" class="btn ctm-btn" data-toggle="modal" data-target="#exampleModal">
-                    Ask a Question
-                </button>
-             </div>
-        </div>
-    </div>
-</div>
-
 <br>
-<div class="container">
-    
-    <button class="btn btn-light " (click)=" selectMyQuestion()"> <img src="assets/question.svg" alt=""> My Questions</button>
-    <button class="btn btn-light " (click)="  selectThreads()"><img src="assets/people.svg" alt=""> Community</button>
-</div>
-<hr>
 
-<div class="row">
-    <div class="col-md-8"></div>
-<div class="col-md-4">
+<div class="row container-fluid">
+
+<div class="col-md-2 vh-100 side-menu">
+    <br>
+    <button class="menu-btn " (click)=" selectMyQuestion()" [ngStyle]="myQuestionSelected?{'color':'#2f3542'}:{'color':'#a4b0be'}"><img src="assets/person.svg" alt="">  My Questions</button>
+    <button class="menu-btn " (click)="  selectThreads()" [ngStyle]="threadsSelected?{'color':'#2f3542'}:{'color':'#a4b0be'}"> <img src="assets/people.svg" alt=""> Community</button>
+    <button type="button" class="menu-btn" data-toggle="modal" data-target="#exampleModal">
+        <img src="assets/question-circle.svg" alt=""> Ask a Question
+    </button>
+</div>
+
+
+<div class="col-md-10">
+<div class="">
+    
+<div class="">
     <form action="" [formGroup]="searchQuestionForm" (ngSubmit)="search()">
         <input type="text" class="search" [formControlName]="'searchTerm'" placeholder="search questions ..">
         <button type="submit" class="search-btn"> <img src="assets/search.svg" alt=""></button>
@@ -44,7 +27,7 @@
     <div class="modal-dialog" role="document">
     <div class="modal-content">
         <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Ask Question</h5>
+        <h5 class="modal-title conversation-title" id="exampleModalLabel">POST NEW QUESTION</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -67,12 +50,13 @@
                     <br>
                 </div>
 
-                <button class="btn btn-light" type="submit">Ask</button>
+                <button class="btn ctm-btn" type="submit">Ask</button>
+                <button class="btn btn-light" type="reset">Reset</button>
             </form>
         
             <div *ngIf="questionPosted">
                 <h4>Question Posted</h4>
-               <a class="btn btn-success" href="/discussionforum">OK</a>       
+               <a class="btn btn-light" href="/discussionforum">OK</a>       
             </div>
            
     
@@ -92,25 +76,30 @@
     
 
     <!--go to my questions-->
-    <h3><img src="assets/question.svg" alt="" width="20px"> My questions</h3>
-    <br>
    
+    <br>
+    <h4>My questions</h4>
+    <br>
+   <button *ngIf="(myQuestions | async)?.length == 0" type="button" class="btn btn-light" data-toggle="modal" data-target="#exampleModal">
+        Ask a new question.
+    </button> 
     <div>
         
         <div class="row" >
-            <div class="col-md-3" *ngFor="let myQuestion of myQuestions | async">
+            <div class="col-md-10" *ngFor="let myQuestion of myQuestions | async">
                 <div class="question-area">
                     <div class="date-time">
                         posted on {{myQuestion.questionedTimeStamp}}
                     </div>
-                    <h6>
+                    <h3>
                         {{myQuestion.subject |slice:0:20}}
-                    </h6>
+                    </h3>
                     <br>
                     <p>
-                        {{myQuestion.questionContent|slice:0:30}}
+                        {{myQuestion.questionContent|slice:0:200}}
                     </p>
-                    <a type="button" class="comment-btn"  href="/mythread/{{myQuestion.questionId}}"> View   {{myQuestion.numOfAnswers}} answers</a>
+                    <a type="button" class="comment-btn"  href="/mythread/{{myQuestion.questionId}}"> <img src="assets/chat-square-text.svg" alt=""> View {{myQuestion.numOfAnswers}} answers</a> 
+                    <button  class="remove-btn" (click)=" removeQuestion(myQuestion.questionId,$event.target)"> <img src="assets/trash.svg" alt="">  remove</button>
                 </div>
                 
             </div>
@@ -123,27 +112,33 @@
 
 <!--community-->
 <div class="container" *ngIf="threadsSelected">
-    <h3><img src="assets/people.svg" alt="" width="20px"> Community</h3>
+    <br>
+    <h4>Community</h4>
+    <br>
     <div>
         
         <div class="row " >
-            <div class="col-md-3 " *ngFor="let question of allQuestions | async">
+            <div class="col-md-10 " *ngFor="let question of allQuestions | async">
                 <div class="question-area">
-                    <div>
-                        <h6> <img src="assets/person.svg" alt=""> Aksed by {{question.askedUsername}}</h6>
-                    </div>
+
                     <div class="date-time">
                         posted on {{question.questionedTimeStamp}}
                     </div>
+
+                    <div>
+                        <h6> <img src="assets/person.svg" alt=""> Aksed by {{question.askedUsername}}</h6>
+                    </div>
+               
                     <div>
                     
-                       <h6> {{question.subject |slice:0:20}}</h6>
-                        <br>
+                       <h3> {{question.subject |slice:0:20}}</h3>
+                       <br>
+                        
                         <p>
-                            {{question.questionContent |slice:0:30}}
+                            {{question.questionContent |slice:0:150}}
                         </p>
                       
-                        <a type="button" class="comment-btn"  href="/membersthreads/{{question.questionId}}"> View   {{question.numOfAnswers}} answers</a>
+                        <a type="button" class="comment-btn"  href="/membersthreads/{{question.questionId}}"><img src="assets/chat-square-text.svg" alt=""> View {{question.numOfAnswers}} answers</a>
                     </div>
                 </div>
             </div>
@@ -151,4 +146,6 @@
             
         </div>
     </div>
+</div>
+</div>
 </div>
