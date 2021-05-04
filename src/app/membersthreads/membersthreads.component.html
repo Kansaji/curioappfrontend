@@ -14,7 +14,7 @@
     <div *ngFor="let answer of answers| async" class="message">
       <div *ngIf="answer.answeredTimeStamp!=''">
         <h6>{{answer.answeredUsername}}</h6>
-        <div class="date-time">answered on {{answer.answeredTimeStamp}}</div>
+        <div class="date-time">replied on {{answer.answeredTimeStamp}}</div>
         <p >{{answer.answerContent}}</p>
 
         
@@ -29,7 +29,7 @@
             
             <!-- Modal -->
             <div class="modal " id="replymodal{{answer.answerId}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLongTitle"><img src="assets\chat-square-dots.svg" alt=""> comments</h5>
@@ -86,14 +86,14 @@
     <div *ngFor="let answer of newAnswers" class="message">
       
         <h6>{{username}}</h6>
-        <div class="date-time">answered on {{answer.answeredTimeStamp}}</div>
+        <div class="date-time">replied on {{answer.answeredTimeStamp}}</div>
         <p>{{answer.answerContent}}</p>
     
     </div>
     <div>
         <form action="" [formGroup]="answerForm" (ngSubmit)="onSubmit()">
         
-            <textarea name="" id="" cols="30" rows="4" class="form-control" [formControlName]="'answerContent'" placeholder="Type your answer.."></textarea>
+            <textarea name="" id="" cols="30" rows="4" class="form-control" [formControlName]="'answerContent'" placeholder="Type your reply.."></textarea>
             <br>
             <button type="submit" class="btn btn-light">send Answer</button>
         </form>

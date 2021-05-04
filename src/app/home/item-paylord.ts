@@ -9,5 +9,7 @@ export class ItemPaylord{
     sale:String;
     donation:String;
     exchange:String;
-    renting:String;  
+    renting:String; 
+    likes:number; 
+    postedTimeStamp:String;
 }

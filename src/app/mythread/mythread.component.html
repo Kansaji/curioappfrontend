@@ -18,7 +18,7 @@
       
         <h6>{{answer.answeredUsername}}</h6>
         <div class="date-time" *ngIf="answer.answeredTimeStamp!=''">
-            answered on {{answer.answeredTimeStamp}}
+            replied on {{answer.answeredTimeStamp}}
         </div>
        
         <p>{{answer.answerContent}}</p>
@@ -36,7 +36,7 @@
         
         <!-- Modal -->
         <div class="modal " id="replymodal{{answer.answerId}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLongTitle"><img src="assets\chat-square-dots.svg" alt=""> comments</h5>

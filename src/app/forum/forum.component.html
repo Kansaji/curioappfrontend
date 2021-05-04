@@ -1,4 +1,4 @@
-<br>
+
 
 <div class="row container-fluid">
 
@@ -13,18 +13,18 @@
 
 
 <div class="col-md-10">
-<div class="">
-    
+
+   <br> 
 <div class="">
     <form action="" [formGroup]="searchQuestionForm" (ngSubmit)="search()">
         <input type="text" class="search" [formControlName]="'searchTerm'" placeholder="search questions ..">
         <button type="submit" class="search-btn"> <img src="assets/search.svg" alt=""></button>
     </form>
 </div>
-</div>
+
 <!-- ansk question Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
-    <div class="modal-dialog" role="document">
+<div class="modal " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+    <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
         <div class="modal-header">
         <h5 class="modal-title conversation-title" id="exampleModalLabel">POST NEW QUESTION</h5>
@@ -98,8 +98,8 @@
                     <p>
                         {{myQuestion.questionContent|slice:0:200}}
                     </p>
-                    <a type="button" class="comment-btn"  href="/mythread/{{myQuestion.questionId}}"> <img src="assets/chat-square-text.svg" alt=""> View {{myQuestion.numOfAnswers}} answers</a> 
-                    <button  class="remove-btn" (click)=" removeQuestion(myQuestion.questionId,$event.target)"> <img src="assets/trash.svg" alt="">  remove</button>
+                    <a type="button" class="comment-btn"  href="/mythread/{{myQuestion.questionId}}"> <img src="assets/chat-square-text.svg" alt=""> View {{myQuestion.numOfAnswers}} replies</a> 
+                    <button *ngIf="myQuestion.subject!='[DELETED]' && myQuestion.questionContent!=''" class="remove-btn" (click)=" removeQuestion(myQuestion.questionId,$event.target)"> <img src="assets/trash.svg" alt="">  remove</button>
                 </div>
                 
             </div>
@@ -138,7 +138,7 @@
                             {{question.questionContent |slice:0:150}}
                         </p>
                       
-                        <a type="button" class="comment-btn"  href="/membersthreads/{{question.questionId}}"><img src="assets/chat-square-text.svg" alt=""> View {{question.numOfAnswers}} answers</a>
+                        <a type="button" class="comment-btn"  href="/membersthreads/{{question.questionId}}"><img src="assets/chat-square-text.svg" alt=""> View {{question.numOfAnswers}} replies</a>
                     </div>
                 </div>
             </div>

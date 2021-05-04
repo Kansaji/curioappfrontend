@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators,AbstractControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { ForumService } from '../forum.service';
 import { AnswerPayload } from '../forum/answer-payload';
@@ -35,7 +35,7 @@ export class MythreadComponent implements OnInit {
     this.answers=this.forumService.getAsnwers(this.permalink);
   
    this.answerReplyForm=this.formBuilder.group({
-      answerReplyContent:'',
+      answerReplyContent:['',[Validators.required,this.stringValidator]],
     })
     this.username=this.localStorageService.retrieve('username');
 
@@ -52,7 +52,7 @@ export class MythreadComponent implements OnInit {
   }
 
   onReply(answerId:number){
-    if(this.answerReplyForm.get('answerReplyContent').value!=''){
+    if(this.answerReplyForm.get('answerReplyContent').value!='' && this.answerReplyForm.valid){
       
       this.answerReplyPayload.answerId=answerId;
       this.answerReplyPayload.answerReplyContent=this.answerReplyForm.get('answerReplyContent').value;
@@ -86,6 +86,18 @@ export class MythreadComponent implements OnInit {
       console.log('failed');
 
     });
+  }
+
+  stringValidator(control: AbstractControl){
+    if(control && (control.value!==null || control.value!== undefined)){
+      const regex = new RegExp("^\\s+$");
+      if(regex.test(control.value)){
+        return{
+          isError:true
+        };
+      }
+    }
+    return null;
   }
   
 }

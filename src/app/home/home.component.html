@@ -1,5 +1,5 @@
 <!-- post item button -->
-<br>
+
 <div class="row container-fluid">
 
 <div class="col-md-2 side-menu vh-100">
@@ -50,7 +50,9 @@
             <h3>
              {{item.itemName}}
             </h3>
-            <p> {{item.type}}</p>
+            
+            
+
           </div>
 
           <!-- my items converstation button -->
@@ -82,15 +84,16 @@
               <div class="modal-body modal-bg">
                 
                 <div class="description">
-                  <h3>
-                    {{item.itemName}}
-                  </h3>
-                
-                  <p> <img src="assets/box.svg" alt=""> {{item.type}}</p>
+                  <h2>{{item.itemName}}</h2>
+                  <span class="username-timestamp" >posted by {{item.postedUser}} on {{item.postedTimeStamp}} </span><br>
                   
+                  
+                  <br>
+                  <p><img src="assets/heart.svg" alt="" >  {{item.likes}}</p>
+                  <p><img src="assets/box.svg" alt=""> {{item.type}}</p>
                   <p> <img src="assets/tag.svg" alt=""> {{item.description}}</p>
-                  <p> <img src="assets/award.svg" alt="">  {{item.quality}}</p>
-
+                  <p><img src="assets/award.svg" alt=""> {{item.quality}}</p>
+                  
                   <div>
                     <span class="tag" *ngIf="item.sale!=''"> {{item.sale}}</span>
                     <span class="tag" *ngIf="item.donation!=''"> {{item.donation}}</span>
@@ -157,13 +160,13 @@
           
                 <div class="" *ngIf="sendTo==''">  <p class="reply-area-err"> No recipient selected  </p> </div>
                 <div class="" *ngIf="sendTo!=''">  
-                  <p class="reply-area"> To:  {{sendTo}} <button class="mention-close-btn" (click)=" deleteSetReplyUser()">X</button>  </p>
+                  <p class="reply-area"><button class="mention-close-btn" (click)=" deleteSetReplyUser()">X</button>  To:  {{sendTo}}  </p>
                 </div>
 
                 <div *ngIf="replyMyitems!=''" class="mention-area">
-                
+                  <button class="mention-close-btn" (click)=" deleteMentionMessageInMyItems()">X</button><br>
                   <div [innerHTML]="replyMyitems"></div>
-                  <button class="mention-close-btn" (click)=" deleteMentionMessageInMyItems()">X</button>
+                  
                 </div>
                 <br>
                 <form [formGroup]="sendReplyForm" (ngSubmit)="sendReply(item.itemId)">
@@ -196,7 +199,7 @@
 
   
   <!-- post items form modal -->
-  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal " id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg"  role="document">
       <div class="modal-content">
 
@@ -328,7 +331,8 @@
               <h3>
                 {{item.itemName}}
               </h3>
-              <p> {{item.type}}</p>
+              <span class="username-timestamp" >  by {{item.postedUser}}  </span><br>
+           
             </div>
 
             <div class="">
@@ -354,18 +358,16 @@
                       <div class="modal-body modal-bg">
 
                         <div class="description">
-                          <h3>
-                            {{item.itemName}}
-                          </h3>
-                          <div class="distance-msg">
-                            posted by {{item.postedUser}}
-                          </div>
+                          <h2>{{item.itemName}}</h2>
+                          <span class="username-timestamp" >posted by {{item.postedUser}} <img src="assets/dot.svg" alt=""> on {{item.postedTimeStamp}} </span><br>
+                          
+                          
                           <br>
-                          <p> <img src="assets/box.svg" alt=""> {{item.type}}</p>
-    
+                          <p><img src="assets/heart.svg" alt="" >  {{item.likes}}</p>
+                          <p><img src="assets/box.svg" alt=""> {{item.type}}</p>
                           <p> <img src="assets/tag.svg" alt=""> {{item.description}}</p>
-                          <p><img src="assets/award.svg" alt="">  {{item.quality}}</p>
-
+                          <p><img src="assets/award.svg" alt=""> {{item.quality}}</p>
+                          
                           <div>
                             <span class="tag" *ngIf="item.sale!=''"> {{item.sale}}</span>
                             <span class="tag" *ngIf="item.donation!=''"> {{item.donation}}</span>
@@ -428,9 +430,9 @@
                         <div class="">
                           
                           <div *ngIf="replyInWishlist!=''" class="mention-area">
-                        
+                            <button class="mention-close-btn" (click)="deletementionMessageInWishlist()">X</button><br>
                             <div [innerHTML]="replyInWishlist"></div>
-                            <button class="mention-close-btn" (click)="deletementionMessageInWishlist()">X</button>
+                           
                           </div>
                           <br>
                           <form [formGroup]="sendInquiryForm" (ngSubmit)="sendInquiry(item.itemId)">

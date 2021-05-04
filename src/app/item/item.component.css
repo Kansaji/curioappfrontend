@@ -19,12 +19,7 @@
     outline: none;
     z-index: 2;
 }
-.distance-msg{
-    font-style: italic;
-    font-size: smaller;
-    font-weight: bold;
-    color: #eb3b5a;
-}
+
 .addtowishlist-btn{
     border: none;
     border-radius: 20px;
@@ -59,3 +54,25 @@
     transition: 0.2s;
     color: #147096;
 }
+
+.likes-type{
+    margin-right: 20px;
+}
+
+.username-timestamp{
+    color: rgb(131, 128, 128);
+    font-size: small;
+    font-weight: 700;
+}
+
+.tag{
+    font-size: small;
+    font-style: italic;
+    font-weight: bolder;
+    color: rgb(78, 78, 78);
+    background-color: rgb(197, 197, 197);
+    padding: 3px;
+    border-radius: 10px;
+    margin: 1px;
+    
+ }

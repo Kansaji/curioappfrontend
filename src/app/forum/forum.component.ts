@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators,AbstractControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { ForumService } from '../forum.service';
@@ -26,8 +26,8 @@ export class ForumComponent implements OnInit {
   constructor(private formBuilder:FormBuilder, private forumService:ForumService, private router:Router, private datePipe:DatePipe) {
 
     this.askQuestionForm=this.formBuilder.group({
-      questionContent:['',Validators.required],
-      subject:['',Validators.required]
+      questionContent:['',[Validators.required,  this.stringValidator]],
+      subject:['',[Validators.required , this.stringValidator]]
     });
 
    this.questionPayload={
@@ -63,7 +63,7 @@ export class ForumComponent implements OnInit {
 
   onSubmit(){
     this.askQuestionForm.markAllAsTouched();
-    if(this.askQuestionForm.get('questionContent').value!='' && this.askQuestionForm.get('subject').value!=''){
+    if(this.askQuestionForm.valid){
 
       this.questionPayload.questionContent=this.askQuestionForm.get('questionContent').value;
       this.questionPayload.subject=this.askQuestionForm.get('subject').value;
@@ -74,6 +74,8 @@ export class ForumComponent implements OnInit {
       },error=>{
         console.log('question post failed');
       });
+    }else{
+      console.log('failed');
     }
     }
   
@@ -107,5 +109,18 @@ export class ForumComponent implements OnInit {
       console.log('failed');
 
     });
+  }
+
+
+  stringValidator(control: AbstractControl){
+    if(control && (control.value!==null || control.value!== undefined)){
+      const regex = new RegExp("^\\s+$");
+      if(regex.test(control.value)){
+        return{
+          isError:true
+        };
+      }
+    }
+    return null;
   }
 }

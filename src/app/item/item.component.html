@@ -7,16 +7,23 @@
         </div>
         <div class="col-md-4">
             <h2>{{item.itemName}}</h2>
-            <div class="distance-msg">
-                posted by {{item.postedUser}}
-            </div>
-            <br>
-            <p><img src="assets/box.svg" alt=""> {{item.type}}</p>
-            <p> <img src="assets/tag.svg" alt="">{{item.description}}</p>
+            <span class="username-timestamp" >  by {{item.postedUser}} <img src="assets/dot.svg" alt=""> on {{item.postedTimeStamp}} </span><br>
             
-            <div class="distance-msg">
-             <img src="assets/award.svg" alt=""> Condition : {{item.quality}}
-          </div>
+            
+            <br>
+            <p><img src="assets/heart.svg" alt="" >  {{item.likes}}</p>
+            <p><img src="assets/box.svg" alt=""> {{item.type}}</p>
+            <p> <img src="assets/tag.svg" alt=""> {{item.description}}</p>
+            <p><img src="assets/award.svg" alt=""> Condition : {{item.quality}}</p>
+            
+            <div>
+              <span class="tag" *ngIf="item.sale!=''"> {{item.sale}}</span>
+              <span class="tag" *ngIf="item.donation!=''"> {{item.donation}}</span>
+              <span class="tag" *ngIf="item.exchange!=''"> {{item.exchange}}</span>
+              <span class="tag" *ngIf="item.renting!=''"> {{item.renting}}</span>
+            </div>
+
+
           <br>
             <button class="addtowishlist-btn" (click)="addToinquiredItems($event.target,item.itemId)">Add to Wishlist</button>
         </div>

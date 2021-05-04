@@ -177,19 +177,18 @@ h6{
  }
 .reply-area{
     outline: none;  
-    border-radius: 5px;
-    border: none;
+    border-radius: 25px;
+    border: 1px solid rgb(173, 172, 172);
     padding: 8px;
     margin-left: 10px;
     margin-top: 10px;
     font-size: smaller;
-    font-weight: bold;
     width: 30%;
-    box-shadow: 2px 4px 10px #817f7f;
+    
 }
 .reply-area-err{
     outline: none;  
-    border-radius: 5px;
+    border-radius: 25px;
     border: none;
     padding: 8px;
     margin-left: 10px;
@@ -197,34 +196,33 @@ h6{
     font-size: smaller;
     font-weight: bold;
     width: 30%;
-    box-shadow: 2px 4px 10px #eea0a0;
-    background-color: rgb(248, 143, 164);
+    color: white;
+    background-color: rgb(167, 21, 50);
     text-align: center;
 }
 .mention-area{
     outline: none;  
     border-radius: 5px;
-    border: none;
+    border: 1px solid rgb(173, 172, 172);
     padding: 8px;
     margin-left: 10px;
     font-size: smaller;
-    font-weight: bold;
     width: 80%;
-    box-shadow: 2px 4px 10px #817f7f;
+    
   
 }
 .mention-close-btn{
     outline: none;  
     border-radius: 50%;
-    border: none;
+    border: 1px solid rgb(173, 172, 172);
     font-weight: bold;
     font-size: smaller;
-    background-color: rgb(253, 250, 250);
+    background: white;
     height: 20px;
     width: 20px;
-    position: absolute;
-    right: 20px;
-    box-shadow: 2px 4px 10px #817f7f;
+   
+  
+   
 }
 .modal-bg{
     background-color: #f8f8f8;
@@ -323,4 +321,11 @@ h6{
 
 h4{
     color: #747d8c;
+}
+
+
+.username-timestamp{
+    color: #ff4757;
+    font-size: smaller;
+    font-weight: 700;
 }

@@ -165,3 +165,13 @@ label{
     margin-right: auto;
     margin-left: auto;
  }
+
+ .likes-type{
+     margin-right: 20px;
+ }
+
+ .username-timestamp{
+     color: rgb(131, 128, 128);
+     font-size: small;
+     font-weight: 700;
+ }

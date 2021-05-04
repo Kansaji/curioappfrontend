@@ -71,12 +71,14 @@
           </div>
           <div class="">
             <h3>
-              {{item.itemName}} 
+              {{item.itemName}}   
             </h3>
-            <span> {{item.type}}</span>
-            <span class="distance-msg" *ngIf="distance!='All users' && searched"> <br> <img src="assets/geo.svg"  alt=""> by {{item.postedUser}} {{item.away| number:'1.1-2'}} kms away</span>
-            <br>
-            <br>
+            <span class="username-timestamp" >  by {{item.postedUser}} <img src="assets/dot.svg" alt=""> on {{item.postedTimeStamp}} </span><br>
+            <span class="likes-type"> <img src="assets/heart.svg" alt="" >  {{item.likes}}</span> <span class="likes-type"> <img src="assets/box.svg" alt="">  {{item.type}}</span>
+            
+            <span class="distance-msg" *ngIf="distance!='All users' && searched">  <img src="assets/geo.svg"  alt="">  {{item.away| number:'1.1-2'}} kms away</span>
+           
+            <br><br>
             <div>
               <span class="tag" *ngIf="item.sale!=''"> {{item.sale}}</span>
               <span class="tag" *ngIf="item.donation!=''"> {{item.donation}}</span>

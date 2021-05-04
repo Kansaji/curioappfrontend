@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators} from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, AbstractControl} from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { ItemService } from '../item.service';
@@ -45,9 +45,9 @@ export class HomeComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, private itemService:ItemService , private router:Router, private localStorageService:LocalStorageService, private datePipe:DatePipe) { 
 
     this.addItemForm = this.formBuilder.group({
-      itemName:['',Validators.required],
+      itemName:['',[Validators.required, this.stringValidator]],
       type:['',Validators.required],
-      description:['',Validators.required],
+      description:['',[Validators.required, this.stringValidator]],
       quality:['',Validators.required],
       photo:['',Validators.required],
       sale:[''],
@@ -67,14 +67,16 @@ export class HomeComponent implements OnInit {
       sale:'',
       donation:'',
       exchange:'',
-      renting:''
+      renting:'',
+      likes:0,
+      postedTimeStamp:''
     };
 
     this.sendInquiryForm=this.formBuilder.group({
-      message:['']
+      message:['',[Validators.required,this.stringValidator]]
     });
     this.sendReplyForm=this.formBuilder.group({
-      reply:['']
+      reply:['',[Validators.required, this.stringValidator]]
     })
     
     this.isSuccess=false;
@@ -118,6 +120,7 @@ export class HomeComponent implements OnInit {
       this.itemPaylord.donation=this.addItemForm.get('donation').value;
       this.itemPaylord.exchange=this.addItemForm.get('exchange').value;
       this.itemPaylord.renting=this.addItemForm.get('renting').value;
+      this.itemPaylord.postedTimeStamp=this.datePipe.transform(new Date(),'yyyy MM dd, HH:mm:ss');
 
       console.log(this.base64textString);
       this.itemService.addItem(this.itemPaylord).subscribe(data=>{
@@ -165,7 +168,7 @@ export class HomeComponent implements OnInit {
 
   sendInquiry(itemId){
    var message=this.sendInquiryForm.get('message').value
-   if(message!=""){
+   if(message!="" && this.sendInquiryForm.valid){
      if(this.replyInWishlist!=''){
       message="<i><h6>"+this.replyInWishlist+"</h6></i><hr>"+message;
      }
@@ -230,7 +233,7 @@ export class HomeComponent implements OnInit {
 
   sendReply(itemId){
     var reply=this.sendReplyForm.get('reply').value
-    if(reply!=''&& this.sendTo!=''){
+    if(reply!=''&& this.sendTo!='' && this.sendReplyForm.valid){
       if(this.replyMyitems!=''){
       reply="<i><h6>"+this.replyMyitems+"</h6></i><hr>" + reply;
       }
@@ -301,5 +304,17 @@ export class HomeComponent implements OnInit {
     },error=>{
       element.textContent="error";
     });
+  }
+
+  stringValidator(control: AbstractControl){
+    if(control && (control.value!==null || control.value!== undefined)){
+      const regex = new RegExp("^\\s+$");
+      if(regex.test(control.value)){
+        return{
+          isError:true
+        };
+      }
+    }
+    return null;
   }
 }

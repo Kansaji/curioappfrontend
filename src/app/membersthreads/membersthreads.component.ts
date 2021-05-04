@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { LocalStorageService } from 'ngx-webstorage';
 import { Observable } from 'rxjs';
@@ -28,11 +28,11 @@ export class MembersthreadsComponent implements OnInit {
 
   constructor(private route:ActivatedRoute, private forumService:ForumService, private formBuilder:FormBuilder, private localStorageService:LocalStorageService, private datePipe:DatePipe) { 
     this.answerForm=this.formBuilder.group({
-      answerContent:['',Validators.required]
+      answerContent:['',[Validators.required, this.stringValidator]]
     });
 
     this.answerReplyForm=this.formBuilder.group({
-      answerReplyContent:'',
+      answerReplyContent:['',[Validators.required,this.stringValidator]],
     })
 
     this.answerPayload={
@@ -69,7 +69,7 @@ export class MembersthreadsComponent implements OnInit {
   }
 
   onSubmit(){
-    if(this.answerForm.get('answerContent').value!=''){
+    if(this.answerForm.get('answerContent').value!='' && this.answerForm.valid){
       this.answerPayload.answerContent=this.answerForm.get('answerContent').value;
       this.answerPayload.questionId=this.permalink;
       this.answerPayload.answeredTimeStamp=this.datePipe.transform(new Date(),'yyyy MM dd, HH:mm:ss');
@@ -87,7 +87,7 @@ export class MembersthreadsComponent implements OnInit {
   }
   
   onReply(answerId:number){
-    if(this.answerReplyForm.get('answerReplyContent').value!=''){
+    if(this.answerReplyForm.get('answerReplyContent').value!='' && this.answerReplyForm.valid){
       
       this.answerReplyPayload.answerId=answerId;
       this.answerReplyPayload.answerReplyContent=this.answerReplyForm.get('answerReplyContent').value;
@@ -137,5 +137,17 @@ export class MembersthreadsComponent implements OnInit {
       console.log('failed');
 
     });
+  }
+
+  stringValidator(control: AbstractControl){
+    if(control && (control.value!==null || control.value!== undefined)){
+      const regex = new RegExp("^\\s+$");
+      if(regex.test(control.value)){
+        return{
+          isError:true
+        };
+      }
+    }
+    return null;
   }
 }
