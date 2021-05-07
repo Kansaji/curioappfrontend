@@ -69,7 +69,8 @@ export class HomeComponent implements OnInit {
       exchange:'',
       renting:'',
       likes:0,
-      postedTimeStamp:''
+      postedTimeStamp:'',
+      soldFlag:''
     };
 
     this.sendInquiryForm=this.formBuilder.group({
@@ -316,5 +317,49 @@ export class HomeComponent implements OnInit {
       }
     }
     return null;
+  }
+
+
+  setAsSold(itemId){
+   
+    this.setSoldFlag(itemId,'Sold');
+  }
+
+  setAsDonated(itemId){
+   
+    this.setSoldFlag(itemId,'Donated');
+  }
+
+  setAsExchanged(itemId){
+   
+    this.setSoldFlag(itemId,'Exchanged');
+  }  
+
+  setAsRented(itemId){
+   
+    this.setSoldFlag(itemId,'Rented');
+  }
+
+  setAsAvailable(itemId){
+   
+    this.setSoldFlag(itemId,'Available');
+  }
+
+  setSoldFlag(itemId,flag){
+    this.itemService.setSoldFlag(itemId,flag).subscribe(data=>{
+      
+      var flagText=document.getElementById('sold-Flag'+itemId);
+      flagText.innerText= flag;
+      if(flag==='Available'){
+        flagText.style.background="#0be881";
+      }else{
+        flagText.style.background="#ffd32a";
+      }
+      
+    
+     
+    },error=>{
+      console.log("error");
+    });
   }
 }

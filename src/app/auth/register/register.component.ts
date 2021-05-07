@@ -20,11 +20,11 @@ export class RegisterComponent implements OnInit {
 
   constructor(private formBuilder:FormBuilder, private authService:AuthService, private router:Router) {
     this.registerForm = this.formBuilder.group({
-      username:['',[Validators.required, Validators.minLength(4)]],
+      username:['',[Validators.required, Validators.minLength(4),this.stringValidator]],
       email:['',[Validators.required, this.emailValidator]],
-      city:['',[Validators.required, Validators.minLength(1)]],
-      password:['',[Validators.required, Validators.minLength(8)]],
-      confirmPassword:['',[Validators.required, this.passwordValidator]]
+      city:['',[Validators.required, Validators.minLength(1),this.stringValidator]],
+      password:['',[Validators.required, Validators.minLength(8),this.stringValidator]],
+      confirmPassword:['',[Validators.required, this.passwordValidator,this.stringValidator]]
     });
     this.registerForm.controls.password.valueChanges.subscribe(
       x => this.registerForm.controls.confirmPassword.updateValueAndValidity()
@@ -51,10 +51,10 @@ export class RegisterComponent implements OnInit {
     this.registerForm.markAllAsTouched();
     
     if(this.registerForm.valid){
-      this.registerPaylord.username = this.registerForm.get('username').value;
-      this.registerPaylord.email = this.registerForm.get('email').value;
-      this.registerPaylord.city = this.registerForm.get('city').value;
-      this.registerPaylord.password = this.registerForm.get('password').value;
+      this.registerPaylord.username = this.registerForm.get('username').value.trim();
+      this.registerPaylord.email = this.registerForm.get('email').value.trim();
+      this.registerPaylord.city = this.registerForm.get('city').value.trim();
+      this.registerPaylord.password = this.registerForm.get('password').value.trim();
       this.username=this.registerForm.get('username').value;
      
       this.authService.register(this.registerPaylord).subscribe(data=>{
@@ -91,6 +91,19 @@ export class RegisterComponent implements OnInit {
             isError: true
           }
         }
+      }
+    }
+    return null;
+  }
+
+  
+  stringValidator(control: AbstractControl){
+    if(control && (control.value!==null || control.value!== undefined)){
+      const regex = new RegExp("^\\s+$");
+      if(regex.test(control.value)){
+        return{
+          isError:true
+        };
       }
     }
     return null;

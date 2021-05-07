@@ -12,4 +12,5 @@ export class ItemPaylord{
     renting:String; 
     likes:number; 
     postedTimeStamp:String;
+    soldFlag:String;
 }

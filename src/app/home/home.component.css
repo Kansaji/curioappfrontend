@@ -329,3 +329,33 @@ h4{
     font-size: smaller;
     font-weight: 700;
 }
+.sold-flag{
+    margin-left: 10px;
+    border: none;
+    border-radius: 25px;
+    background-color: brown;
+    color: white;
+    padding: 4px;
+    font-weight: 600;
+}
+.set-soldFlag{
+    margin-left: 10px;
+    border: 1px solid #485460;
+    border-radius: 25px;
+    background-color: white;
+    color: #485460;
+    padding: 4px;
+    outline: none;
+  
+  
+}
+
+.set-soldFlag:hover{
+    background-color: #ffd32a;
+    color: white;
+    transition: 0.1s;
+    border: 1px solid #ffd32a;
+}
+.in-line{
+    display: inline;
+}

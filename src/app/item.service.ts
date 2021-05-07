@@ -104,5 +104,12 @@ export class ItemService {
   removeInquiry(inquiryId:number){
     return this.httpClient.delete("http://localhost:8080/api/items/removeinquiry/"+inquiryId);
   }
+
+  setSoldFlag(itemId,flag){
+    return this.httpClient.put("http://localhost:8080/api/items/setsoldflag/"+itemId+"/"+flag,{});
+  }
+
+
+  
 }
 

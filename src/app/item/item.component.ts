@@ -34,7 +34,7 @@ export class ItemComponent implements OnInit {
       element.style.background='lightgreen';
       console.log('success')
     },error=>{
-      element.textContent="error";
+      element.textContent="Already added";
       element.style.background='lightred';
       console.log('failed');
 

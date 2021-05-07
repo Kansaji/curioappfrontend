@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators} from '@angular/forms';
+import { FormGroup, FormBuilder, Validators,AbstractControl} from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { LoginPaylord } from '../login-paylord';
@@ -18,8 +18,8 @@ export class LoginComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, private authService:AuthService, private router:Router) { 
 
     this.loginForm = this.formBuilder.group({
-      username:['',Validators.required],
-      password:['',Validators.required],
+      username:['',[Validators.required,this.stringValidator]],
+      password:['',[Validators.required,this.stringValidator]],
     });
 
     this.loginPaylord={
@@ -35,8 +35,8 @@ export class LoginComponent implements OnInit {
   onSubmit(){
     this.loginForm.markAllAsTouched();
     if(this.loginForm.valid){
-      this.loginPaylord.username=this.loginForm.get('username').value;
-      this.loginPaylord.password=this.loginForm.get('password').value;
+      this.loginPaylord.username=this.loginForm.get('username').value.trim();
+      this.loginPaylord.password=this.loginForm.get('password').value.trim();
       this.authService.login(this.loginPaylord).subscribe(data=>{
       if(data){
         this.router.navigateByUrl("/home");
@@ -49,5 +49,18 @@ export class LoginComponent implements OnInit {
       
     }
     
+  }
+
+  
+  stringValidator(control: AbstractControl){
+    if(control && (control.value!==null || control.value!== undefined)){
+      const regex = new RegExp("^\\s+$");
+      if(regex.test(control.value)){
+        return{
+          isError:true
+        };
+      }
+    }
+    return null;
   }
 }

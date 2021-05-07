@@ -75,7 +75,7 @@
             <div class="modal-content">
 
               <div class="modal-header">
-                <h5 class="modal-title  conversation-title" id="exampleModalLabel"> {{item.itemName}}</h5>
+                <h5 class="modal-title  conversation-title" id="exampleModalLabel"> {{item.itemName}}</h5><div class="sold-flag" [ngStyle]="item.soldFlag=='Available'?{'background-color':'#0be881'}:{'background-color':'#ffd32a'}" id="sold-Flag{{item.itemId}}"> {{item.soldFlag}}</div> 
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -84,12 +84,12 @@
               <div class="modal-body modal-bg">
                 
                 <div class="description">
-                  <h2>{{item.itemName}}</h2>
+                  <h2 class="in-line">{{item.itemName}}</h2>  <button class="set-soldFlag"  (click)="setAsSold(item.itemId)">set as sold</button> <button class="set-soldFlag" (click)="setAsDonated(item.itemId)"> set as donated</button> <button class="set-soldFlag" (click)="setAsExchanged(item.itemId)"> set as exchanged</button> <button class="set-soldFlag" (click)="setAsRented(item.itemId)">set as rented</button>  <button class="set-soldFlag" (click)="setAsAvailable(item.itemId)">set as available</button> <br><br>
                   <span class="username-timestamp" >posted by {{item.postedUser}} on {{item.postedTimeStamp}} </span><br>
                   
                   
                   <br>
-                  <p><img src="assets/heart.svg" alt="" >  {{item.likes}}</p>
+                  <p><img src="assets/heart.svg" alt="" >  {{item.likes}} members have {{item.itemName}} in their wishlists</p>
                   <p><img src="assets/box.svg" alt=""> {{item.type}}</p>
                   <p> <img src="assets/tag.svg" alt=""> {{item.description}}</p>
                   <p><img src="assets/award.svg" alt=""> {{item.quality}}</p>
@@ -350,7 +350,7 @@
                   <div class="modal-dialog modal-xl" role="document">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h5 class="modal-title conversation-title" id="exampleModalLabel"> {{item.itemName}}</h5>
+                        <h5 class="modal-title conversation-title" id="exampleModalLabel"> {{item.itemName}}</h5><div class="sold-flag" [ngStyle]="item.soldFlag=='Available'?{'background-color':'#0be881'}:{'background-color':'#ffd32a'}" > {{item.soldFlag}}</div>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                         </button>
@@ -363,7 +363,7 @@
                           
                           
                           <br>
-                          <p><img src="assets/heart.svg" alt="" >  {{item.likes}}</p>
+                          <p><img src="assets/heart.svg" alt="" >  {{item.likes}} users have {{item.itemName}} in their wishlists</p>
                           <p><img src="assets/box.svg" alt=""> {{item.type}}</p>
                           <p> <img src="assets/tag.svg" alt=""> {{item.description}}</p>
                           <p><img src="assets/award.svg" alt=""> {{item.quality}}</p>
