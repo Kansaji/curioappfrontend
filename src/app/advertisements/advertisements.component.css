@@ -2,20 +2,11 @@
     width: 90%;
     outline: none;
     background-color:white;
-    padding: 10px;
-    border-top: 1px solid rgb(196, 196, 199);
-    border-bottom: 1px solid rgb(196, 196, 199);
-    border-left: none;
-    border-right: none;
-    margin: 15px;
+    border: none;
+    text-align: left;
 }
 
-.ad-area:hover{
-    border-top: 1px solid #eb3b5a;
-    border-bottom: 1px solid #eb3b5a;
-    transition: 0.2s;
 
-}
 
 .ad-bullets{
     font-size: small;
@@ -24,10 +15,10 @@
 
 .contact{
     font-size: small;
-    border: 1px solid rgb(236, 234, 234);
+    border: 1px solid rgb(189, 188, 188);
     padding: 10px;
     border-radius: 5px;
-    box-shadow: 0px 0px 2px rgb(241, 238, 238);
+   
     
 }
 span{

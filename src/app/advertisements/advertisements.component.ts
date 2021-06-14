@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators,AbstractControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { AdvertisementService } from '../advertisement.service';
 import { AdvertisementPayload } from './advertisementPayload';
@@ -22,11 +22,11 @@ export class AdvertisementsComponent implements OnInit {
   constructor(private formBuilder:FormBuilder, private advertisementService:AdvertisementService, private datePipe:DatePipe) {
     this.advertisementForm=this.formBuilder.group({
       advertisementId:[0],
-      organization:['',Validators.required],
-      description:[''],
-      contactDetails:['',Validators.required],
-      subject:['',Validators.required],
-      expiryDate:['',Validators.required],
+      organization:' ',
+      description:['',[Validators.required,this.stringValidator]],
+      contactDetails:['',[Validators.required,this.stringValidator]],
+      subject:['',[Validators.required,this.stringValidator]],
+      expiryDate:['',[Validators.required,this.stringValidator]],
     });
 
     this.advertisementPayload={
@@ -37,13 +37,14 @@ export class AdvertisementsComponent implements OnInit {
       subject:'',
       expiryDate:'',
       postedDate:'',
+      postedUser:'',
     }
     this.advertisementPosted=false;
     this.isAdBlocked=false;
    }
 
   ngOnInit(): void {
-    this.allAdvertisements=this.advertisementService.getAllAdvertisements();
+    this.allAdvertisements=this.advertisementService.getAllDonationRequests();
     console.log("observable array");
     console.log(this.allAdvertisements);
   }
@@ -59,7 +60,7 @@ export class AdvertisementsComponent implements OnInit {
       this.advertisementPayload.expiryDate=this.advertisementForm.get('expiryDate').value;
       this.advertisementPayload.postedDate=this.datePipe.transform(new Date(),'yyyy MM dd, HH:mm:ss');
 
-      this.advertisementService.postAdvertisement(this.advertisementPayload).subscribe(data=>{
+      this.advertisementService.postDonationRequest(this.advertisementPayload).subscribe(data=>{
         console.log('success');
         this.advertisementPosted=true;
       },error=>{
@@ -69,4 +70,17 @@ export class AdvertisementsComponent implements OnInit {
     }
   }
 
+
+  
+  stringValidator(control: AbstractControl){
+    if(control && (control.value!==null || control.value!== undefined)){
+      const regex = new RegExp("^\\s+$");
+      if(regex.test(control.value)){
+        return{
+          isError:true
+        };
+      }
+    }
+    return null;
+  }
 }

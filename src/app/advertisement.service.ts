@@ -10,11 +10,11 @@ export class AdvertisementService {
 
   constructor(private httpClient:HttpClient) { }
 
-  postAdvertisement(advertisementPayload:AdvertisementPayload){
+  postDonationRequest(advertisementPayload:AdvertisementPayload){
     return this.httpClient.post("http://localhost:8080/api/donationrequests/",advertisementPayload);
   }
 
-  getAllAdvertisements():Observable<Array<AdvertisementPayload>>{
+  getAllDonationRequests():Observable<Array<AdvertisementPayload>>{
     return this.httpClient.get<Array<AdvertisementPayload>>("http://localhost:8080/api/donationrequests/alldonationrequests");
   }
 }

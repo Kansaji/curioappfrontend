@@ -97,7 +97,22 @@ export class HomeComponent implements OnInit {
       timeStamp:'',
       inquiryId:0
 
-    }  
+    } 
+    
+    this.itemService.GeolocationPosition().then(pos=>{
+      this.itemService.updateCurrentGeolocation(pos.longitude,pos.latitude).subscribe(res=>{
+        console.log('location successfully updated');
+        
+      },error=>{
+        console.log('location update failed')
+      });
+    }).catch(
+      (err)=>{
+        console.log('Could not access location');
+        
+
+      }
+    );
   }
   
 

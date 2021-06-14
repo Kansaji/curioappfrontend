@@ -6,5 +6,5 @@ export class AdvertisementPayload{
     subject:string;
     expiryDate:String;
     postedDate:String;
-
+    postedUser:String;
 }
